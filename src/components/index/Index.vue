@@ -18,9 +18,7 @@ export default {
     }),
   },
   mounted(){
-		$(window).load(()=>{
-      this.changeLoading(false)
-    })
+    
   },
   methods:{
     ...Vuex.mapActions(['changeLoading']),

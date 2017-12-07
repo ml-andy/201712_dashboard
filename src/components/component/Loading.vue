@@ -1,7 +1,12 @@
+<style lang="scss" scoped>
+@import "./css/component/loading.scss";
+</style>
+
 <template lang="pug">
 transition(name="fade",mode="out-in")
   .loading(v-if="loadingShow")
-    span {{ percent }}
+    .loader
+    //- span {{ percent }}
 </template>
 
 <script>
@@ -24,7 +29,7 @@ export default {
   },
   mounted(){
     // this.randomTime = Math.floor(Math.random()*50 + 100)
-    this.timer()
+    // this.timer()
   },
   methods:{
     timer(){
@@ -35,7 +40,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-@import "./css/component/loading.scss";
-</style>
