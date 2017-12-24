@@ -1,22 +1,70 @@
 @import "base.scss";
 @import "reset.scss";
+@import "device_size.scss";
 
 $vpw:1920;
 $vph:1080;
 
 body{
   background-color: #ecf0f1;
+  overflow-x: hidden;
+
+  .menubtn{ display: none; }
+
+  *{
+    image-rendering: -webkit-optimize-contrast;
+    -ms-interpolation-mode: nearest-neighbor;
+  }
 }
 
 .wrapper{
-  @include r;
-  z-index: 1;
+  @include alt;
+  z-index: 0;
 }
 
-
 //desktop
-@media screen and (max-width: 1366px) {
-  
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  body{
+    .menubtn{ 
+      @include fltvw(49,49);
+      z-index: 99;
+      cursor: pointer;
+      display: block;
+      transition: 0.3s;
+      
+      &.on{
+        left: 60px;
+
+        span{
+          &.top{ top:getVW(20); transform: rotateZ(45deg); }
+          &.middle{ opacity: 0; }
+          &.bottom{ top:getVW(20); transform: rotateZ(-45deg); }
+        }
+      }
+    
+      span{
+        @include altvw(36,4,6,20);
+        background-color: #fff;
+        transition: 0.3s;
+        
+        &.top{ top:getVW(12); }
+        &.middle{ top:getVW(20); }
+        &.bottom{ top:getVW(28); }
+      }
+      display: block; 
+    }
+  }
+
+  .wrapper{
+    @include r;
+    z-index: 0;
+    transition: 0.3s;
+
+    &.open{ left: 60px; }
+    &.off{ @include flt; }
+  }
 }
 
 //mobile

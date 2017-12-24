@@ -2,13 +2,35 @@
 #app
   Loading
   Nav(:class="showNav === true ? 'on' : ''")
+  .menubtn(
+    :class="showNav === true ? 'on' : ''"
+    @click="changeShowNav(!showNav)"
+  )
+    span.top
+    span.middle
+    span.bottom
   transition(name="fade",mode="out-in")
-    router-view
+    Contact(v-if="itemlist.find(i=>i.title === 'CONTACT').show")
+    Bonus(v-else-if="itemlist.find(i=>i.title === 'BONUS').show")
+    Complain(v-else-if="itemlist.find(i=>i.title === 'COMPLAIN').show")
+    Creditcard(v-else-if="itemlist.find(i=>i.title === 'CREDITCARD').show")
+    Preference(v-else-if="itemlist.find(i=>i.title === 'PREFERENCE').show")
+    Vip(v-else-if="itemlist.find(i=>i.title === 'VIP').show")
+  .wrapper(:class="[itemlist.some(i=>i.show) ? 'off' : '',showNav === true ? 'open' : '']")
+    transition(name="fade",mode="out-in")
+      router-view
 </template>
 
 <script>
 const Loading = require('./component/Loading.vue')
 const Nav = require('./component/Nav.vue')
+const Contact = require('./component/Contact.vue')
+const Bonus = require('./component/Bonus.vue')
+const Complain = require('./component/Complain.vue')
+const Creditcard = require('./component/Creditcard.vue')
+const Preference = require('./component/Preference.vue')
+const Vip = require('./component/Vip.vue')
+
 export default {
   name: 'app',
   data(){
@@ -21,14 +43,22 @@ export default {
         loadingShow: state => state.loadingShow,
         showNav: state => state.showNav,
         windowSize: state => state.windowSize,
+        itemlist: state => state.nav.itemlist,
     }),
+  },
+  beforeMount(){
+    this.changeStateKeyValue({key: 'teller_id', value: this.getUrlVars()['teller_id']})
+    this.changeStateKeyValue({key: 'customer_id', value: this.getUrlVars()['customer_id']})
   },
   mounted(){
     $(window).load(()=>{
+      document.addEventListener('contextmenu', event => event.preventDefault())
+
       this.changeWindowSize({
         width:window.innerWidth,
         height:window.innerHeight
       })
+      
       this.changeLoading(false)
     })
 
@@ -40,19 +70,30 @@ export default {
     })
   },
   methods:{
-    ...Vuex.mapMutations(['changeLoading','changeShowNav','changeWindowSize']),
+    ...Vuex.mapMutations(['changeLoading','changeShowNav','changeWindowSize','changeStateKeyValue']),
+    getUrlVars(){
+      var vars=[],hash;var hashes=window.location.href.slice(window.location.href.indexOf('?')+1).split('&');
+      for(var i=0;i<hashes.length;i++){hash=hashes[i].split('=');vars.push(hash[0]);vars[hash[0]]=hash[1]}
+      return vars
+    }
   },
   watch:{
     windowSize:{
       handler(e){
-        this.windowSize.width > 1024 ? this.changeShowNav(true) : this.changeShowNav(false)
+        this.windowSize.width >= 980 ? this.changeShowNav(true) : this.changeShowNav(false)
       },
       deep: true
     }
   },
   components:{
     Loading,
-    Nav
+    Nav,
+    Contact,
+    Bonus,
+    Complain,
+    Creditcard,
+    Preference,
+    Vip,
   }
 }
 </script>

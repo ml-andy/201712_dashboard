@@ -1,20 +1,36 @@
 <template lang="pug">
-  .wrapper.index
-      
+  section.index
+    .namebar(v-if="showName")
+      .name 王大明
+      .male 先生
+    .area.recommend
+      Recommend
+    .area.information
+      Information
+    .area.creditcard
+      Creditcard
+    .area.news
+      Journey
+
 </template>
 
 <script>
+const Recommend = require('./component/Recommend.vue')
+const Information = require('./component/Information.vue')
+const Creditcard = require('./component/Creditcard.vue')
+const Journey = require('./component/Journey.vue')
 
 export default {
   name: 'Index',
   data(){
     return {
-      
+      showName: false,
     }
   },
   computed: {
     ...Vuex.mapState({
       loadingShow: state => state.loadingShow,
+      windowSize: state => state.windowSize,
     }),
   },
   mounted(){
@@ -24,13 +40,21 @@ export default {
     ...Vuex.mapActions(['changeLoading']),
   },
   watch:{
-    
+    windowSize:{
+      handler(e){
+        this.windowSize.width >= 768 ? this.showName = false : this.showName = true
+      },
+      deep: true
+    }
   },
   destroyed(){
     
   },
   components:{
-
+    Recommend,
+    Information,
+    Creditcard,
+    Journey,
   }
 }
 </script>

@@ -1,9 +1,9 @@
 @import "../base.scss";
 @import "../reset.scss";
+@import "../device_size.scss";
 
 $vpw:1920;
 $vph:1080;
-
 nav{
   @include flt(60px);
   z-index: 999;
@@ -79,17 +79,98 @@ nav{
     @include flb(60px,auto);
     @include font(16px,20px,#fff,bolder);
     opacity: 0.2;
-    z-index: 9;
+    z-index: 999;
     box-sizing: border-box;
     padding: 30px 20px;
     text-align: center;
   }
 }
 
-
 //desktop
-@media screen and (max-width: 1366px) {
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  nav{
+    @include flt(60px);
+    z-index: 999;
+    transition: 0.3s;
+    transform: translate(-60px);
+    background-color: #171a1f;
   
+    &.on{
+      transform: translate(0);
+    }
+    
+    .menu{
+      @include art;
+      height: calc(100% - 260px);
+      background-color: #171a1f;
+      z-index: 0;
+      overflow: hidden;
+  
+      .menuContent{
+        @include alt;
+        overflow: hidden;
+    
+        .main{
+          @include r;
+        }
+      }
+  
+      .link{
+        @include r(100%,75px);
+        cursor: pointer;
+  
+        &:hover,&.on{
+          &:before{
+            opacity: 1;
+            background-color: #2d343c;
+          }
+        }
+  
+        &:first-child{
+          &.on:before{ opacity: 0; }
+          &:hover:before{ opacity: 1; }
+        }
+  
+        &:before{
+          @include alt;
+          content:"";
+          z-index: 0;
+          background-color: #171a1f;
+          opacity: 0;
+          transition: 0.3s;
+        }
+  
+        &:after{
+          @include alb(100%,2px);
+          pointer-events: none;
+          content: "";
+          background-image: url(./images/nav_bgline.png);
+          background-repeat: repeat-x;
+          z-index: 1;
+        }
+  
+        span{
+          @include alt;
+          z-index: 2;
+          background-repeat: no-repeat;
+          background-position: center center;
+          image-rendering: crisp-edges;
+        }
+      }
+    }
+    
+    .warning{
+      @include flb(60px,auto);
+      @include font(16px,20px,#fff,bolder);
+      opacity: 0.2;
+      z-index: 999;
+      box-sizing: border-box;
+      padding: 30px 20px;
+      text-align: center;
+    }
+  }
 }
 
 //mobile

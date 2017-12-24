@@ -1,17 +1,143 @@
 @import "../base.scss";
 @import "../reset.scss";
-$vpw:1920;
-$vph:1080;
-.wrapper.index{
-  @include alt;
+@import "../device_size.scss";
+
+$vpw:1280;
+$vph:700;
+section.index{
+  @include alt(calc(100% - #{getVW(60)}),100%,60px);
+  left: getVW(60);
   z-index: 0;
+  box-sizing: border-box;
+  padding: getVH(20) getVW(20);
+  overflow: hidden;
+
+  .area{
+    @include alt;
+
+    &.recommend{
+      @include r;
+      width: getVW(380);
+      height: getVH(660);
+      margin-right: getVW(20);
+      background-color: #fff;
+    }
+
+    &.information{
+      @include r;
+      width: getVW(780);
+      height: getVH(320);
+      margin-bottom: getVH(10);
+      background-color: #fbfcfc;
+    }
+
+    &.creditcard{
+      @include r;
+      width: getVW(270);
+      height: getVH(330);
+      margin-right: getVW(20);
+      background-color: #fbfcfc;
+    }
+
+    &.news{
+      @include r;
+      width: getVW(490);
+      height: getVH(330);
+      background-color: #fbfcfc;
+    }
+  }
 }
 
 //desktop
-$vpw:1366;
-$vph:768;
-@media screen and (max-width: 1366px) {
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  section.index{
+    @include r;
+    z-index: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: visible;
+    padding-top: getVW(40);
+    
+    .namebar{
+      @include flt;
+      height: auto;
+      background-color: #4ab235;
+      text-align: center;
+      z-index: 100;
+      padding-bottom: 5px;
+
+      &:after{
+        content: "";
+        @include alb(100%,5px);
+        background-color: #fff200;
+      }
+
+      &:before{
+        width: getVW(16);
+        height: getVW(19);
+        display: inline-block;
+        vertical-align: top;
+        content: "";
+        background-image: url(./images/index_nameicon.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        margin-top: getVW(10);
+      }
+
+      .name{
+        @include fontvw(21,40,#fff,bolder);
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .male{
+        @include fontvw(16,40,#fff,bolder);
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
   
+    .area{
+      @include r;
+  
+      &.recommend{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-right: getVW(0);
+        background-color: #fff;
+        margin-bottom: 0;
+      }
+  
+      &.information{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-bottom: 0;
+        background-color: #fbfcfc;
+      }
+  
+      &.creditcard{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 0;
+        background-color: #fbfcfc;
+      }
+  
+      &.news{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-bottom: getVW(0);
+        background-color: #fbfcfc;
+      }
+    }
+  }
 }
 
 //mobile

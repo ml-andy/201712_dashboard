@@ -4,9 +4,13 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "p": "set bulidMode=production&&webpack",
-    "d": "set bulidMode=development&&webpack-dev-server"
+    "d": "set env=dev&webpack-dev-server",
+    "dev": "set env=dev&webpack",
+    "ut": "set env=ut&webpack",
+    "uat": "set env=uat&webpack",
+    "production": "set env=prod&webpack",
+    "server": "json-server --watch db.json --routes routes.json",
+    "ngrok": "cd D:/ &&ngrok http 9000 --host-header='localhost:9000'"
   },
   "keywords": [],
   "author": "",
@@ -40,5 +44,10 @@
     "vue-template-compiler": "^2.1.10",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0"
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-polyfill": "^6.26.0",
+    "promise.prototype.finally": "^3.1.0"
   }
 }

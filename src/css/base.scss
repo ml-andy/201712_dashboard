@@ -376,42 +376,86 @@
 }
 
 @function getVW($aa) {
-  @return ($aa / $vpw) * 100vw;
+  @if $aa == 100% {
+    @return 100%;
+  }
+  @else if $aa == 50% {
+    @return 50%;
+  }
+  @else if $aa == auto {
+    @return auto;
+  }
+  @else{
+    @if $vpw > 1920 {
+      @return $aa * 1px;
+    }
+    @else{
+      @return ($aa / $vpw) * 100vw;
+    }
+  } 
 }
 @function PCVW($aa) {
   @return ($aa / 1920) * 100vw;
 }
-// @function getVH($aa) {
-//   @return ($aa / 1080) * 100vh;
-// }
 @function getVH($aa) {
-  $return:($aa / $vph) * 1rem;
-  
-  @if $vph == 1080 {
-    $return:($aa / $vph) * 100vh;
+  @if $aa == 100% {
+    @return 100%;
   }
+  @else if $aa == 50% {
+    @return 50%;
+  }
+  @else if $aa == auto {
+    @return auto;
+  }
+  @else{
+    @return ($aa / $vph) * 100vh;
+  } 
+}
 
-  @return $return;
+.vb > .vb-dragger {
+  z-index: 5;
+  width: 12px;
+  right: 0;
+}
+
+.vb > .vb-dragger > .vb-dragger-styler {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform: rotate3d(0,0,0,0);
+  transform: rotate3d(0,0,0,0);
+  -webkit-transition:
+      background-color 100ms ease-out,
+      margin 100ms ease-out,
+      height 100ms ease-out;
+  transition:
+      background-color 100ms ease-out,
+      margin 100ms ease-out,
+      height 100ms ease-out;
+  background-color: rgba(0, 0, 0,.1);
+  margin: 5px 5px 5px 0;
+  border-radius: 20px;
+  height: calc(100% - 10px);
+  display: block;
 }
 
 .vb.vb-scrolling-phantom > .vb-dragger > .vb-dragger-styler {
-  background-color: rgba(200, 200, 200,.3);
+  background-color: rgba(0, 0, 0,.3);
 }
 
 .vb > .vb-dragger:hover > .vb-dragger-styler {
-  background-color: rgba(200, 200, 200,.5);
+  background-color: rgba(0, 0, 0,.5);
   margin: 0px;
   height: 100%;
 }
 
 .vb.vb-dragging > .vb-dragger > .vb-dragger-styler {
-  background-color: rgba(200, 200, 200,.5);
+  background-color: rgba(0, 0, 0,.5);
   margin: 0px;
   height: 100%;
 }
 
 .vb.vb-dragging-phantom > .vb-dragger > .vb-dragger-styler {
-  background-color: rgba(200, 200, 200,.5);
+  background-color: rgba(0, 0, 0,.5);
 }
 
 .fade-enter-active, .fade-leave-active {

@@ -1,0 +1,293 @@
+@import "../base.scss";
+@import "../reset.scss";
+@import "../device_size.scss";
+
+$vpw:1280;
+$vph:700;
+.creditcard{
+  @include flt;
+  z-index: 998;
+
+  .btn_close{
+    @include artvw(70,70);
+    z-index: 9;
+    cursor: pointer;
+
+    span{
+      @include altvw(36,6,18,30);
+      background-color: #fff;
+
+      &.top{ transform: rotateZ(45deg); }
+      &.bottom{ transform: rotateZ(-45deg); }
+    }
+  }
+
+  .main{
+    @include altvw(580,500,50,50,-290,-250);
+    height: getVH(500);
+    margin-top: getVH(-250);
+    background-color: #ecf0f1;
+    z-index: 1;
+
+    .leftside{
+      @include altvw(200,100);
+      z-index: 1;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: getVW(49) getVW(25);
+
+      h1{
+        @include r;
+        @include fontvw(36,36,#4ab235,bolder);
+        margin-bottom: getVW(30);
+        text-align: center;
+      }
+
+      .subbtn{
+        @include r;
+
+        .btn{
+          @include r;
+          @include fontvw(21,32,#fff,bolder);
+          box-sizing: border-box;
+          padding: getVW(10);
+          background-color: #4ab235;
+          text-align: center;
+          border-radius: getVW(5);
+          margin-bottom: getVW(20);
+          transition: 0.3s;
+          border: 1px solid #4ab235;
+        }
+      }
+    }
+
+    .rightside{
+      @include r;
+      height: getVH(500);
+      box-sizing: border-box;
+      padding: getVW(40) getVW(40) getVW(40) getVW(240);
+      z-index: 0;
+      overflow: hidden;
+
+      .unitbox{
+        @include r(calc(100% + 20px),100%);
+        overflow: hidden;
+
+        .unitboxin{
+          @include r;
+        }
+        
+        .card{
+          @include r;
+          width: calc(100% - 20px);
+          box-sizing: border-box;
+          padding: getVW(20);
+          background-color: #4ab235;
+          border-radius: getVW(15);
+          margin-bottom: getVW(20);
+
+          .icon{
+            @include altvw(51,100,20,20);
+            height: calc(100% - #{getVW(40)});
+            background-image: url(./images/creditcard_icon.png);
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: center center;
+            z-index: 1;
+            pointer-events: none;
+
+            &:before{
+              content: "";
+              @include alt(1px,100%,100%);
+              margin-left: getVW(20);
+              background-color: #fff;
+            }
+          }
+
+          .content{
+            @include r;
+            box-sizing: border-box;
+            padding-left: getVW(92);
+            
+            .name{
+              @include r;
+              @include fontvw(21,21,#fff,bolder);
+              margin-bottom: getVW(8);
+            }
+
+            .class{
+              @include r;
+              @include fontvw(21,21,#fff200,bolder);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bgcover{
+    @include alt;
+    z-index: 0;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+}
+
+
+//desktop
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  .creditcard{
+    @include flt;
+    z-index: 998;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      transform: translate(0);
+      margin-top: getVH(0);
+      height: 100vh;
+      background-color: #ecf0f1;
+      z-index: 1;
+  
+      .leftside{
+        @include r;
+        z-index: 1;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: getVW(25);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  
+        h1{
+          @include r;
+          @include fontvw(36,36,#4ab235,bolder);
+          margin-bottom: 0;
+        }
+  
+        .subbtn{
+          @include r;
+          margin-top: getVW(23);
+  
+          .btn{
+            @include r;
+            @include fontvw(21,21,#fff,bolder);
+            box-sizing: border-box;
+            padding: getVW(10);
+            background-color: #4ab235;
+            text-align: center;
+            border-radius: getVW(5);
+            margin-right: 2%;
+            margin-bottom: 0;
+            transition: 0.3s;
+            border: 1px solid #4ab235;
+
+            &:last-child{ margin-right: 0; }
+          }
+        }
+      }
+  
+      .rightside{
+        @include r;
+        height: calc(100vh - #{getVW(150)});
+        box-sizing: border-box;
+        padding: getVW(20);
+        z-index: 0;
+        overflow: hidden;
+  
+        .unitbox{
+          @include r(calc(100% + 20px),100%);
+          overflow: hidden;
+  
+          .unitboxin{
+            @include r;
+          }
+          
+          .card{
+            @include r;
+            width: calc(100% - 20px);
+            box-sizing: border-box;
+            padding: getVW(20);
+            background-color: #4ab235;
+            border-radius: getVW(15);
+            margin-bottom: getVW(20);
+  
+            .icon{
+              @include altvw(51,100,20,20);
+              height: calc(100% - #{getVW(40)});
+              background-image: url(./images/creditcard_icon.png);
+              background-repeat: no-repeat;
+              background-size: 100% auto;
+              background-position: center center;
+              z-index: 1;
+              pointer-events: none;
+  
+              &:before{
+                content: "";
+                @include alt(1px,100%,100%);
+                margin-left: getVW(20);
+                background-color: #fff;
+              }
+            }
+  
+            .content{
+              @include r;
+              box-sizing: border-box;
+              padding-left: getVW(92);
+              
+              .name{
+                @include r;
+                @include fontvw(21,21,#fff,bolder);
+                margin-bottom: getVW(8);
+              }
+  
+              .class{
+                @include r;
+                @include fontvw(21,21,#fff200,bolder);
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  
+  }
+}
+
+//mobile
+$vpw:1334;
+$vph:750;
+@media screen and (max-width: 1334px) {
+
+}
+
+//mobile
+@media screen and (max-width: 1136px) {
+  
+}
+
+$vpw:1024;
+$vph:768;
+//tablet
+@media screen and (max-width: 1024px) {
+
+}

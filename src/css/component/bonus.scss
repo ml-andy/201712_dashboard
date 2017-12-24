@@ -1,0 +1,350 @@
+@import "../base.scss";
+@import "../reset.scss";
+@import "../device_size.scss";
+
+$vpw:1280;
+$vph:700;
+.bonus{
+  @include flt;
+  z-index: 998;
+
+  .btn_close{
+    @include artvw(70,70);
+    z-index: 9;
+    cursor: pointer;
+
+    span{
+      @include altvw(36,6,18,30);
+      background-color: #fff;
+
+      &.top{ transform: rotateZ(45deg); }
+      &.bottom{ transform: rotateZ(-45deg); }
+    }
+  }
+
+  .main{
+    @include altvw(1040,500,50,50,-520,-250);
+    height: getVH(570);
+    margin-top: getVH(-285);
+    background-color: #ecf0f1;
+    z-index: 1;
+
+    .leftside{
+      @include altvw(290,100);
+      z-index: 1;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: getVW(38) getVW(25);
+      
+      .unit{
+        @include r;
+        margin-bottom: getVH(20);
+
+        .topbar{
+          @include r;
+          margin-bottom: getVH(10);
+
+          .title{
+            @include r;
+            @include fontvw(16,16,#4ab235,bolder);
+
+            &:before{
+              content: "";
+              width: getVW(16);
+              height: getVW(16);
+              display: inline-block;
+              vertical-align: top;
+              margin-right: getVW(5);
+              background-image: url(./images/bonus_icon.png);
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center center;
+            }
+          }
+
+          .ontime{
+            @include art(auto);
+            @include fontvw(16,16,#7f8c8d,bolder);
+
+            &:before{
+              content: "";
+              display: inline-block;
+              vertical-align: top;
+              width: getVW(10);
+              height: getVW(10);
+              margin-top: getVW(3);
+              background-color: #e74c3c;
+              border-radius: getVW(5);
+              margin-right: getVW(5);
+            }
+          }
+        }
+
+        .boxtop{
+          @include r;
+          @include fontvw(15,15,#fff,bolder);
+          box-sizing: border-box;
+          padding: getVH(10) getVW(15);
+          background-color: #4ab235;
+
+          .date{ @include r(40%); }
+          
+          .points{ @include r(60%); }
+        }
+        
+        .box{
+          @include r;
+          height: getVH(180);
+          overflow: hidden;
+          box-sizing: border-box;
+          border: 1px solid #4ab235;
+          
+          ul{
+            @include r;
+
+            li{
+              @include r;
+              @include fontvw(15,15,#34495e,bolder);
+              box-sizing: border-box;
+              padding: getVH(10) getVW(15);
+              background-color: #fff;
+
+              &:nth-child(2n){ background-color: #ecf0f1; }
+
+              .date{ @include r(40%); }
+
+              .points{ @include r(60%); }
+
+              .ontime{
+                @include art(auto);
+    
+                &:before{
+                  content: "";
+                  display: inline-block;
+                  vertical-align: top;
+                  width: getVW(10);
+                  height: getVW(10);
+                  margin-top: getVW(13);
+                  background-color: #e74c3c;
+                  border-radius: getVW(5);
+                  margin-right: getVW(10);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .rightside{
+      @include r;
+      height: getVH(570);
+      box-sizing: border-box;
+      padding: getVW(40) getVW(40) getVW(40) getVW(330);
+      z-index: 0;
+      overflow: hidden;
+
+      .unitbox{
+        @include r(100%,100%);
+        overflow: hidden;
+
+        h1{
+          @include r;
+          @include fontvw(26,26,#4ab235,bolder);
+          margin-bottom: getVW(15);
+        }
+
+        .linechart{
+          @include alt;
+          height: calc(100% - #{getVW(41)});
+          top: getVW(41);
+        }
+      }
+    }
+  }
+
+  .bgcover{
+    @include alt;
+    z-index: 0;
+    background-color: rgba(0,0,0,0.8);
+  }
+
+}
+
+
+//desktop
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  .bonus{
+    @include flt;
+    z-index: 998;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      transform: translate(0);
+      margin-top: getVH(0);
+      background-color: #ecf0f1;
+      z-index: 1;
+      min-height: 100vh;
+  
+      .leftside{
+        @include r;
+        z-index: 1;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: getVW(38) getVW(25);
+        margin-top: getVW(380);
+        
+        .unit{
+          @include r;
+          margin-bottom: getVH(20);
+  
+          .topbar{
+            @include r;
+            margin-bottom: getVH(10);
+  
+            .title{
+              @include r;
+              @include fontvw(16,16,#4ab235,bolder);
+  
+              &:before{
+                content: "";
+                width: getVW(16);
+                height: getVW(16);
+                display: inline-block;
+                vertical-align: top;
+                margin-right: getVW(5);
+                background-image: url(./images/bonus_icon.png);
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-position: center center;
+              }
+            }
+  
+            .ontime{
+              @include art(auto);
+              @include fontvw(16,16,#7f8c8d,bolder);
+  
+              &:before{
+                content: "";
+                display: inline-block;
+                vertical-align: top;
+                width: getVW(10);
+                height: getVW(10);
+                margin-top: getVW(3);
+                background-color: #e74c3c;
+                border-radius: getVW(5);
+                margin-right: getVW(5);
+              }
+            }
+          }
+  
+          .boxtop{
+            @include r;
+            @include fontvw(15,15,#fff,bolder);
+            box-sizing: border-box;
+            padding: getVH(10) getVW(15);
+            background-color: #4ab235;
+  
+            .date{ @include r(40%); }
+            
+            .points{ @include r(60%); }
+          }
+          
+          .box{
+            @include r;
+            overflow: hidden;
+            box-sizing: border-box;
+            border: 1px solid #4ab235;
+            
+            ul{
+              @include r;
+  
+              li{
+                @include r;
+                @include fontvw(15,15,#34495e,bolder);
+                box-sizing: border-box;
+                padding: getVH(10) getVW(15);
+                background-color: #fff;
+  
+                &:nth-child(2n){ background-color: #ecf0f1; }
+  
+                .date{ @include r(40%); }
+  
+                .points{ @include r(60%); }
+              }
+            }
+          }
+        }
+      }
+  
+      .rightside{
+        @include altvw(100,380);
+        box-sizing: border-box;
+        padding: getVW(20);
+        z-index: 0;
+        overflow: visible;
+  
+        .unitbox{
+          @include r(100%,100%);
+          overflow: hidden;
+  
+          h1{
+            @include r;
+            @include fontvw(26,26,#4ab235,bolder);
+            margin-bottom: getVW(15);
+          }
+  
+          .linechart{
+            @include alt;
+            height: calc(100% - #{getVW(41)});
+            top: getVW(41);
+          }
+        }
+      }
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  
+  }
+}
+
+//mobile
+$vpw:1334;
+$vph:750;
+@media screen and (max-width: 1334px) {
+
+}
+
+//mobile
+@media screen and (max-width: 1136px) {
+  
+}
+
+$vpw:1024;
+$vph:768;
+//tablet
+@media screen and (max-width: 1024px) {
+
+}

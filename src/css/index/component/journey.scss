@@ -1,0 +1,242 @@
+@import "../../base.scss";
+@import "../../reset.scss";
+@import "../../device_size.scss";
+
+$vpw:1280;
+$vph:700;
+.panel.journey{
+  @include alt;
+  z-index: 0;
+  box-sizing: border-box;
+  padding: getVH(20) 0 getVH(20) getVW(20);
+
+  &:before{
+    @include alt(100%,4px);
+    background-color: #bdc3c7;
+    content: "";
+    z-index: 2;
+  }
+
+  .title{
+    @include r;
+    @include fontvw(16,30,#7f8c8d,bolder);
+    z-index: 0;
+    box-sizing: border-box;
+    padding-right: getVW(280);
+  }
+
+  .topbar{
+    @include artvw(260,30,20);
+    top: getVH(20);
+
+    span{
+      @include rvw(80,30);
+      @include fontvw(16,30,#fff);
+      margin-right: getVW(10);
+      box-sizing: border-box;
+      border-radius: getVW(3);
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      
+      &.customer_service{ background-color: #95a5a6; border: 1px solid #95a5a6;}
+      &.bank_counter{ background-color: #9b59b6; border: 1px solid #9b59b6;}
+      &.web_atm{ background-color: #3498db; border: 1px solid #3498db;}
+      &.off{
+        &.customer_service,&.bank_counter,&.web_atm{ color:#fff; background-color: #e8ebec; border: 1px solid #e8ebec;}
+      }
+      &:last-child{ margin-right: 0; }
+
+      &:hover{
+        &.customer_service{ color:#95a5a6; background-color: #fbfcfc; border-color: #95a5a6;}
+        &.bank_counter{ color:#9b59b6; background-color: #fbfcfc; border-color: #95a5a6;}
+        &.web_atm{ color:#3498db; background-color: #fbfcfc; border-color: #95a5a6;}
+        &.off{
+          &.cti,&.store,&.mmb{ color:#fff; background-color: #e8ebec; border: 1px solid #e8ebec;}
+        }
+      }
+      
+    }
+  }
+
+  .main{
+    @include r;
+    height: calc(100% - #{getVW(30)});
+    box-sizing: border-box;
+    padding-top: getVH(10);
+
+    ul{
+      @include r;
+
+      li{
+        @include r;
+        margin-bottom: getVH(10);
+        padding-top: getVH(10);
+        border-top: 1px solid #ecf0f1;
+
+        .subtitle{
+          @include rvw(80,30);
+          @include fontvw(16,30,#fff);
+          margin-right: getVW(10);
+          box-sizing: border-box;
+          border-radius: getVW(3);
+          text-align: center;
+          margin-right: getVW(14);
+          
+          &.customer_service{ background-color: #95a5a6; border: 1px solid #95a5a6;}
+          &.bank_counter{ background-color: #9b59b6; border: 1px solid #9b59b6;}
+          &.web_atm{ background-color: #3498db; border: 1px solid #3498db;}
+        }
+
+        .content{
+          @include rvw(192);
+          @include fontvw(16,30,#34495e);
+          margin-right: getVW(14);
+        }
+
+        .time{
+          @include rvw(170,30);
+          @include fontvw(16,30,#34495e);
+        }
+      }
+    }
+  }
+
+  .container_empty{
+    @include am(100%,auto);
+    @include fontvw(21,21,#7f8c8d);
+    text-align: center;
+  }
+}
+
+//desktop
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  .panel.journey{
+    @include r;
+    z-index: 0;
+    box-sizing: border-box;
+    padding: getVW(20);
+  
+    &:before{
+      @include alt(100%,4px);
+      background-color: #bdc3c7;
+      content: "";
+      z-index: 2;
+      opacity: 0;
+    }
+  
+    .title{
+      @include r;
+      @include fontvw(21,21,#7f8c8d,bolder);
+      z-index: 0;
+      box-sizing: border-box;
+      padding-right: getVW(0);
+    }
+  
+    .topbar{
+      @include artvw(100,30,0);
+      top: getVW(60);
+      box-sizing: border-box;
+      padding-left: getVW(20);
+      z-index: 1;
+  
+      span{
+        @include rvw(80,30);
+        @include fontvw(16,30,#fff);
+        margin-right: getVW(10);
+        box-sizing: border-box;
+        border-radius: getVW(3);
+        text-align: center;
+        cursor: pointer;
+        transition: 0.3s;
+        
+        &.customer_service{ background-color: #95a5a6; border: 1px solid #95a5a6;}
+        &.bank_counter{ background-color: #9b59b6; border: 1px solid #9b59b6;}
+        &.web_atm{ background-color: #3498db; border: 1px solid #3498db;}
+        &.off{
+          &.customer_service,&.bank_counter,&.web_atm{ color:#fff; background-color: #e8ebec; border: 1px solid #e8ebec;}
+        }
+        &:last-child{ margin-right: 0; }
+  
+        &:hover{
+          &.customer_service{ color:#95a5a6; background-color: #fbfcfc; border-color: #95a5a6;}
+          &.bank_counter{ color:#9b59b6; background-color: #fbfcfc; border-color: #95a5a6;}
+          &.web_atm{ color:#3498db; background-color: #fbfcfc; border-color: #95a5a6;}
+          &.off{
+            &.customer_service,&.bank_counter,&.web_atm{ color:#fff; background-color: #e8ebec; border: 1px solid #e8ebec;}
+          }
+        }
+        
+      }
+    }
+  
+    .main{
+      @include r;
+      height: auto;
+      box-sizing: border-box;
+      padding-top: getVW(65);
+      z-index: 0;
+  
+      ul{
+        @include r;
+  
+        li{
+          @include r;
+          margin-bottom: getVW(10);
+          padding-top: getVW(10);
+          border-top: 1px solid #ecf0f1;
+  
+          .subtitle{
+            @include rvw(80,30);
+            @include fontvw(16,30,#fff);
+            margin-right: getVW(10);
+            box-sizing: border-box;
+            border-radius: getVW(3);
+            text-align: center;
+            margin-right: getVW(14);
+            
+            &.customer_service{ background-color: #95a5a6; border: 1px solid #95a5a6;}
+            &.bank_counter{ background-color: #9b59b6; border: 1px solid #9b59b6;}
+            &.web_atm{ background-color: #3498db; border: 1px solid #3498db;}
+          }
+  
+          .content{
+            @include rvw(100);
+            @include fontvw(16,30,#34495e);
+            margin-right: getVW(0);
+            margin-top: getVW(10);
+          }
+  
+          .time{
+            @include artvw(170,30,0,10);
+            @include fontvw(16,30,#34495e);
+            left: auto;
+            text-align: right;
+            opacity: 0.5;
+          }
+        }
+      }
+    }
+  }
+}
+
+//mobile
+$vpw:1334;
+$vph:750;
+@media screen and (max-width: 1334px) {
+
+}
+
+//mobile
+@media screen and (max-width: 1136px) {
+  
+}
+
+//tablet
+$vpw:1024;
+$vph:768;
+@media screen and (max-width: 1024px) {
+
+}

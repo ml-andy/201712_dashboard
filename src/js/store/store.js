@@ -5,7 +5,10 @@ const store = new Vuex.Store({
     windowSize:{
       width: 380,
       height: 768
-    }
+    },
+    backEndUrl: process.env.apiUrl,
+    teller_id: '0000',
+    customer_id: '0000',
   },
 
   mutations: {
@@ -19,6 +22,9 @@ const store = new Vuex.Store({
       state.windowSize.width = width
       state.windowSize.height = height
     },
+    changeStateKeyValue(state, {key, value}){
+      state[key] = value
+    }
     
   },
 
@@ -43,7 +49,17 @@ const store = new Vuex.Store({
     // },
   },
   modules:{
-    
+    nav: require('./modules/nav.js'),
+    recommend: require('./modules/recommend.js'),
+    information: require('./modules/information.js'),
+    creditcardBonus: require('./modules/creditcardBonus.js'),
+    preference: require('./modules/preference.js'),
+    complain: require('./modules/complain.js'),
+    vip: require('./modules/vip.js'),
+    creditcard: require('./modules/creditcard.js'),
+    bonus: require('./modules/bonus.js'),
+    contact: require('./modules/contact.js'),
+    journey: require('./modules/journey.js'),
   }
 })
 

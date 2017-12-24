@@ -1,0 +1,438 @@
+@import "../base.scss";
+@import "../reset.scss";
+@import "../device_size.scss";
+
+$vpw:1280;
+$vph:700;
+.preference{
+  @include flt;
+  z-index: 998;
+
+  .btn_close{
+    @include artvw(70,70);
+    z-index: 9;
+    cursor: pointer;
+
+    span{
+      @include altvw(36,6,18,30);
+      background-color: #fff;
+
+      &.top{ transform: rotateZ(45deg); }
+      &.bottom{ transform: rotateZ(-45deg); }
+    }
+  }
+
+  .main{
+    @include altvw(1040,500,50,50,-520,-250);
+    height: getVH(570);
+    margin-top: getVH(-285);
+    background-color: #ecf0f1;
+    z-index: 1;
+
+    .leftside{
+      @include altvw(200,100);
+      z-index: 1;
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: getVW(49) getVW(25);
+
+      h1{
+        @include r;
+        @include fontvw(36,36,#4ab235,bolder);
+        margin-bottom: getVW(30);
+      }
+
+      .subbtn{
+        @include r;
+
+        .btn{
+          @include r;
+          @include fontvw(21,21,#fff,bolder);
+          box-sizing: border-box;
+          padding: getVW(10);
+          background-color: #4ab235;
+          cursor: pointer;
+          text-align: center;
+          border-radius: getVW(5);
+          margin-bottom: getVW(20);
+          transition: 0.3s;
+          border: 1px solid #4ab235;
+
+          &:hover{
+            color: #4ab235;
+            background-color: #fff;
+          }
+        }
+      }
+    }
+
+    .rightside{
+      @include r;
+      height: getVH(570);
+      box-sizing: border-box;
+      padding: getVW(40) getVW(49) getVW(40) getVW(250);
+      z-index: 0;
+      overflow: hidden;
+      
+      .unitbox{
+        @include r(calc(100% + 20px),100%);
+        overflow: hidden;
+
+        .unitboxin{
+          @include r;
+        }
+
+        .unit{
+          @include r(calc(100% - 20px));
+          background-color: #ffffff;
+          margin-bottom: getVW(20);
+
+          .topbar{
+            @include r;
+            height: getVW(45);
+            background-color: #4ab235;
+            
+            .title{
+              @include altvw(75,100);
+              @include fontvw(21,45,#fff,bolder);
+              z-index: 1;
+              background-color: #00994e;
+              text-align: center;
+            }
+
+            .tag{
+              @include r;
+              @include fontvw(21,45,#fff,bolder);
+              box-sizing: border-box;
+              padding-left: getVW(98);
+            }
+          }
+
+          .submain{
+            @include r;
+            box-sizing: border-box;
+            padding: getVW(20);
+
+            .content{
+              @include r;
+              width: calc(100% - #{getVW(180)});
+              margin-right: getVW(20);
+              box-sizing: border-box;
+
+              .theme{
+                @include r;
+                margin-bottom: getVW(20);
+
+                .subtitle{
+                  @include r;
+                  @include fontvw(16,30,#34495e,bolder);
+
+                  &:before{
+                    content: "";
+                    width: 5px;
+                    height: 5px;
+                    margin-right: 5px;
+                    vertical-align: top;
+                    display: inline-block;
+                    margin-top: calc(#{getVW(15)} - 2px);
+                    background-color: #34495e;
+                  }
+                }
+
+                .text{
+                  @include r;
+                  @include fontvw(16,27,#34495e);
+                  word-break: break-all;
+                  letter-spacing: 1px;
+                }
+              }
+            }
+
+            .remarksbox{
+              @include r;
+              width: getVW(160);
+              
+              .subtitle{
+                @include r;
+                @include fontvw(16,27,#7f8c8d,bolder);
+                box-sizing: border-box;
+                padding-left: getVW(10);
+                margin-bottom: getVW(10);
+
+                .rewrite{
+                  width: getVW(16);
+                  height: getVW(15);
+                  margin-left: getVW(5);
+                  margin-top: getVW(6);
+                  display: inline-block;
+                  vertical-align: top;
+                  cursor: pointer;
+                  background-image: url(./images/preference_icon.png);
+                  background-repeat: no-repeat;
+                  background-size: contain;
+                  background-position: center center;
+
+                  &.on{ background-image: url(./images/icon_panel_recommond_yes_on.png); }
+                }
+              }
+
+              .remarks{
+                @include r;
+                @include fontvw(14,21,#34495e);
+                box-sizing: border-box;
+                padding: getVW(10);
+                border: 2px solid #ecf0f1;
+                min-height: getVW(90);
+                word-break: break-all;
+                cursor: pointer;
+              }
+
+              textarea.remarks{
+                cursor: auto;
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+
+  .bgcover{
+    @include alt;
+    z-index: 0;
+    background-color: rgba(0,0,0,0.8);
+  }
+}
+
+
+//desktop
+$vpw:380;
+$vph:700;
+@media screen and (max-width: $defaultSize) {
+  .preference{
+    @include r;
+    height: 100vh;
+    z-index: 998;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      transform: translate(0);
+      margin-top: getVH(0);
+      height: 100vh;
+      background-color: #ecf0f1;
+      z-index: 1;
+  
+      .leftside{
+        @include r;
+        z-index: 1;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: getVW(25);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  
+        h1{
+          @include r;
+          @include fontvw(36,36,#4ab235,bolder);
+          margin-bottom: getVW(23);
+        }
+  
+        .subbtn{
+          @include r;
+  
+          .btn{
+            @include r(32%);
+            @include fontvw(21,21,#fff,bolder);
+            box-sizing: border-box;
+            padding: getVW(10);
+            background-color: #4ab235;
+            cursor: pointer;
+            text-align: center;
+            border-radius: getVW(5);
+            margin-right: 2%;
+            margin-bottom: 0;
+            transition: 0.3s;
+            border: 1px solid #4ab235;
+
+            &:last-child{ margin-right: 0; }
+  
+            &:hover{
+              color: #4ab235;
+              background-color: #fff;
+            }
+          }
+        }
+      }
+  
+      .rightside{
+        @include alt;
+        height: calc(100vh - #{getVW(150)});
+        top: getVW(150);
+        box-sizing: border-box;
+        padding: getVW(20);
+        z-index: 0;
+        overflow: hidden;
+        
+        .unitbox{
+          @include r(calc(100% + 20px),100%);
+          overflow: hidden;
+  
+          .unitboxin{
+            @include r;
+          }
+  
+          .unit{
+            @include r(calc(100% - 20px));
+            background-color: #ffffff;
+            margin-bottom: getVW(0);
+  
+            .topbar{
+              @include r;
+              height: getVW(45);
+              background-color: #4ab235;
+              
+              .title{
+                @include altvw(75,100);
+                @include fontvw(21,45,#fff,bolder);
+                z-index: 1;
+                background-color: #00994e;
+                text-align: center;
+              }
+  
+              .tag{
+                @include r;
+                @include fontvw(21,45,#fff,bolder);
+                box-sizing: border-box;
+                padding-left: getVW(98);
+              }
+            }
+  
+            .submain{
+              @include r;
+              box-sizing: border-box;
+              padding: getVW(20);
+  
+              .content{
+                @include r;
+                margin-right: 0;
+                box-sizing: border-box;
+  
+                .theme{
+                  @include r;
+                  margin-bottom: getVW(20);
+  
+                  .subtitle{
+                    @include r;
+                    @include fontvw(16,30,#34495e,bolder);
+  
+                    &:before{
+                      content: "";
+                      width: 5px;
+                      height: 5px;
+                      margin-right: 5px;
+                      vertical-align: top;
+                      display: inline-block;
+                      margin-top: calc(#{getVW(15)} - 2px);
+                      background-color: #34495e;
+                    }
+                  }
+  
+                  .text{
+                    @include r;
+                    @include fontvw(16,27,#34495e);
+                    word-break: break-all;
+                    letter-spacing: 1px;
+                  }
+                }
+              }
+  
+              .remarksbox{
+                @include r;
+                margin-bottom: getVW(20);
+                
+                .subtitle{
+                  @include r;
+                  @include fontvw(16,27,#7f8c8d,bolder);
+                  box-sizing: border-box;
+                  padding-left: getVW(10);
+                  margin-bottom: getVW(10);
+  
+                  .rewrite{
+                    width: getVW(16);
+                    height: getVW(15);
+                    margin-left: getVW(5);
+                    margin-top: getVW(6);
+                    display: inline-block;
+                    vertical-align: top;
+                    cursor: pointer;
+                    background-image: url(./images/preference_icon.png);
+                    background-repeat: no-repeat;
+                    background-size: contain;
+                    background-position: center center;
+  
+                    &.on{ background-image: url(./images/icon_panel_recommond_yes_on.png); }
+                  }
+                }
+  
+                .remarks{
+                  @include r;
+                  @include fontvw(16,27,#34495e);
+                  box-sizing: border-box;
+                  padding: getVW(10);
+                  border: 2px solid #ecf0f1;
+                  min-height: getVW(90);
+                  word-break: break-all;
+                  cursor: pointer;
+                }
+  
+                textarea.remarks{
+                  cursor: auto;
+                }
+              }
+            }
+          }
+        }
+      }
+  
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+}
+
+//mobile
+$vpw:1334;
+$vph:750;
+@media screen and (max-width: 1334px) {
+
+}
+
+//mobile
+@media screen and (max-width: 1136px) {
+  
+}
+
+$vpw:1024;
+$vph:768;
+//tablet
+@media screen and (max-width: 1024px) {
+
+}

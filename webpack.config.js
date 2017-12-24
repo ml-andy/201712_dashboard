@@ -6,6 +6,19 @@ let extractStyles = new ExtractTextPlugin('css/common.css')
 let extractHtml = new ExtractTextPlugin('[name].html')
 let BabiliPlugin = require("babili-webpack-plugin")
 
+let apiUrl = {
+	dev: 'http://18.216.69.168:3001/api',
+	ut: 'http://88.8.196.56:3001/api',
+	uat: 'http://88.8.195.65:3001/api',
+	production: '',
+	use: ''
+}
+
+if(process.env.ENV === 'dev') apiUrl.use = apiUrl.dev
+else if(process.env.ENV === 'ut') apiUrl.use = apiUrl.ut
+else if(process.env.ENV === 'uat') apiUrl.use = apiUrl.uat
+else if(process.env.ENV === 'production') apiUrl.use = apiUrl.production
+
 let pluginsArray = [
   new webpack.LoaderOptionsPlugin({
     minimize: true,
@@ -24,10 +37,18 @@ let pluginsArray = [
   }),
   extractStyles,
   extractHtml,
-  new webpack.HotModuleReplacementPlugin()
+	new webpack.HotModuleReplacementPlugin(),
+	new webpack.DefinePlugin({
+		'process.env': {
+			'apiUrl': JSON.stringify(apiUrl.use),
+		},
+	}),
+	// new webpack.ProvidePlugin({
+	// 		axios: "axios"
+	// })
 ];
 
-if(process.env.bulidMode === 'production') {
+if(process.env.bulidMode === 'production' || process.env.ENV === 'prod') {
   pluginsArray.push(new BabiliPlugin());
 }
 
@@ -98,13 +119,13 @@ let config = {
 		watchOptions:{
 			ignored: /images/,
 		},
-		proxy: {
-      "/api/Event/": {
-				target: "http://sonyxz1.medialand.com.tw/",
-				// secure: false
-				changeOrigin: true,
-			}
-		}
+		// proxy: {
+    //   "/api/Event/": {
+		// 		target: "",
+		// 		// secure: false
+		// 		changeOrigin: true,
+		// 	}
+		// }
 	}
 };
 
