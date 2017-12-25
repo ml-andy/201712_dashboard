@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5a2714d7204349ac7e80"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8adb4561df19975db162"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4429,7 +4429,7 @@ module.exports = function xhrAdapter(config) {
     // For IE 8/9 CORS support
     // Only supports POST and GET calls and doesn't returns the response headers.
     // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if (__webpack_require__.i({"apiUrl":"http://18.216.69.168:3001/api"}).NODE_ENV !== 'test' &&
+    if (__webpack_require__.i({"apiUrl":"http://88.8.196.56:3001/api"}).NODE_ENV !== 'test' &&
         typeof window !== 'undefined' &&
         window.XDomainRequest && !('withCredentials' in request) &&
         !isURLSameOrigin(config.url)) {
@@ -6053,7 +6053,7 @@ var store = new Vuex.Store({
       width: 380,
       height: 768
     },
-    backEndUrl: "http://18.216.69.168:3001/api",
+    backEndUrl: "http://88.8.196.56:3001/api",
     teller_id: '0000',
     customer_id: '0000'
   },
