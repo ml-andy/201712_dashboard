@@ -7,10 +7,10 @@
           .name {{ customer_name }}
           .male {{ data.gender === 'F' ? '小姐' : '先生' }}
         .btn_complain(
-          :class="data.complaint.length > 0 ? '' : 'off'"
+          :class="data.complaint > 0 ? '' : 'off'"
           @click="changeSection(3)"
         )
-          span.big {{ data.complaint.length }}
+          span.big {{ data.complaint }}
           span.small 項
           br
           span 重大抱怨
@@ -40,7 +40,7 @@
           @click="changeSection(4)"
         )
           |{{ data.vip_notation }}
-        .btn_failcontact(v-if="!data.availability")
+        .btn_failcontact(v-if="data.availability == false")
           |理專-多次
           br
           |聯絡不上

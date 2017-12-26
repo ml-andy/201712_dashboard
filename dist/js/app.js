@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "87647081f1d61433276e"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "563acd12000e6995c1cc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10540,7 +10540,7 @@ var recommend = {
 
         console.log(data);
         state.data = data.results;
-        console.log(state.dataset);
+        console.log(state.data);
       }).catch(function (err) {
         return console.log(err);
       }).finally(function () {
@@ -17927,7 +17927,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "male"
   }, [_vm._v(_vm._s(_vm.data.gender === 'F' ? '小姐' : '先生'))])]), _c('div', {
     staticClass: "btn_complain",
-    class: _vm.data.complaint.length > 0 ? '' : 'off',
+    class: _vm.data.complaint > 0 ? '' : 'off',
     on: {
       "click": function($event) {
         _vm.changeSection(3)
@@ -17935,7 +17935,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('span', {
     staticClass: "big"
-  }, [_vm._v(_vm._s(_vm.data.complaint.length))]), _c('span', {
+  }, [_vm._v(_vm._s(_vm.data.complaint))]), _c('span', {
     staticClass: "small"
   }, [_vm._v("項")]), _c('br'), _c('span', [_vm._v("重大抱怨")])])]), _c('div', {
     staticClass: "rightside"
@@ -17964,7 +17964,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.changeSection(4)
       }
     }
-  }, [_vm._v(_vm._s(_vm.data.vip_notation))]) : _vm._e(), (!_vm.data.availability) ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.vip_notation))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
     staticClass: "btn_failcontact"
   }, [_vm._v("理專-多次"), _c('br'), _vm._v("聯絡不上")]) : _vm._e(), (!_vm.data.vip_status) ? _c('div', {
     staticClass: "notvip"
@@ -18006,7 +18006,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points || _vm.data.myreword_recommendation) ? _c('div', {
     staticClass: "content"
-  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points) ? _c('span', [_vm._v(_vm._s(_vm.data.expiring_credit_card_points))]) : _vm._e(), (_vm.data.myreword_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
+  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].date) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreword_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
     staticClass: "content"
   }, [(!_vm.data.can_market) ? _c('span', {
     staticClass: "cant_market"

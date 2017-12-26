@@ -32,7 +32,7 @@ const recommend = {
         .then(({data})=>{
           console.log(data)
           state.data = data.results
-          console.log(state.dataset)
+          console.log(state.data)
         })
         .catch(err => console.log(err))
         .finally(()=>{
