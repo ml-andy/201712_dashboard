@@ -7,9 +7,9 @@ let extractHtml = new ExtractTextPlugin('[name].html')
 let BabiliPlugin = require("babili-webpack-plugin")
 
 let apiUrl = {
-	dev: 'http://18.216.69.168:3001/api',
-	ut: 'http://88.8.196.56:3001/api',
-	uat: 'http://88.8.195.65:3001/api',
+	dev: 'https://18.216.69.168:8443/api',
+	ut: 'https://88.8.196.56:8443/api',
+	uat: 'https://88.8.195.65:8443/api',
 	production: '',
 }
 
