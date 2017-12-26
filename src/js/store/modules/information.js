@@ -32,7 +32,9 @@ const information = {
         }
       })
       .then(({data})=>{
+        console.log(data)
         state.dataset = data.results
+        console.log(state.dataset)
       })
       .catch(err => console.log(err))
       .finally(()=>{

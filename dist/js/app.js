@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "938fdb9dc15c87d4e58c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "87647081f1d61433276e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10130,7 +10130,9 @@ var creditcardBonus = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        console.log(data);
         state.dataset = data.results;
+        console.log(state.dataset);
       }).catch(function (err) {
         return console.log(err);
       }).finally(function () {
@@ -10203,7 +10205,9 @@ var information = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        console.log(data);
         state.dataset = data.results;
+        console.log(state.dataset);
       }).catch(function (err) {
         return console.log(err);
       }).finally(function () {
@@ -10534,7 +10538,9 @@ var recommend = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        console.log(data);
         state.data = data.results;
+        console.log(state.dataset);
       }).catch(function (err) {
         return console.log(err);
       }).finally(function () {
