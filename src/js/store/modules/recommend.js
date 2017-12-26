@@ -6,10 +6,10 @@ const recommend = {
   state:{
     data:{
       can_market: true,
-      upgradable_card: false,
+      upgradable_card: '',
       expiring_credit_card_points:'',
       myreword_recommendation: false,
-      is_contact_information_correct: true,
+      is_contact_information_correct: false,
       preference: '',
       product: '',
       program: ''
@@ -51,15 +51,12 @@ const recommend = {
           })
         })
     },
-    postRecommendData({ state, rootState, commit }, {key, type, description} ){
+    postRecommendData({ state, rootState, commit }, {key, type} ){
       let postData = Qs.stringify({
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
         recommendation: {
-          [key]:{
-            type,
-            description,
-          }
+          [key]: type
         }
       })
 

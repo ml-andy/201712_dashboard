@@ -120,9 +120,7 @@ const preference = {
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
         "annotation": {
-          [state.schema[idx].params]:{
-            "description": text
-          }
+          [state.schema[idx].params]: text
         }
       })
 

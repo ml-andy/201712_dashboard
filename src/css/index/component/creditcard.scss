@@ -278,6 +278,13 @@ $vph:700;
       box-sizing: border-box;
       margin-bottom: getVW(15);
     }
+
+    .container_empty{
+      @include r(100%,auto);
+      @include fontvw(16,21,#7f8c8d);
+      transform: translate(0);
+      text-align: center;
+    }
   }
 }
 

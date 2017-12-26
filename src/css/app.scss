@@ -85,3 +85,9 @@ $vph:768;
 @media screen and (max-width: 1024px) {
 
 }
+
+@media print {
+  body{
+    display: none;
+  }
+}

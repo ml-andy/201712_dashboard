@@ -22,7 +22,7 @@
               ) {{ schema.find(d=> d.type === i.event_type) ? schema.find(d=> d.type === i.event_type).name : '其他'}}
               .content(v-html="i.event_description")
               .time {{ i.date_time }}
-    .container_empty(v-else) 暫無資料
+    .container_empty(v-else) 暫無重要往來資訊
         
 </template>
 

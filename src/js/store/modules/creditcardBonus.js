@@ -3,12 +3,12 @@ const creditcardBonus = {
   namespaced:true,
   state:{
     dataset:{
-      "bonus_points": 6,
-      "updated_time": "2000-01-23",
-      "auto_payment": true,
-      "credit_limit": 1,
-      "card_amount": 1,
-      "myreword_downloaded": true
+      "bonus_points": '',
+      "updated_time": "",
+      "auto_payment": false,
+      "credit_limit": '',
+      "card_amount": '',
+      "myreword_downloaded": false
     }
   },
   mutations:{
@@ -23,7 +23,7 @@ const creditcardBonus = {
         }
       })
       .then(({data})=>{
-        // state.dataset = data.results
+        state.dataset = data.results
       })
       .catch(err => console.log(err))
       .finally(()=>{

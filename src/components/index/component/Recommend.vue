@@ -6,7 +6,7 @@
         .content(
           v-if="data.upgradable_card || data.expiring_credit_card_points || data.myreword_recommendation"
         )
-          span(v-if="data.upgradable_card") 信用卡 可升等 
+          span(v-if="data.upgradable_card") {{ data.upgradable_card }}
           span(v-if="data.expiring_credit_card_points") {{ data.expiring_credit_card_points }}
           span(v-if="data.myreword_recommendation") 可下載 國泰優惠
           
@@ -29,11 +29,11 @@
               .checkneed
                 .yes(
                   :class="preference === 1 ? 'on' : ''"
-                  @click="postRecommendData({key:'preference',type:true,description:'偏好'})"
+                  @click="postRecommendData({key:'preference',type:true})"
                 )
                 .no(
                   :class="preference === -1 ? 'on' : ''"
-                  @click="postRecommendData({key:'preference',type:false,description:'偏好'})"
+                  @click="postRecommendData({key:'preference',type:false})"
                 )
             li(v-if="!data.preference")
               .btn.btn_recommend.off
@@ -47,11 +47,11 @@
               .checkneed
                 .yes(
                   :class="product === 1 ? 'on' : ''"
-                  @click="postRecommendData({key:'product',type:true,description:'產品'})"
+                  @click="postRecommendData({key:'product',type:true})"
                 )
                 .no(
                   :class="product === -1 ? 'on' : ''"
-                  @click="postRecommendData({key:'product',type:false,description:'產品'})"
+                  @click="postRecommendData({key:'product',type:false})"
                 )
             li(v-if="!data.product")
               .btn.btn_product.off
@@ -65,11 +65,11 @@
               .checkneed
                 .yes(
                   :class="program === 1 ? 'on' : ''"
-                  @click="postRecommendData({key:'program',type:true,description:'專案'})"
+                  @click="postRecommendData({key:'program',type:true})"
                 )
                 .no(
                   :class="program === -1 ? 'on' : ''"
-                  @click="postRecommendData({key:'program',type:false,description:'專案'})"
+                  @click="postRecommendData({key:'program',type:false})"
                 )
             li(v-if="!data.program")
               .btn.btn_project.off

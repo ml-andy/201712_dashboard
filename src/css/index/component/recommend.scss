@@ -345,6 +345,37 @@ $vph:700;
           @include fontvw(21,21,#7f8c8d,bolder);
           margin-bottom: getVW(10);
         }
+
+        .btn_fallcontact{
+          @include r;
+          @include fontvw(21,21,#4ab235,bolder);
+          box-sizing: border-box;
+          padding: getVW(15);
+          border: 1px solid #4ab235;
+          border-radius: getVW(5);
+          margin-bottom: getVW(15);
+          background-color: #ffffff;
+          cursor: pointer;
+          transition: 0.3s;
+
+          &:after{
+            content: "";
+            @include artvw(14,21,10,50,0,-10);
+            background-image: url(./images/btn_arrow.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+            image-rendering: -webkit-optimize-contrast;
+            -ms-interpolation-mode: nearest-neighbor;
+          }
+
+          &:hover{
+            color: #fff;
+            background-color: #4ab235;
+            
+            &:after{ background-image: url(./images/btn_arrow_white.png)}
+          }
+        }
   
         .content{
           @include r;
@@ -357,37 +388,6 @@ $vph:700;
             background-color: #4ab235;
             border-radius: getVW(5);
             margin-bottom: getVW(15);
-          }
-  
-          .btn_fallcontact{
-            @include r;
-            @include fontvw(21,21,#4ab235,bolder);
-            box-sizing: border-box;
-            padding: getVW(15);
-            border: 1px solid #4ab235;
-            border-radius: getVW(5);
-            margin-bottom: getVW(15);
-            background-color: #ffffff;
-            cursor: pointer;
-            transition: 0.3s;
-  
-            &:after{
-              content: "";
-              @include artvw(14,21,10,50,0,-10);
-              background-image: url(./images/btn_arrow.png);
-              background-repeat: no-repeat;
-              background-size: contain;
-              background-position: center center;
-              image-rendering: -webkit-optimize-contrast;
-              -ms-interpolation-mode: nearest-neighbor;
-            }
-  
-            &:hover{
-              color: #fff;
-              background-color: #4ab235;
-              
-              &:after{ background-image: url(./images/btn_arrow_white.png)}
-            }
           }
         }
       }
@@ -414,7 +414,7 @@ $vph:700;
               @include r;
   
               .btn{
-                @include rvw(250,45);
+                @include rvw(240,45);
                 background-color: #fff;
                 box-sizing: border-box;
                 border: 1px solid #4ab235;

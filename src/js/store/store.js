@@ -7,8 +7,9 @@ const store = new Vuex.Store({
       height: 768
     },
     backEndUrl: process.env.apiUrl,
-    teller_id: '0000',
-    customer_id: '0000',
+    teller_id: '',
+    customer_id: '',
+    customer_name: '',
   },
 
   mutations: {

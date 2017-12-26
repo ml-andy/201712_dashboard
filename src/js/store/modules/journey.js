@@ -2,13 +2,6 @@ const axios = require('axios')
 const journey = {
   namespaced:true,
   state:{
-    dataset:[
-      {
-        "event_type": "",
-        "date_time": "",
-        "event_description": ""
-      },
-    ],
     schema:[
       {
         type: 'customer_service',
@@ -22,7 +15,8 @@ const journey = {
         type: 'web_atm',
         name: '網銀'
       }
-    ]
+    ],
+    dataset:[],
   },
   mutations:{
     
@@ -36,7 +30,10 @@ const journey = {
         }
       })
       .then(({data})=>{
-        state.dataset = data.results
+        state.dataset = []
+        data.results.forEach(i => {
+          if(state.schema.find(d => d.type === i.event_type)) state.dataset.push(i)
+        })
       })
       .catch(err => console.log(err))
       // .finally(()=>{

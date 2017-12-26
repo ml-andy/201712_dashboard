@@ -22,10 +22,17 @@ $vph:700;
     box-sizing: border-box;
     padding-right: getVW(25);
 
+    .watermark{
+      @include am(auto,auto);
+      @include fontvw(46,46,#e8ebec);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
     .leftside{
       @include rvw(130);
       margin-right: getVW(25);
-      
+      z-index: 1;
 
       .icon_basic{
         @include r;
@@ -143,16 +150,20 @@ $vph:700;
     .rightside{
       @include r;
       width: calc(100% - #{getVW(155)});
+      min-height: getVW(200);
+      z-index: 1;
 
       .title{
         @include r;
         @include fontvw(18,20,#7f8c8d,bolder);
         margin-top: getVH(40);
         margin-bottom: getVH(15);
+        z-index: 1;
       }
 
       .content{
         @include r;
+        z-index: 1;
 
         ul{
           @include r;
@@ -189,10 +200,17 @@ $vph:700;
     box-sizing: border-box;
     padding-right: getVW(25);
 
+    .watermark{
+      @include am(auto,auto);
+      @include fontvw(46,46,#e8ebec);
+      opacity: 0.4;
+      z-index: 0;
+    }
+
     .leftside{
       @include rvw(130);
       margin-right: getVW(25);
-      
+      z-index: 1;
 
       .icon_info{
         @include r;
@@ -259,21 +277,34 @@ $vph:700;
         margin-bottom: getVH(15);
         text-align: center;
       }
+
+      .notvip{
+        @include rvw(100,65);
+        @include fontvw(21,26,#bdc3c7);
+        height: auto;
+        box-sizing: border-box;
+        padding: getVW(8) 0;
+        text-align: center;
+      }
     }
 
     .rightside{
       @include r;
       width: calc(100% - #{getVW(155)});
+      min-height: getVW(200);
+      z-index: 1;
 
       .title{
         @include r;
         @include fontvw(18,20,#7f8c8d,bolder);
         margin-top: getVH(40);
         margin-bottom: getVH(15);
+        z-index: 1;
       }
 
       .content{
         @include r;
+        z-index: 1;
 
         ul{
           @include r;
@@ -315,7 +346,6 @@ $vph:700;
     z-index: 0;
     box-sizing: border-box;
     padding: getVW(35) getVW(25);
-    padding-bottom: 0;
   
     &:before{
       @include alt(100%,4px);
@@ -329,11 +359,19 @@ $vph:700;
       @include r(100%);
       box-sizing: border-box;
       padding-right: getVW(25);
+      padding-bottom: getVW(25);
+
+      .watermark{
+        @include am(auto,auto);
+        @include fontvw(46,46,#e8ebec);
+        opacity: 0.4;
+        z-index: 0;
+      }
   
       .leftside{
         @include rvw(130);
         margin-right: getVW(25);
-        
+        z-index: 1;
   
         .icon_basic{
           @include r;
@@ -435,16 +473,20 @@ $vph:700;
       .rightside{
         @include r;
         width: calc(100% - #{getVW(155)});
+        z-index: 1;
+        min-height: getVW(200);
   
         .title{
           @include r;
           @include fontvw(18,20,#7f8c8d,bolder);
           margin-top: getVW(40);
           margin-bottom: getVW(15);
+          z-index: 1;
         }
   
         .content{
           @include r;
+          z-index: 1;
   
           ul{
             @include r;
@@ -480,11 +522,18 @@ $vph:700;
       @include r(100%);
       box-sizing: border-box;
       padding-right: getVW(25);
+
+      .watermark{
+        @include am(auto,auto);
+        @include fontvw(46,46,#e8ebec);
+        opacity: 0.4;
+        z-index: 0;
+      }
   
       .leftside{
         @include rvw(130);
         margin-right: getVW(25);
-        
+        z-index: 1;
   
         .icon_info{
           @include r;
@@ -551,21 +600,34 @@ $vph:700;
           margin-bottom: getVW(15);
           text-align: center;
         }
+
+        .notvip{
+          @include rvw(100,65);
+          @include fontvw(18,24,#bdc3c7);
+          height: auto;
+          box-sizing: border-box;
+          padding: getVW(8) 0;
+          text-align: center;
+        }
       }
   
       .rightside{
         @include r;
         width: calc(100% - #{getVW(155)});
+        min-height: getVW(200);
+        z-index: 1;
   
         .title{
           @include r;
           @include fontvw(18,20,#7f8c8d,bolder);
           margin-top: getVW(40);
           margin-bottom: getVW(15);
+          z-index: 1;
         }
   
         .content{
           @include r;
+          z-index: 1;
   
           ul{
             @include r;

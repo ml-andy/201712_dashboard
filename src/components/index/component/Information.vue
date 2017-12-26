@@ -4,7 +4,7 @@
       .leftside
         .icon_basic
         .customername
-          .name 王大明
+          .name {{ customer_name }}
           .male {{ data.gender === 'F' ? '小姐' : '先生' }}
         .btn_complain(
           :class="data.complaint.length > 0 ? '' : 'off'"
@@ -16,11 +16,13 @@
           span 重大抱怨
 
       .rightside
+        .watermark {{ teller_id }}
         .title 基本資料
         .content
           ul
-            li {{ new Date().getFullYear() - new Date(`${data.birthday}`).getFullYear() }}歲 {{ new Date(`${data.birthday}`).getMonth() + 1 }}月壽星
-            li(v-if="data.hava_any_children") 有子女
+            li(v-if="data.birthday")
+              |{{ new Date().getFullYear() - new Date(`${data.birthday}`).getFullYear() }}歲 {{ new Date(`${data.birthday}`).getMonth() + 1 }}月壽星
+            li(v-if="data.have_any_children") 有子女
             li(v-if="data.person_in_charge") 企業主
             li(v-if="data.account_type")
               span.green 薪轉戶
@@ -42,8 +44,11 @@
           |理專-多次
           br
           |聯絡不上
+        .notvip(v-if="!data.vip_status")
+          |非本行<br>VIP客戶
 
       .rightside
+        .watermark {{ teller_id }}
         .title 經管資訊
         .content
           ul
@@ -71,7 +76,9 @@ export default {
   computed: {
     ...Vuex.mapState({
       loadingShow: state => state.loadingShow,
-      data: state => state.information.dataset
+      data: state => state.information.dataset,
+      customer_name: state => state.customer_name,
+      teller_id: state => state.teller_id,
     }),
   },
   beforeMount(){

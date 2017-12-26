@@ -40,15 +40,21 @@ export default {
   },
   computed: {
     ...Vuex.mapState({
-        loadingShow: state => state.loadingShow,
-        showNav: state => state.showNav,
-        windowSize: state => state.windowSize,
-        itemlist: state => state.nav.itemlist,
+      loadingShow: state => state.loadingShow,
+      showNav: state => state.showNav,
+      windowSize: state => state.windowSize,
+      itemlist: state => state.nav.itemlist,
     }),
   },
   beforeMount(){
-    this.changeStateKeyValue({key: 'teller_id', value: this.getUrlVars()['teller_id']})
-    this.changeStateKeyValue({key: 'customer_id', value: this.getUrlVars()['customer_id']})
+    if(this.getUrlVars()['teller_id'] && this.getUrlVars()['teller_id']){
+      this.changeStateKeyValue({key: 'teller_id', value: this.getUrlVars()['teller_id']})
+      this.changeStateKeyValue({key: 'customer_id', value: this.getUrlVars()['customer_id']})
+    }else{
+      $('body').remove()
+      alert('連結有誤')
+    }
+    if(this.getUrlVars()['customer_name']) this.changeStateKeyValue({key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name'])})
   },
   mounted(){
     $(window).load(()=>{

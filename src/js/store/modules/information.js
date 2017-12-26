@@ -3,21 +3,21 @@ const information = {
   namespaced:true,
   state:{
     dataset:{
-      "birthday": "2000-01-23",
-      "hava_any_children": true,
-      "account_type": true,
+      "birthday": "",
+      "have_any_children": false,
+      "account_type": false,
       "gender": "",
       "financial_advisor_name": "",
-      "person_in_charge": true,
+      "person_in_charge": false,
       "financial_advisor_series": "",
       "vip_notation": "",
-      "annual_income_date": "2000-01-23",
+      "annual_income_date": "",
       "complaint": [],
       "financial_advisor_branch": "",
       "vip_status": "",
-      "age": 0,
+      "age": '',
       "annual_income": "",
-      availability :true,
+      "availability" : true,
     }
   },
   mutations:{
