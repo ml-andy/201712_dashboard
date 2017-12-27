@@ -36,10 +36,12 @@
       .leftside
         .icon_info
         .btn_vip(
-          v-if="data.vip_notation"
+          v-if="data.vip_status"
           @click="changeSection(4)"
         )
-          |{{ data.vip_notation }}
+          |新升等VIP
+          br
+          |{{ data.vip_status }}
         .btn_failcontact(v-if="data.availability == false")
           |理專-多次
           br
@@ -54,8 +56,8 @@
           ul
             li(v-if="data.financial_advisor_branch")
               |{{ data.financial_advisor_branch }}
-            li(v-if="data.vip_status")
-              span.green {{ data.vip_status }}
+            li(v-if="data.vip_notation")
+              span.green {{ data.vip_notation != "V" ? data.vip_notation : '' }}VIP
             li(v-if="data.financial_advisor_series")
               span.green 理專
               br

@@ -12,7 +12,7 @@ const information = {
       "financial_advisor_series": "",
       "vip_notation": "",
       "annual_income_date": "",
-      "complaint": [],
+      "complaint": 0,
       "financial_advisor_branch": "",
       "vip_status": "",
       "age": '',

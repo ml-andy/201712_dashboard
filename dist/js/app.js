@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ed1c07cc66f312003d5a"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ab3ec9af292b0dcecf90"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9603,6 +9603,8 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
 
 
 exports.default = {
@@ -10184,7 +10186,7 @@ var information = {
       "financial_advisor_series": "",
       "vip_notation": "",
       "annual_income_date": "",
-      "complaint": [],
+      "complaint": 0,
       "financial_advisor_branch": "",
       "vip_status": "",
       "age": '',
@@ -17964,14 +17966,14 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "leftside"
   }, [_c('div', {
     staticClass: "icon_info"
-  }), (_vm.data.vip_notation) ? _c('div', {
+  }), (_vm.data.vip_status) ? _c('div', {
     staticClass: "btn_vip",
     on: {
       "click": function($event) {
         _vm.changeSection(4)
       }
     }
-  }, [_vm._v(_vm._s(_vm.data.vip_notation))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
+  }, [_vm._v("新升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
     staticClass: "btn_failcontact"
   }, [_vm._v("理專-多次"), _c('br'), _vm._v("聯絡不上")]) : _vm._e(), (!_vm.data.vip_status) ? _c('div', {
     staticClass: "notvip"
@@ -17983,9 +17985,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("經管資訊")]), _c('div', {
     staticClass: "content"
-  }, [_c('ul', [(_vm.data.financial_advisor_branch) ? _c('li', [_vm._v(_vm._s(_vm.data.financial_advisor_branch))]) : _vm._e(), (_vm.data.vip_status) ? _c('li', [_c('span', {
+  }, [_c('ul', [(_vm.data.financial_advisor_branch) ? _c('li', [_vm._v(_vm._s(_vm.data.financial_advisor_branch))]) : _vm._e(), (_vm.data.vip_notation) ? _c('li', [_c('span', {
     staticClass: "green"
-  }, [_vm._v(_vm._s(_vm.data.vip_status))])]) : _vm._e(), (_vm.data.financial_advisor_series) ? _c('li', [_c('span', {
+  }, [_vm._v(_vm._s(_vm.data.vip_notation != "V" ? _vm.data.vip_notation : '') + "VIP")])]) : _vm._e(), (_vm.data.financial_advisor_series) ? _c('li', [_c('span', {
     staticClass: "green"
   }, [_vm._v("理專")]), _c('br'), _vm._v(_vm._s(_vm.data.financial_advisor_name) + " "), _c('span', {
     staticClass: "smallgray"
