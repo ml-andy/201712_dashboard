@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7e2764832016e0f207bc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bfc1e043b33a147ce4be"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10284,10 +10284,14 @@ var journey = {
         console.log(data.results);
         state.dataset = [];
         data.results.forEach(function (i) {
+          console.log(state.schema.find(function (d) {
+            return d.name === i.event_type;
+          }));
           if (state.schema.find(function (d) {
             return d.name === i.event_type;
           })) state.dataset.push(i);
         });
+        console.log(state.dataset);
       }).catch(function (err) {
         return console.log(err);
       });
