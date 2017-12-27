@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bfc1e043b33a147ce4be"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e575decb2735f0d8c3be"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9709,7 +9709,7 @@ exports.default = {
   })),
   beforeMount: function beforeMount() {
     this.newsDataClass = this.schema.map(function (i) {
-      return i.type;
+      return i.name;
     });
     this.getJourneyData();
   },
@@ -17044,10 +17044,10 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "topbar"
   }, _vm._l((_vm.schema), function(i) {
     return _c('span', {
-      class: [i.type, _vm.newsDataClass.indexOf(i.type) >= 0 ? '' : 'off'],
+      class: [i.type, _vm.newsDataClass.indexOf(i.name) >= 0 ? '' : 'off'],
       on: {
         "click": function($event) {
-          _vm.switchNewsData(i.type)
+          _vm.switchNewsData(i.name)
         }
       }
     }, [_vm._v(_vm._s(i.name))])

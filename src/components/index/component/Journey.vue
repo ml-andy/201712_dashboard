@@ -5,8 +5,8 @@
       .topbar
         span(
           v-for="i in schema"
-          @click="switchNewsData(i.type)"
-          :class="[i.type,newsDataClass.indexOf(i.type) >= 0 ? '' : 'off']"
+          @click="switchNewsData(i.name)"
+          :class="[i.type,newsDataClass.indexOf(i.name) >= 0 ? '' : 'off']"
         ) {{ i.name }}
       .main(v-bar)
         ul
@@ -43,7 +43,7 @@ export default {
     }),
   },
   beforeMount(){
-    this.newsDataClass = this.schema.map(i=>i.type)
+    this.newsDataClass = this.schema.map(i=>i.name)
     this.getJourneyData()
   },
   mounted(){
