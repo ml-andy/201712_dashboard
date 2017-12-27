@@ -7,7 +7,12 @@ const recommend = {
     data:{
       can_market: true,
       upgradable_card: '',
-      expiring_credit_card_points:'',
+      expiring_credit_card_points:[
+        {
+          date:'',
+          points: 0,
+        }
+      ],
       myreword_recommendation: false,
       is_contact_information_correct: false,
       preference: '',

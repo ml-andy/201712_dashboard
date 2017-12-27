@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2d9adc5c5a030aded787"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "077b08389095517558d5"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10521,7 +10521,10 @@ var recommend = {
     data: {
       can_market: true,
       upgradable_card: '',
-      expiring_credit_card_points: '',
+      expiring_credit_card_points: [{
+        date: '',
+        points: 0
+      }],
       myreword_recommendation: false,
       is_contact_information_correct: false,
       preference: '',
