@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "077b08389095517558d5"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ecfb59615db2e1fc651f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -18024,7 +18024,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "cant_market"
   }, [_vm._v("不適合行銷")]) : _c('span', {
     staticClass: "off"
-  }, [_vm._v("請參考其他推薦(如下)")])]), (_vm.data.is_contact_information_correct) ? _c('div', {
+  }, [_vm._v("請參考其他推薦(如下)")])]), (!_vm.data.is_contact_information_correct) ? _c('div', {
     staticClass: "btn_fallcontact",
     on: {
       "click": function($event) {
