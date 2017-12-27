@@ -17,6 +17,7 @@ const creditcard = {
         }
       })
       .then(({data})=>{
+        console.log(data.results)
         state.dataset = data.results.cards
         state.has_electronic_bill = data.results.has_electronic_bill
       })

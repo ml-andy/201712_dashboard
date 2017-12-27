@@ -30,6 +30,7 @@ const journey = {
         }
       })
       .then(({data})=>{
+        console.log(data.results)
         state.dataset = []
         data.results.forEach(i => {
           if(state.schema.find(d => d.type === i.event_type)) state.dataset.push(i)

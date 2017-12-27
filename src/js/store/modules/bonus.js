@@ -26,6 +26,7 @@ const bonus = {
         }
       })
       .then(({data})=>{
+        console.log(data.results)
         state.dataset[0].list = data.results.expiring_points.map(i=>{
           let dayDistance = (new Date(i.date) - new Date()) / 86400000
           return {

@@ -138,6 +138,8 @@ $vph:700;
 
             .btn{
               @include rvw(250,45);
+              height: auto;
+              min-height: getVW(45);
               background-color: #fff;
               box-sizing: border-box;
               border: 1px solid #4ab235;
@@ -152,7 +154,7 @@ $vph:700;
                 pointer-events: none;
                 &:after{ display: none; }
                 
-                .subtitle,.tag{ color: #bdc3c7; }
+                .subtitle,.tag{ color: #bdc3c7; padding-right: 0; }
               }
 
               &:after{
@@ -177,15 +179,18 @@ $vph:700;
               .subtitle{
                 @include altvw(60,100);
                 @include fontvw(21,45,#4ab235,bolder);
+                height: auto;
+                top: 50%;
+                transform: translateY(-50%);
                 z-index: 1;
                 text-align: center;
               }
 
               .tag{
                 @include r;
-                @include fontvw(21,45,#171a1f);
+                @include fontvw(21,27,#171a1f);
                 box-sizing: border-box;
-                padding-left: getVW(60);
+                padding: getVW(9) getVW(30) getVW(9) getVW(60);
                 z-index: 0;
               }
             }
@@ -415,6 +420,8 @@ $vph:700;
   
               .btn{
                 @include rvw(240,45);
+                height: auto;
+                min-height: getVW(45);
                 background-color: #fff;
                 box-sizing: border-box;
                 border: 1px solid #4ab235;
@@ -451,9 +458,9 @@ $vph:700;
   
                 .tag{
                   @include r;
-                  @include fontvw(21,45,#171a1f);
+                  @include fontvw(21,27,#171a1f);
                   box-sizing: border-box;
-                  padding-left: getVW(60);
+                  padding: getVW(9) getVW(30) getVW(9) getVW(60);
                   z-index: 0;
                 }
               }

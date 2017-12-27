@@ -7,7 +7,7 @@
           v-if="data.upgradable_card || data.expiring_credit_card_points || data.myreword_recommendation"
         )
           span(v-if="data.upgradable_card") {{ data.upgradable_card }}
-          span(v-if="data.expiring_credit_card_points[0].date") 信用卡紅利 {{ data.expiring_credit_card_points[0].date }}到期
+          span(v-if="data.expiring_credit_card_points[0].points != 0 ? true : false") 信用卡紅利 {{ data.expiring_credit_card_points[0].date }}到期
           span(v-if="data.myreword_recommendation") 可下載 國泰優惠
           
         .content(v-else)

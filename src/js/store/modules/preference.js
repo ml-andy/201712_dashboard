@@ -78,6 +78,7 @@ const preference = {
         }
       })
       .then(({data})=>{
+        console.log(data.results)
         state.dataset[0].tag = data.results.preference.item
         state.dataset[0].remarks.text = data.results.preference.annotation
         state.dataset[0].content[0].text = data.results.preference.apitch

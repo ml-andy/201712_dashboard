@@ -21,6 +21,7 @@ const complain = {
         }
       })
       .then(({data})=>{
+        console.log(data.results)
         state.dataset = data.results
       })
       .catch(err => {
