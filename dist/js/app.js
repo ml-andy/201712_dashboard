@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b6ed73dfc0b7b08441d1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3e50319e8ef17cc7a675"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -18020,7 +18020,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "unit_say"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points === 0 || _vm.data.myreword_recommendation) ? _c('div', {
+  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points != 0 || _vm.data.myreword_recommendation) ? _c('div', {
     staticClass: "content"
   }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreword_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
     staticClass: "content"
