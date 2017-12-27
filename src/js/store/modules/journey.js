@@ -4,15 +4,15 @@ const journey = {
   state:{
     schema:[
       {
-        type: '客服進線',
+        type: 'customer_service',
         name: '客服進線',
       },
       {
-        type: '臨櫃',
+        type: 'bank_counter',
         name: '臨櫃',
       },
       {
-        type: '網銀',
+        type: 'web_atm',
         name: '網銀'
       }
     ],
@@ -33,7 +33,7 @@ const journey = {
         console.log(data.results)
         state.dataset = []
         data.results.forEach(i => {
-          if(state.schema.find(d => d.type === i.event_type)) state.dataset.push(i)
+          if(state.schema.find(d => d.name === i.event_type)) state.dataset.push(i)
         })
       })
       .catch(err => console.log(err))

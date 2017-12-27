@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ecfb59615db2e1fc651f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7e2764832016e0f207bc"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10255,13 +10255,13 @@ var journey = {
   namespaced: true,
   state: {
     schema: [{
-      type: '客服進線',
+      type: 'customer_service',
       name: '客服進線'
     }, {
-      type: '臨櫃',
+      type: 'bank_counter',
       name: '臨櫃'
     }, {
-      type: '網銀',
+      type: 'web_atm',
       name: '網銀'
     }],
     dataset: []
@@ -10285,7 +10285,7 @@ var journey = {
         state.dataset = [];
         data.results.forEach(function (i) {
           if (state.schema.find(function (d) {
-            return d.type === i.event_type;
+            return d.name === i.event_type;
           })) state.dataset.push(i);
         });
       }).catch(function (err) {
@@ -17064,7 +17064,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_c('li', [_c('div', {
       staticClass: "subtitle",
       class: i.event_type
-    }, [_vm._v(_vm._s(_vm.schema.find(function (d) { return d.type === i.event_type; }) ? _vm.schema.find(function (d) { return d.type === i.event_type; }).name : '其他'))]), _c('div', {
+    }, [_vm._v(_vm._s(_vm.schema.find(function (d) { return d.name === i.event_type; }) ? _vm.schema.find(function (d) { return d.name === i.event_type; }).name : '其他'))]), _c('div', {
       staticClass: "content",
       domProps: {
         "innerHTML": _vm._s(i.event_description)
