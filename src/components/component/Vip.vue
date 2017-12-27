@@ -5,9 +5,12 @@
       span.bottom
     .main
       .leftside
-        h1 {{ data.vip_status }}
-        .subbtn(v-if="data.vip_notation")
-          .btn(v-html="data.vip_notation")
+        h1 {{ data.vip_notation != "V" ? data.vip_notation : '' }}VIP
+        .subbtn(v-if="data.vip_status")
+          .btn
+            |新升等VIP
+            br
+            |{{ data.vip_status }}
             
       .rightside
         .unitbox(v-bar)

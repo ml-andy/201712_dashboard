@@ -4,15 +4,15 @@ const journey = {
   state:{
     schema:[
       {
-        type: 'customer_service',
+        type: '客服進線',
         name: '客服進線',
       },
       {
-        type: 'bank_counter',
+        type: '臨櫃',
         name: '臨櫃',
       },
       {
-        type: 'web_atm',
+        type: '網銀',
         name: '網銀'
       }
     ],

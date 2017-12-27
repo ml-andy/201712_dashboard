@@ -46,7 +46,7 @@
           |理專-多次
           br
           |聯絡不上
-        .notvip(v-if="!data.vip_status")
+        .notvip(v-if="!data.vip_notation")
           |非本行<br>VIP客戶
 
       .rightside

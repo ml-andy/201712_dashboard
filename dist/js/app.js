@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ab3ec9af292b0dcecf90"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2d9adc5c5a030aded787"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9360,6 +9360,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
 
 exports.default = {
   name: 'Vip',
@@ -10252,13 +10255,13 @@ var journey = {
   namespaced: true,
   state: {
     schema: [{
-      type: 'customer_service',
+      type: '客服進線',
       name: '客服進線'
     }, {
-      type: 'bank_counter',
+      type: '臨櫃',
       name: '臨櫃'
     }, {
-      type: 'web_atm',
+      type: '網銀',
       name: '網銀'
     }],
     dataset: []
@@ -17776,14 +17779,11 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "main"
   }, [_c('div', {
     staticClass: "leftside"
-  }, [_c('h1', [_vm._v(_vm._s(_vm.data.vip_status))]), (_vm.data.vip_notation) ? _c('div', {
+  }, [_c('h1', [_vm._v(_vm._s(_vm.data.vip_notation != "V" ? _vm.data.vip_notation : '') + "VIP")]), (_vm.data.vip_status) ? _c('div', {
     staticClass: "subbtn"
   }, [_c('div', {
-    staticClass: "btn",
-    domProps: {
-      "innerHTML": _vm._s(_vm.data.vip_notation)
-    }
-  })]) : _vm._e()]), _c('div', {
+    staticClass: "btn"
+  }, [_vm._v("新升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))])]) : _vm._e()]), _c('div', {
     staticClass: "rightside"
   }, [_c('div', {
     directives: [{
@@ -17975,7 +17975,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("新升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
     staticClass: "btn_failcontact"
-  }, [_vm._v("理專-多次"), _c('br'), _vm._v("聯絡不上")]) : _vm._e(), (!_vm.data.vip_status) ? _c('div', {
+  }, [_vm._v("理專-多次"), _c('br'), _vm._v("聯絡不上")]) : _vm._e(), (!_vm.data.vip_notation) ? _c('div', {
     staticClass: "notvip"
   }, [_vm._v("非本行"), _c('br'), _vm._v("VIP客戶")]) : _vm._e()]), _c('div', {
     staticClass: "rightside"
@@ -18013,7 +18013,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "unit_say"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points || _vm.data.myreword_recommendation) ? _c('div', {
+  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points === 0 || _vm.data.myreword_recommendation) ? _c('div', {
     staticClass: "content"
   }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreword_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
     staticClass: "content"
