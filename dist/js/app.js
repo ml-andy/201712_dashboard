@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "e575decb2735f0d8c3be"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b6ed73dfc0b7b08441d1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17067,7 +17067,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }, [_c('li', [_c('div', {
       staticClass: "subtitle",
-      class: i.event_type
+      class: _vm.schema.find(function (d) { return d.name === i.event_type; }).type
     }, [_vm._v(_vm._s(_vm.schema.find(function (d) { return d.name === i.event_type; }) ? _vm.schema.find(function (d) { return d.name === i.event_type; }).name : '其他'))]), _c('div', {
       staticClass: "content",
       domProps: {

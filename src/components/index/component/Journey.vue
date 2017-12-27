@@ -18,7 +18,7 @@
           )
             li
               .subtitle(
-                :class="i.event_type"
+                :class="schema.find(d=> d.name === i.event_type).type"
               ) {{ schema.find(d=> d.name === i.event_type) ? schema.find(d=> d.name === i.event_type).name : '其他'}}
               .content(v-html="i.event_description")
               .time {{ i.date_time }}
