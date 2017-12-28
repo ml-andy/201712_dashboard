@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "212f89e90beb16b0b546"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2dcc1884573ceeb307c0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17317,7 +17317,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "date"
   }, [_vm._v("日期")]), _c('div', {
     staticClass: "points"
-  }, [_vm._v("到期點數")])])
+  }, [_vm._v("點數")])])
 }]}
 
 /***/ }),

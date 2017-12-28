@@ -23,7 +23,7 @@
             .title 紅利點數
           .boxtop
             .date 日期
-            .points 到期點數
+            .points 點數
           .box(v-bar)
             ul
               li(v-for="i in dataset.find(d=>d.name === 'points').list")
