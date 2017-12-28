@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3e50319e8ef17cc7a675"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "fea2463f38bae4e66ea1"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9271,6 +9271,9 @@ exports.default = {
     },
     schema: function schema(state) {
       return state.preference.schema;
+    },
+    tag: function tag(state) {
+      return [state.recommend.data.preference, state.recommend.data.product, state.recommend.data.program];
     }
   })),
   beforeMount: function beforeMount() {
@@ -17136,7 +17139,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "title"
     }, [_vm._v(_vm._s(i.title))]), _c('div', {
       staticClass: "tag"
-    }, [_vm._v(_vm._s(i.tag))])]), _c('div', {
+    }, [_vm._v(_vm._s(_vm.tag[idx]))])]), _c('div', {
       staticClass: "submain"
     }, [_c('div', {
       staticClass: "content"

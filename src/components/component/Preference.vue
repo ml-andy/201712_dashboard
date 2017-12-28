@@ -18,7 +18,7 @@
             .unit(v-for="(i,idx) in dataset")
               .topbar
                 .title {{ i.title }}
-                .tag {{ i.tag }}
+                .tag {{ tag[idx] }}
               .submain
                 .content
                   .theme(
@@ -62,6 +62,11 @@ export default {
       nowUnit: state => state.preference.nowUnit,
       dataset: state => state.preference.dataset,
       schema: state => state.preference.schema,
+      tag: state => [
+        state.recommend.data.preference, 
+        state.recommend.data.product,
+        state.recommend.data.program,
+      ],
     }),
   },
   beforeMount(){
