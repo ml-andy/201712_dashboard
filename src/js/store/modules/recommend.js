@@ -59,16 +59,17 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      let postData = Qs.stringify({
+      let postData = {
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
         recommendation: {
           [key]: type
         }
-      })
+      }
 
       axios.post(`${rootState.backEndUrl}/teller_reference`, postData)
         .then(({data})=>{
+          console.log(data)
           type ? state[key] = 1 : state[key] = -1
         })
         .catch(err => console.log(err))

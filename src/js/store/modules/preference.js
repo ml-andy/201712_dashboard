@@ -117,13 +117,13 @@ const preference = {
         return
       }
 
-      let postData = Qs.stringify({
+      let postData = {
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
         "annotation": {
           [state.schema[idx].params]: text
         }
-      })
+      }
 
       axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
         .then(({data})=>{

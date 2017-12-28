@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fea2463f38bae4e66ea1"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "212f89e90beb16b0b546"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10489,11 +10489,11 @@ var preference = {
         return;
       }
 
-      var postData = Qs.stringify({
+      var postData = {
         "teller_id": rootState.teller_id,
         "customer_id": rootState.customer_id,
         "annotation": _defineProperty({}, state.schema[idx].params, text)
-      });
+      };
 
       axios.post(rootState.backEndUrl + '/teller_reference/preference', postData).then(function (_ref5) {
         var data = _ref5.data;
@@ -10582,15 +10582,16 @@ var recommend = {
       var key = _ref5.key,
           type = _ref5.type;
 
-      var postData = Qs.stringify({
+      var postData = {
         "teller_id": rootState.teller_id,
         "customer_id": rootState.customer_id,
         recommendation: _defineProperty({}, key, type)
-      });
+      };
 
       axios.post(rootState.backEndUrl + '/teller_reference', postData).then(function (_ref6) {
         var data = _ref6.data;
 
+        console.log(data);
         type ? state[key] = 1 : state[key] = -1;
       }).catch(function (err) {
         return console.log(err);
