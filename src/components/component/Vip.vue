@@ -8,7 +8,7 @@
         h1 {{ data.vip_notation != "V" ? data.vip_notation : '' }}VIP
         .subbtn(v-if="data.vip_status")
           .btn
-            |新升等VIP
+            |升等VIP
             br
             |{{ data.vip_status }}
             

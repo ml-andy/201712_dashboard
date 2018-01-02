@@ -39,7 +39,7 @@
           v-if="data.vip_status"
           @click="changeSection(4)"
         )
-          |新升等VIP
+          |升等VIP
           br
           |{{ data.vip_status }}
         .btn_failcontact(v-if="data.availability == false")

@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2dcc1884573ceeb307c0"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9c3b5fc826df25f43afb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17794,7 +17794,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "subbtn"
   }, [_c('div', {
     staticClass: "btn"
-  }, [_vm._v("新升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))])]) : _vm._e()]), _c('div', {
+  }, [_vm._v("升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))])]) : _vm._e()]), _c('div', {
     staticClass: "rightside"
   }, [_c('div', {
     directives: [{
@@ -17984,7 +17984,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
         _vm.changeSection(4)
       }
     }
-  }, [_vm._v("新升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
+  }, [_vm._v("升等VIP"), _c('br'), _vm._v(_vm._s(_vm.data.vip_status))]) : _vm._e(), (_vm.data.availability == false) ? _c('div', {
     staticClass: "btn_failcontact"
   }, [_vm._v("理專-多次"), _c('br'), _vm._v("聯絡不上")]) : _vm._e(), (!_vm.data.vip_notation) ? _c('div', {
     staticClass: "notvip"
