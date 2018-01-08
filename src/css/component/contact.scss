@@ -140,6 +140,14 @@ $vph:700;
           li.top{ background-color: #3498db; }
         }
       }
+
+      .notmatch{
+        @include r;
+        @include fontvw(16,21,#7f8c8d,bolder);
+        box-sizing: border-box;
+        padding-right: getVW(10);
+        text-transform: uppercase;
+      }
     }
   }
 
@@ -293,6 +301,14 @@ $vph:700;
   
             li.top{ background-color: #3498db; }
           }
+        }
+
+        .notmatch{
+          @include r;
+          @include fontvw(16,21,#7f8c8d,bolder);
+          box-sizing: border-box;
+          padding-right: getVW(10);
+          text-transform: uppercase;
         }
       }
     }

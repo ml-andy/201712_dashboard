@@ -13,11 +13,6 @@ let apiUrl = {
 	production: '',
 }
 
-// if(process.env.ENV === 'dev') apiUrl.use = apiUrl.dev
-// else if(process.env.ENV === 'ut') apiUrl.use = apiUrl.ut
-// else if(process.env.ENV === 'uat') apiUrl.use = apiUrl.uat
-// else if(process.env.ENV === 'production') apiUrl.use = apiUrl.production
-
 let pluginsArray = [
   new webpack.LoaderOptionsPlugin({
     minimize: true,
@@ -42,9 +37,6 @@ let pluginsArray = [
 			'apiUrl': JSON.stringify(apiUrl[process.env.ENV]),
 		},
 	}),
-	// new webpack.ProvidePlugin({
-	// 		axios: "axios"
-	// })
 ];
 
 if(process.env.bulidMode === 'production' || process.env.ENV === 'prod') {
@@ -72,13 +64,6 @@ let config = {
 				options: {
 					loaders: {
             scss: 'style-loader!css-loader?url=false!postcss-loader!sass-loader',
-						// scss: extractStyles.extract({
-            //   use: [
-            //     { loader: "css-loader?sourceMap&url=false" },
-            //     { loader: "postcss-loader?sourceMap" },
-            //     { loader: "sass-loader?sourceMap" }
-            //   ]
-            // }),
           },
 					postcss: [
 						autoprefixer({browsers:['> 1%', 'last 2 versions', 'Firefox ESR']}),

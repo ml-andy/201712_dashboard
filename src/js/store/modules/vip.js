@@ -3,8 +3,8 @@ const vip = {
   namespaced:true,
   state:{
     dataset:{
-      vip_status:'SVIP',
-      vip_notation:'新升等VIP',
+      vip_status:'',
+      vip_notation:'',
       rights_preference:'',
       apitch:''
     }
@@ -18,6 +18,7 @@ const vip = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
+          token: rootState.token,
         }
       })
       .then(({data})=>{

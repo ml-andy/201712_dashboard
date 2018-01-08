@@ -3,16 +3,16 @@
     .container(v-if="data.card_amount")
       .btn_hascreditcard(@click="changeSection(5)")
         |持有 {{ data.card_amount }} 張信用卡
+      .bouns(@click="changeSection(6)")
+        .title 本期帳單紅利
+        .content {{ data.bonus_points }}
       .sum
-        .bouns(@click="changeSection(6)")
-          .title 紅利
-          .content {{ data.bonus_points }}
         .quoda
           .title 額度
           .content {{ data.credit_limit }}
-      .des
-        |{{ data.auto_payment ? '有' : '無'}} 自動扣繳
-      .des
+        .auto
+          |{{ data.auto_payment ? '有' : '無'}} 自扣
+      .des(v-if="data.myreword_downloaded")
         |{{ data.myreword_downloaded ? '已' : '未'}}下載  國泰優惠
       .datetime
         |時間：{{ data.updated_time }}

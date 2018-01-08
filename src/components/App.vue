@@ -47,7 +47,7 @@ export default {
     }),
   },
   beforeMount(){
-    if(this.getUrlVars()['teller_id'] && this.getUrlVars()['teller_id']){
+    if(this.getUrlVars()['teller_id'] && this.getUrlVars()['customer_id']){
       this.changeStateKeyValue({key: 'teller_id', value: this.getUrlVars()['teller_id']})
       this.changeStateKeyValue({key: 'customer_id', value: this.getUrlVars()['customer_id']})
     }else{
@@ -55,6 +55,7 @@ export default {
       alert('連結有誤')
     }
     if(this.getUrlVars()['customer_name']) this.changeStateKeyValue({key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name'])})
+    if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
   },
   mounted(){
     $(window).load(()=>{

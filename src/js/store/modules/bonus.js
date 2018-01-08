@@ -9,9 +9,8 @@ const bonus = {
       },
       {
         name: 'points',
-        list:[
-        ]
-      }
+        list:[]
+      },
     ]
   },
   mutations:{
@@ -23,6 +22,7 @@ const bonus = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
+          token: rootState.token,
         }
       })
       .then(({data})=>{
@@ -37,8 +37,12 @@ const bonus = {
         })
 
         state.dataset[1].list = data.results.remaining_points.map(i=>{
+          let year = i.date.slice(0,4),
+            month = i.date.slice(-2),
+            day = new Date(year, month * 1, 0).getDate()
+
           return {
-            date: i.date.slice(2),
+            date: `${year}.${month}.${day}`,
             count: i.points
           }
         })

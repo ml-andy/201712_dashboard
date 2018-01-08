@@ -7,7 +7,7 @@
       h1 通聯資料有誤
       .unit
         .title.orange 銀行 CIF 通聯狀態
-        ul.orange
+        ul.orange(v-if="data.bkc_email === null ? false : true")
           li.top
             .subtitle 項目
             .status 狀態
@@ -35,9 +35,10 @@
             .subtitle 通訊地址
             .status(:class="data.bkc_residential_address ? '' : 'error'")
               |{{ data.bkc_residential_address ? '資料正確' : '待更新' }}
+        span.notmatch(v-else) 非本行存戶
       .unit
         .title.blue 信用卡 通聯狀態
-        ul.blue
+        ul.blue(v-if="data.cc_email === null ? false : true")
           li.top
             .subtitle 項目
             .status 狀態
@@ -65,6 +66,7 @@
             .subtitle 通訊地址
             .status(:class="data.cc_residential_address ? '' : 'error'")
               |{{ data.cc_residential_address ? '資料正確' : '待更新' }}
+        span.notmatch(v-else) 非本行卡友
     .bgcover(@click="changeSection(-1)")
     
 </template>

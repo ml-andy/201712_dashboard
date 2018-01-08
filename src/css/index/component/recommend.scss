@@ -448,10 +448,13 @@ $vph:700;
   
                   .subtitle,.tag{ color: #fff; }
                 }
-  
+
                 .subtitle{
                   @include altvw(60,100);
                   @include fontvw(21,45,#4ab235,bolder);
+                  height: auto;
+                  top: 50%;
+                  transform: translateY(-50%);
                   z-index: 1;
                   text-align: center;
                 }

@@ -14,20 +14,23 @@
             .points 到期點數
           .box(v-bar)
             ul
-              li(v-for="i in dataset.find(d=>d.name === 'expire').list")
+              li(
+                v-for="i in dataset.find(d=>d.name === 'expire').list"
+                v-if="i.date && i.count"
+              )
                 .date {{ i.date }}
                 .points {{ i.count }}
                 .ontime(v-if="i.ontime")
         .unit
           .topbar
-            .title 紅利點數
+            .title 各期帳單紅利
           .boxtop
             .date 日期
             .points 點數
           .box(v-bar)
             ul
               li(v-for="i in dataset.find(d=>d.name === 'points').list")
-                .date {{ i.date }}
+                .date {{ i.date.slice(2).split('.').join('-') }}
                 .points {{ i.count }}
         
       .rightside

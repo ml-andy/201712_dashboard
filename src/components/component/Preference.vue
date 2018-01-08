@@ -26,7 +26,7 @@
                     ref="theme"
                   )
                     .subtitle {{ d.subtitle }}
-                    .text {{ d.text }}
+                    .text(v-html="d.text ? d.text : '暫無更新'")
                 .remarksbox
                   .subtitle
                     |備註

@@ -20,12 +20,12 @@
               .right
                 .title 權益偏好
                 .description 
-                  |{{ data.rights_preference }}
+                  |{{ data.rights_preference ? data.rights_preference : '暫無更新' }}
             .unit
               .topbar
                 |話術
               .content
-                |{{ data.apitch }}
+                |{{ data.apitch ? data.apitch : '暫無更新' }}
 
     .bgcover(@click="changeSection(-1)")
     

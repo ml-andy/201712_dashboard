@@ -25,9 +25,13 @@ const preference = {
         tag: '',
         content:[
           {
+            subtitle: '推薦商品',
+            text:''
+          },
+          {
             subtitle: '話術',
             text:''
-          }
+          },
         ],
         remarks:{
           text: '',
@@ -38,6 +42,10 @@ const preference = {
         title: '產品',
         tag: '',
         content:[
+          {
+            subtitle: '推薦商品',
+            text:''
+          },
           {
             subtitle: '話術',
             text:''
@@ -52,6 +60,10 @@ const preference = {
         title: '專案',
         tag: '',
         content:[
+          {
+            subtitle: '推薦商品',
+            text:''
+          },
           {
             subtitle: '話術',
             text:''
@@ -75,21 +87,59 @@ const preference = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
+          token: rootState.token,
         }
       })
       .then(({data})=>{
         console.log(data.results)
+        
+        //偏好
         state.dataset[0].tag = data.results.preference.item
         state.dataset[0].remarks.text = data.results.preference.annotation
-        state.dataset[0].content[0].text = data.results.preference.apitch
+        if(data.results.preference.apitch.match(/\${(.+?)\}/g)){
+          state.dataset[0].content[0].text = data.results.preference.apitch.match(/\${(.+?)\}/g)[0]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+          state.dataset[0].content[1].text = data.results.preference.apitch.match(/\${(.+?)\}/g)[1]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+        }
         
+        //產品
         state.dataset[1].tag = data.results.product.item
         state.dataset[1].remarks.text = data.results.product.annotation
-        state.dataset[1].content[0].text = data.results.product.apitch
-
+        if(data.results.product.apitch.match(/\${(.+?)\}/g)){
+          state.dataset[1].content[0].text = data.results.product.apitch.match(/\${(.+?)\}/g)[0]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+          state.dataset[1].content[1].text = data.results.product.apitch.match(/\${(.+?)\}/g)[1]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+        }
+        
+        //專案
         state.dataset[2].tag = data.results.program.item
         state.dataset[2].remarks.text = data.results.program.annotation
-        state.dataset[2].content[0].text = data.results.program.apitch
+        if(data.results.program.apitch.match(/\${(.+?)\}/g)){
+          state.dataset[2].content[0].text = data.results.program.apitch.match(/\${(.+?)\}/g)[0]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+          state.dataset[2].content[1].text = data.results.program.apitch.match(/\${(.+?)\}/g)[1]
+            .slice(2)
+            .slice(0,-1)
+            .split('/n')
+            .join('<br>')
+        }
       })
       .catch(err => {
         console.log(err)
@@ -120,6 +170,7 @@ const preference = {
       let postData = {
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
+        "token": rootState.token,
         "annotation": {
           [state.schema[idx].params]: text
         }

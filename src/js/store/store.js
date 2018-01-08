@@ -10,6 +10,7 @@ const store = new Vuex.Store({
     teller_id: '',
     customer_id: '',
     customer_name: '',
+    token: '',
   },
 
   mutations: {

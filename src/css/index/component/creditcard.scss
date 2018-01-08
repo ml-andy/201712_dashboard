@@ -24,7 +24,7 @@ $vph:700;
     padding: getVW(15);
     border: 1px solid #4ab235;
     border-radius: getVW(5);
-    margin-bottom: getVH(15);
+    margin-bottom: getVH(10);
     background-color: #fbfcfc;
     cursor: pointer;
     transition: 0.3s;
@@ -59,51 +59,53 @@ $vph:700;
     }
   }
 
-  .sum{
-    @include r;
-    margin-bottom: getVH(15);
+  .bouns{
+    @include rvw(100,60);
+    box-sizing: border-box;
+    border-radius: getVW(5);
+    border: 1px solid #bdc3c7;
+    cursor: pointer;
+    overflow: hidden;
+    margin-bottom: getVH(10);
 
-    .bouns{
-      @include rvw(102,60);
-      box-sizing: border-box;
-      border-radius: getVW(5);
-      border: 1px solid #bdc3c7;
-      cursor: pointer;
-      margin-right: getVW(20);
-      overflow: hidden;
-
-      &:after{
-        content: "";
-        @include artvw(14,12,10,6);
-        background-image: url(./images/btn_arrow_white.png);
-        background-repeat: no-repeat;
-        background-size: contain;
-        background-position: center center;
-        image-rendering: -webkit-optimize-contrast;
-        -ms-interpolation-mode: nearest-neighbor;
-      }
-
-      .title{
-        @include r;
-        @include fontvw(16,25,#fff,bolder);
-        text-align: center;
-        background-color: #4ab235;
-      }
-
-      .content{
-        @include r;
-        @include fontvw(16,35,#7f8c8d);
-        height: getVW(35);
-        text-align: center;
-      }
+    &:after{
+      content: "";
+      @include artvw(14,12,10,6);
+      background-image: url(./images/btn_arrow_white.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      image-rendering: -webkit-optimize-contrast;
+      -ms-interpolation-mode: nearest-neighbor;
     }
 
+    .title{
+      @include r;
+      @include fontvw(16,25,#fff,bolder);
+      text-align: center;
+      background-color: #4ab235;
+    }
+
+    .content{
+      @include r;
+      @include fontvw(16,35,#7f8c8d);
+      height: getVW(35);
+      text-align: center;
+    }
+  }
+
+  .sum{
+    @include r;
+    margin-bottom: getVH(10);
+
     .quoda{
-      @include rvw(102,60);
+      @include rvw(105,60);
+      width: calc(50% - #{getVW(10)});
       box-sizing: border-box;
       border-radius: getVW(5);
       border: 1px solid #bdc3c7;
       overflow: hidden;
+      margin-right: getVW(20);
 
       .title{
         @include r;
@@ -119,6 +121,17 @@ $vph:700;
         text-align: center;
       }
     }
+
+    .auto{
+      @include rvw(105,60);
+      @include fontvw(21,40,#7f8c8d);
+      width: calc(50% - #{getVW(10)});
+      text-align: center;
+      box-sizing: border-box;
+      border-radius: getVW(5);
+      border: 1px solid #bdc3c7;
+      padding: getVW(10);
+    }
   }
 
   .des{
@@ -129,7 +142,7 @@ $vph:700;
     border-radius: getVW(5);
     border: 1px solid #bdc3c7;
     padding: getVW(10);
-    margin-bottom: getVH(15);
+    margin-bottom: getVH(10);
   }
   
   .datetime{
@@ -195,46 +208,46 @@ $vph:700;
         &:after{ background-image: url(./images/btn_arrow_white.png)}
       }
     }
+
+    .bouns{
+      @include rvw(100,60);
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: getVW(5);
+      border: 1px solid #bdc3c7;
+      cursor: pointer;
+      overflow: hidden;
+      margin-bottom: getVW(15);
+
+      &:after{
+        content: "";
+        @include artvw(14,12,10,6);
+        background-image: url(./images/btn_arrow_white.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        image-rendering: -webkit-optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+      }
+
+      .title{
+        @include r;
+        @include fontvw(16,25,#fff,bolder);
+        text-align: center;
+        background-color: #4ab235;
+      }
+
+      .content{
+        @include r;
+        @include fontvw(16,35,#7f8c8d);
+        height: getVW(35);
+        text-align: center;
+      }
+    }
   
     .sum{
       @include r;
       margin-bottom: getVW(15);
-  
-      .bouns{
-        @include rvw(154,60);
-        width: calc(50% - #{getVW(10)});
-        box-sizing: border-box;
-        border-radius: getVW(5);
-        border: 1px solid #bdc3c7;
-        cursor: pointer;
-        margin-right: getVW(20);
-        overflow: hidden;
-  
-        &:after{
-          content: "";
-          @include artvw(14,12,10,6);
-          background-image: url(./images/btn_arrow_white.png);
-          background-repeat: no-repeat;
-          background-size: contain;
-          background-position: center center;
-          image-rendering: -webkit-optimize-contrast;
-          -ms-interpolation-mode: nearest-neighbor;
-        }
-  
-        .title{
-          @include r;
-          @include fontvw(16,25,#fff,bolder);
-          text-align: center;
-          background-color: #4ab235;
-        }
-  
-        .content{
-          @include r;
-          @include fontvw(16,35,#7f8c8d);
-          height: getVW(35);
-          text-align: center;
-        }
-      }
   
       .quoda{
         @include rvw(154,60);
@@ -243,6 +256,7 @@ $vph:700;
         border-radius: getVW(5);
         border: 1px solid #bdc3c7;
         overflow: hidden;
+        margin-right: getVW(20);
   
         .title{
           @include r;
@@ -257,6 +271,17 @@ $vph:700;
           height: getVW(35);
           text-align: center;
         }
+      }
+
+      .auto{
+        @include rvw(102,60);
+        @include fontvw(21,21,#7f8c8d);
+        width: calc(50% - #{getVW(10)});
+        text-align: center;
+        box-sizing: border-box;
+        border-radius: getVW(5);
+        border: 1px solid #bdc3c7;
+        padding: getVW(10);
       }
     }
   

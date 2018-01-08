@@ -21,7 +21,7 @@
         .content
           ul
             li(v-if="data.birthday")
-              |{{ new Date().getFullYear() - new Date(`${data.birthday}`).getFullYear() }}歲 {{ new Date(`${data.birthday}`).getMonth() + 1 }}月壽星
+              |{{ new Date().getFullYear() - new Date(`${data.birthday}`).getFullYear() - 1 }}歲 {{ new Date(`${data.birthday}`).getMonth() + 1 }}月壽星
             li(v-if="data.have_any_children") 有子女
             li(v-if="data.person_in_charge") 企業主
             li(v-if="data.account_type")

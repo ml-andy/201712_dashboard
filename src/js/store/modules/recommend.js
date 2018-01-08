@@ -28,15 +28,22 @@ const recommend = {
   },
   actions:{
     getRecommendData({ state, rootState, commit }, {path, title} ){
+      //fake
+      let isInLimmit = ((new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000) <= 30 ? state.data.expiring_credit_card_points[0].points : 0
+      state.data.expiring_credit_card_points[0].points = isInLimmit
+
       axios.get(`${rootState.backEndUrl}/teller_reference`, {
           params: {
             teller_id: rootState.teller_id,
             customer_id: rootState.customer_id,
+            token: rootState.token,
           }
         })
         .then(({data})=>{
           console.log(data)
           state.data = data.results
+          let isExpiring = ((new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000) <= 30 ? state.data.expiring_credit_card_points[0].points : 0
+          state.data.expiring_credit_card_points[0].points = isExpiring
           console.log(state.data)
         })
         .catch(err => console.log(err))
@@ -62,6 +69,7 @@ const recommend = {
       let postData = {
         "teller_id":rootState.teller_id,
         "customer_id": rootState.customer_id,
+        "token": rootState.token,
         recommendation: {
           [key]: type
         }
