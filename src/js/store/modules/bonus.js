@@ -5,7 +5,12 @@ const bonus = {
     dataset:[
       {
         name: 'expire',
-        list:[]
+        list:[
+          {
+            date: '',
+            count: 0,
+          }
+        ]
       },
       {
         name: 'points',
@@ -42,7 +47,7 @@ const bonus = {
             day = new Date(year, month * 1, 0).getDate()
 
           return {
-            date: `${year}.${month}.${day}`,
+            date: `${year}-${month}-${day}`,
             count: i.points
           }
         })

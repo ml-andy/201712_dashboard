@@ -21,6 +21,8 @@
                 .date {{ i.date }}
                 .points {{ i.count }}
                 .ontime(v-if="i.ontime")
+              li(v-if="!dataset.find(d=>d.name === 'expire').list.find(i=>i.date) || !dataset.find(d=>d.name === 'expire').list.find(i=>i.count != 0)")
+                |暫無資料
         .unit
           .topbar
             .title 各期帳單紅利

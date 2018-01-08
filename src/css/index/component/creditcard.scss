@@ -125,7 +125,7 @@ $vph:700;
     .auto{
       @include rvw(105,60);
       @include fontvw(21,40,#7f8c8d);
-      width: calc(50% - #{getVW(10)});
+      width: calc(50% - #{getVW(20)});
       text-align: center;
       box-sizing: border-box;
       border-radius: getVW(5);
@@ -276,7 +276,7 @@ $vph:700;
       .auto{
         @include rvw(102,60);
         @include fontvw(21,21,#7f8c8d);
-        width: calc(50% - #{getVW(10)});
+        width: calc(50% - #{getVW(20)});
         text-align: center;
         box-sizing: border-box;
         border-radius: getVW(5);

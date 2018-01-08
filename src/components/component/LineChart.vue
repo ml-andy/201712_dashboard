@@ -205,7 +205,6 @@ export default {
       let yAxisArray = []
       this.dataset.forEach((d)=>{
         d.datas.forEach((e)=>{
-          console.log(e.name)
           if(!xAxisArray.find(f=>f.getTime()==e.name.getTime())) xAxisArray.push(e.name)
           if(!yAxisArray.find(f=>f===e.data)) yAxisArray.push(e.data)
         })
