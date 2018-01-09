@@ -43,10 +43,6 @@ const preference = {
         tag: '',
         content:[
           {
-            subtitle: '推薦商品',
-            text:''
-          },
-          {
             subtitle: '話術',
             text:''
           }
@@ -60,10 +56,6 @@ const preference = {
         title: '專案',
         tag: '',
         content:[
-          {
-            subtitle: '推薦商品',
-            text:''
-          },
           {
             subtitle: '話術',
             text:''
@@ -112,34 +104,12 @@ const preference = {
         //產品
         state.dataset[1].tag = data.results.product.item
         state.dataset[1].remarks.text = data.results.product.annotation
-        if(data.results.product.apitch.match(/\${(.+?)\}/g)){
-          state.dataset[1].content[0].text = data.results.product.apitch.match(/\${(.+?)\}/g)[0]
-            .slice(2)
-            .slice(0,-1)
-            .split('/n')
-            .join('<br>')
-          state.dataset[1].content[1].text = data.results.product.apitch.match(/\${(.+?)\}/g)[1]
-            .slice(2)
-            .slice(0,-1)
-            .split('/n')
-            .join('<br>')
-        }
+        state.dataset[1].content[0].text = data.results.product.apitch
         
         //專案
         state.dataset[2].tag = data.results.program.item
         state.dataset[2].remarks.text = data.results.program.annotation
-        if(data.results.program.apitch.match(/\${(.+?)\}/g)){
-          state.dataset[2].content[0].text = data.results.program.apitch.match(/\${(.+?)\}/g)[0]
-            .slice(2)
-            .slice(0,-1)
-            .split('/n')
-            .join('<br>')
-          state.dataset[2].content[1].text = data.results.program.apitch.match(/\${(.+?)\}/g)[1]
-            .slice(2)
-            .slice(0,-1)
-            .split('/n')
-            .join('<br>')
-        }
+        state.dataset[2].content[0].text = data.results.program.apitch
       })
       .catch(err => {
         console.log(err)

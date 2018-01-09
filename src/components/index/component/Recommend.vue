@@ -13,7 +13,7 @@
         .content(v-else)
           span.cant_market(v-if="!data.can_market") 不適合行銷
           span.off(v-else) 請參考其他推薦(如下)
-        .btn_fallcontact(
+        .btn_fallcontact#lnkIndexFallcontact(
           v-if="!data.is_contact_information_correct"
           @click="changeSection(1)"
         ) 通聯資料有誤
@@ -23,15 +23,15 @@
         .content(v-if="data.can_market")
           ul.btnbox
             li(v-if="data.preference")
-              .btn.btn_recommend(@click="goPreference(2,0)")
+              .btn.btn_recommend#lnkIndexPreference(@click="goPreference(2,0)")
                 .subtitle 偏好
                 .tag {{ data.preference }}
               .checkneed
-                .yes(
+                .yes#btnIndexPreference_yes(
                   :class="preference === 1 ? 'on' : ''"
                   @click="postRecommendData({key:'preference',type:true})"
                 )
-                .no(
+                .no#btnIndexPreference_no(
                   :class="preference === -1 ? 'on' : ''"
                   @click="postRecommendData({key:'preference',type:false})"
                 )
@@ -41,15 +41,15 @@
                 .tag 無
 
             li(v-if="data.product")
-              .btn.btn_product(@click="goPreference(2,1)")
+              .btn.btn_product#lnkIndexProduct(@click="goPreference(2,1)")
                 .subtitle 產品
                 .tag {{ data.product }}
               .checkneed
-                .yes(
+                .yes#btnIndexProduct_yes(
                   :class="product === 1 ? 'on' : ''"
                   @click="postRecommendData({key:'product',type:true})"
                 )
-                .no(
+                .no#btnIndexProduct_no(
                   :class="product === -1 ? 'on' : ''"
                   @click="postRecommendData({key:'product',type:false})"
                 )
@@ -59,15 +59,15 @@
                 .tag 無
 
             li(v-if="data.program")
-              .btn.btn_project(@click="goPreference(2,2)")
+              .btn.btn_project#lnkIndexProgram(@click="goPreference(2,2)")
                 .subtitle 專案
                 .tag {{ data.program }}
               .checkneed
-                .yes(
+                .yes#btnIndexProgram_yes(
                   :class="program === 1 ? 'on' : ''"
                   @click="postRecommendData({key:'program',type:true})"
                 )
-                .no(
+                .no#btnIndexProgram_no(
                   :class="program === -1 ? 'on' : ''"
                   @click="postRecommendData({key:'program',type:false})"
                 )

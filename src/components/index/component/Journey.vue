@@ -7,6 +7,7 @@
           v-for="i in schema"
           @click="switchNewsData(i.name)"
           :class="[i.type,newsDataClass.indexOf(i.name) >= 0 ? '' : 'off']"
+          :id="'lnkIndex' + i.type.slice(0,1).toUpperCase() + i.type.slice(1).toLowerCase()"
         ) {{ i.name }}
       .main(v-bar)
         ul

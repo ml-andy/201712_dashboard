@@ -10,21 +10,22 @@
           .btn(
             v-for="(i,idx) in schema"
             @click="changeUnit(idx)"
+            :id="'btnPreference' + i.params.slice(0,1).toUpperCase() + i.params.slice(1).toLowerCase()"
           )
             |{{ i.name }}
       .rightside
         .unitbox(v-bar)
           .unitboxin(ref="unitboxin")
-            .unit(v-for="(i,idx) in dataset")
+            .unit(
+              v-for="(i,idx) in dataset"
+              ref="unit"
+            )
               .topbar
                 .title {{ i.title }}
                 .tag {{ tag[idx] }}
               .submain
                 .content
-                  .theme(
-                    v-for="d in i.content"
-                    ref="theme"
-                  )
+                  .theme(v-for="d in i.content")
                     .subtitle {{ d.subtitle }}
                     .text(v-html="d.text ? d.text : '暫無更新'")
                 .remarksbox
@@ -32,6 +33,7 @@
                     |備註
                     .rewrite(
                       :class="i.remarks.isWriting ? 'on' : ''"
+                      :id="'btnPreference' + schema[idx].params.slice(0,1).toUpperCase() + schema[idx].params.slice(1).toLowerCase() + '_remark'"
                       @click="writeRemarks(idx)"
                     )
                   textarea.remarks(
@@ -40,6 +42,7 @@
                     ref="remarks"
                   )
                   .remarks(
+                    :id="'txareaPreference' + schema[idx].params.slice(0,1).toUpperCase() + schema[idx].params.slice(1).toLowerCase() + '_remark'"
                     v-if="!i.remarks.isWriting"
                     v-html="i.remarks.text"
                     @click="writeRemarks(idx)"
@@ -82,7 +85,7 @@ export default {
     ...Vuex.mapMutations('preference',['changeUnit']),
     ...Vuex.mapActions('preference',['getPreferenceData','changeDatasetRemarks']),
     UnitAni(){
-      let distance = $(this.$refs.theme[this.nowUnit]).offset().top - $(this.$refs.theme[0]).offset().top
+      let distance = $(this.$refs.unit[this.nowUnit]).offset().top - $(this.$refs.unit[0]).offset().top
       $(this.$refs.unitboxin).animate({ scrollTop: distance },this.aniSpeed)
     },
     writeRemarks(idx){
@@ -109,7 +112,7 @@ export default {
     }
   },
   destroyed(){
-    this.changeUnit(0)
+    
   },
 }
 </script>

@@ -1,9 +1,9 @@
 <template lang="pug">
   .panel.creditcard
     .container(v-if="data.card_amount")
-      .btn_hascreditcard(@click="changeSection(5)")
+      .btn_hascreditcard#lnkIndexCreditcard(@click="changeSection(5)")
         |持有 {{ data.card_amount }} 張信用卡
-      .bouns(@click="changeSection(6)")
+      .bouns#lnkIndexBonus(@click="changeSection(6)")
         .title 本期帳單紅利
         .content {{ data.bonus_points }}
       .sum

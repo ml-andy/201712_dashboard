@@ -6,7 +6,7 @@
         .customername
           .name {{ customer_name }}
           .male {{ data.gender === 'F' ? '小姐' : '先生' }}
-        .btn_complain(
+        .btn_complain#lnkIndexComplain(
           :class="data.complaint > 0 ? '' : 'off'"
           @click="changeSection(3)"
         )
@@ -35,7 +35,7 @@
     .unit_info
       .leftside
         .icon_info
-        .btn_vip(
+        .btn_vip#lnkIndexVip(
           v-if="data.vip_status"
           @click="changeSection(4)"
         )

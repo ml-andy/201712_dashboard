@@ -10,6 +10,7 @@
           .link(
             v-for="(d,idx) in itemlist",
             :class="d.show ? 'on' : ''",
+            :id="'lnkNav' + d.title.slice(0,1).toUpperCase() + d.title.slice(1).toLowerCase()"
             v-if="!d.empty"
             @click="linkClick(idx)")
             span(:style="{ backgroundImage:`url(./images/${d.bgPhoto})` }")

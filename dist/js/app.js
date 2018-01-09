@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3f8ffcb7f9659534ed17"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2b2ddaba65b9666788dd"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9165,6 +9165,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 exports.default = {
   name: 'Nav',
@@ -9257,6 +9258,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
 
 exports.default = {
   name: 'Preference',
@@ -9293,7 +9297,7 @@ exports.default = {
 
   methods: _extends({}, Vuex.mapMutations(['changeLoading']), Vuex.mapMutations('nav', ['changeSection']), Vuex.mapMutations('preference', ['changeUnit']), Vuex.mapActions('preference', ['getPreferenceData', 'changeDatasetRemarks']), {
     UnitAni: function UnitAni() {
-      var distance = $(this.$refs.theme[this.nowUnit]).offset().top - $(this.$refs.theme[0]).offset().top;
+      var distance = $(this.$refs.unit[this.nowUnit]).offset().top - $(this.$refs.unit[0]).offset().top;
       $(this.$refs.unitboxin).animate({ scrollTop: distance }, this.aniSpeed);
     },
     writeRemarks: function writeRemarks(idx) {
@@ -9322,9 +9326,7 @@ exports.default = {
       this.UnitAni();
     }
   },
-  destroyed: function destroyed() {
-    this.changeUnit(0);
-  }
+  destroyed: function destroyed() {}
 };
 
 /***/ }),
@@ -9668,6 +9670,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+//
 //
 //
 //
@@ -10352,7 +10355,7 @@ var nav = {
     }, {
       title: 'PREFERENCE',
       bgPhoto: 'nav_icon4.png',
-      show: false,
+      show: true,
       empty: false
     }, {
       title: 'COMPLAIN',
@@ -10441,9 +10444,6 @@ var preference = {
       title: '產品',
       tag: '',
       content: [{
-        subtitle: '推薦商品',
-        text: ''
-      }, {
         subtitle: '話術',
         text: ''
       }],
@@ -10455,9 +10455,6 @@ var preference = {
       title: '專案',
       tag: '',
       content: [{
-        subtitle: '推薦商品',
-        text: ''
-      }, {
         subtitle: '話術',
         text: ''
       }],
@@ -10500,18 +10497,12 @@ var preference = {
         //產品
         state.dataset[1].tag = data.results.product.item;
         state.dataset[1].remarks.text = data.results.product.annotation;
-        if (data.results.product.apitch.match(/\${(.+?)\}/g)) {
-          state.dataset[1].content[0].text = data.results.product.apitch.match(/\${(.+?)\}/g)[0].slice(2).slice(0, -1).split('/n').join('<br>');
-          state.dataset[1].content[1].text = data.results.product.apitch.match(/\${(.+?)\}/g)[1].slice(2).slice(0, -1).split('/n').join('<br>');
-        }
+        state.dataset[1].content[0].text = data.results.product.apitch;
 
         //專案
         state.dataset[2].tag = data.results.program.item;
         state.dataset[2].remarks.text = data.results.program.annotation;
-        if (data.results.program.apitch.match(/\${(.+?)\}/g)) {
-          state.dataset[2].content[0].text = data.results.program.apitch.match(/\${(.+?)\}/g)[0].slice(2).slice(0, -1).split('/n').join('<br>');
-          state.dataset[2].content[1].text = data.results.program.apitch.match(/\${(.+?)\}/g)[1].slice(2).slice(0, -1).split('/n').join('<br>');
-        }
+        state.dataset[2].content[0].text = data.results.program.apitch;
       }).catch(function (err) {
         console.log(err);
 
@@ -17103,6 +17094,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.schema), function(i) {
     return _c('span', {
       class: [i.type, _vm.newsDataClass.indexOf(i.name) >= 0 ? '' : 'off'],
+      attrs: {
+        "id": 'lnkIndex' + i.type.slice(0, 1).toUpperCase() + i.type.slice(1).toLowerCase()
+      },
       on: {
         "click": function($event) {
           _vm.switchNewsData(i.name)
@@ -17166,6 +17160,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, _vm._l((_vm.schema), function(i, idx) {
     return _c('div', {
       staticClass: "btn",
+      attrs: {
+        "id": 'btnPreference' + i.params.slice(0, 1).toUpperCase() + i.params.slice(1).toLowerCase()
+      },
       on: {
         "click": function($event) {
           _vm.changeUnit(idx)
@@ -17187,6 +17184,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "unitboxin"
   }, _vm._l((_vm.dataset), function(i, idx) {
     return _c('div', {
+      ref: "unit",
+      refInFor: true,
       staticClass: "unit"
     }, [_c('div', {
       staticClass: "topbar"
@@ -17200,8 +17199,6 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       staticClass: "content"
     }, _vm._l((i.content), function(d) {
       return _c('div', {
-        ref: "theme",
-        refInFor: true,
         staticClass: "theme"
       }, [_c('div', {
         staticClass: "subtitle"
@@ -17218,6 +17215,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }, [_vm._v("備註"), _c('div', {
       staticClass: "rewrite",
       class: i.remarks.isWriting ? 'on' : '',
+      attrs: {
+        "id": 'btnPreference' + _vm.schema[idx].params.slice(0, 1).toUpperCase() + _vm.schema[idx].params.slice(1).toLowerCase() + '_remark'
+      },
       on: {
         "click": function($event) {
           _vm.writeRemarks(idx)
@@ -17249,6 +17249,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
       }
     }), (!i.remarks.isWriting) ? _c('div', {
       staticClass: "remarks",
+      attrs: {
+        "id": 'txareaPreference' + _vm.schema[idx].params.slice(0, 1).toUpperCase() + _vm.schema[idx].params.slice(1).toLowerCase() + '_remark'
+      },
       domProps: {
         "innerHTML": _vm._s(i.remarks.text)
       },
@@ -17604,6 +17607,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     return (!d.empty) ? _c('div', {
       staticClass: "link",
       class: d.show ? 'on' : '',
+      attrs: {
+        "id": 'lnkNav' + d.title.slice(0, 1).toUpperCase() + d.title.slice(1).toLowerCase()
+      },
       on: {
         "click": function($event) {
           _vm.linkClick(idx)
@@ -17648,6 +17654,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "container"
   }, [_c('div', {
     staticClass: "btn_hascreditcard",
+    attrs: {
+      "id": "lnkIndexCreditcard"
+    },
     on: {
       "click": function($event) {
         _vm.changeSection(5)
@@ -17655,6 +17664,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_vm._v("持有 " + _vm._s(_vm.data.card_amount) + " 張信用卡")]), _c('div', {
     staticClass: "bouns",
+    attrs: {
+      "id": "lnkIndexBonus"
+    },
     on: {
       "click": function($event) {
         _vm.changeSection(6)
@@ -18009,6 +18021,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.data.gender === 'F' ? '小姐' : '先生'))])]), _c('div', {
     staticClass: "btn_complain",
     class: _vm.data.complaint > 0 ? '' : 'off',
+    attrs: {
+      "id": "lnkIndexComplain"
+    },
     on: {
       "click": function($event) {
         _vm.changeSection(3)
@@ -18040,6 +18055,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "icon_info"
   }), (_vm.data.vip_status) ? _c('div', {
     staticClass: "btn_vip",
+    attrs: {
+      "id": "lnkIndexVip"
+    },
     on: {
       "click": function($event) {
         _vm.changeSection(4)
@@ -18095,6 +18113,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "off"
   }, [_vm._v("請參考其他推薦(如下)")])]), (!_vm.data.is_contact_information_correct) ? _c('div', {
     staticClass: "btn_fallcontact",
+    attrs: {
+      "id": "lnkIndexFallcontact"
+    },
     on: {
       "click": function($event) {
         _vm.changeSection(1)
@@ -18110,6 +18131,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "btnbox"
   }, [(_vm.data.preference) ? _c('li', [_c('div', {
     staticClass: "btn btn_recommend",
+    attrs: {
+      "id": "lnkIndexPreference"
+    },
     on: {
       "click": function($event) {
         _vm.goPreference(2, 0)
@@ -18124,6 +18148,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "yes",
     class: _vm.preference === 1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexPreference_yes"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
@@ -18135,6 +18162,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _c('div', {
     staticClass: "no",
     class: _vm.preference === -1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexPreference_no"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
@@ -18145,6 +18175,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]) : _vm._e(), (!_vm.data.preference) ? _c('li', [_vm._m(0, false, false)]) : _vm._e(), (_vm.data.product) ? _c('li', [_c('div', {
     staticClass: "btn btn_product",
+    attrs: {
+      "id": "lnkIndexProduct"
+    },
     on: {
       "click": function($event) {
         _vm.goPreference(2, 1)
@@ -18159,6 +18192,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "yes",
     class: _vm.product === 1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexProduct_yes"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
@@ -18170,6 +18206,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _c('div', {
     staticClass: "no",
     class: _vm.product === -1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexProduct_no"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
@@ -18180,6 +18219,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]) : _vm._e(), (!_vm.data.product) ? _c('li', [_vm._m(1, false, false)]) : _vm._e(), (_vm.data.program) ? _c('li', [_c('div', {
     staticClass: "btn btn_project",
+    attrs: {
+      "id": "lnkIndexProgram"
+    },
     on: {
       "click": function($event) {
         _vm.goPreference(2, 2)
@@ -18194,6 +18236,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('div', {
     staticClass: "yes",
     class: _vm.program === 1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexProgram_yes"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
@@ -18205,6 +18250,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }), _c('div', {
     staticClass: "no",
     class: _vm.program === -1 ? 'on' : '',
+    attrs: {
+      "id": "btnIndexProgram_no"
+    },
     on: {
       "click": function($event) {
         _vm.postRecommendData({
