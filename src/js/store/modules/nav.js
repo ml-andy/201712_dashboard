@@ -18,7 +18,7 @@ const nav = {
       {
         title: 'PREFERENCE',
         bgPhoto: 'nav_icon4.png',
-        show: true,
+        show: false,
         empty: false,
       },
       {

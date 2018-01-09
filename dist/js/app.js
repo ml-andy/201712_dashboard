@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "2b2ddaba65b9666788dd"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c2afa300b7bdb097150f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10355,7 +10355,7 @@ var nav = {
     }, {
       title: 'PREFERENCE',
       bgPhoto: 'nav_icon4.png',
-      show: true,
+      show: false,
       empty: false
     }, {
       title: 'COMPLAIN',
