@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c2afa300b7bdb097150f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5d61c89ef7334797e1d6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -8290,8 +8290,6 @@ exports.default = {
         width: window.innerWidth,
         height: window.innerHeight
       });
-
-      _this.changeLoading(false);
     });
 
     $(window).on('resize', function () {
@@ -8300,6 +8298,8 @@ exports.default = {
         height: window.innerHeight
       });
     });
+
+    this.changeLoading(false);
   },
 
   methods: _extends({}, Vuex.mapMutations(['changeLoading', 'changeShowNav', 'changeWindowSize', 'changeStateKeyValue']), {

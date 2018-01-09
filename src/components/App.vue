@@ -65,8 +65,6 @@ export default {
         width:window.innerWidth,
         height:window.innerHeight
       })
-      
-      this.changeLoading(false)
     })
 
     $(window).on('resize',()=>{
@@ -75,6 +73,8 @@ export default {
         height:window.innerHeight
       })
     })
+
+    this.changeLoading(false)
   },
   methods:{
     ...Vuex.mapMutations(['changeLoading','changeShowNav','changeWindowSize','changeStateKeyValue']),
