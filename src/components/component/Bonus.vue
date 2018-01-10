@@ -32,8 +32,8 @@
           .box(v-bar)
             ul
               li(v-for="i in dataset.find(d=>d.name === 'points').list")
-                .date {{ i.date.slice(2).split('.').join('-') }}
-                .points {{ i.count }}
+                .date {{ i.date.split('.').join('-') }}
+                .points {{ thousandsSeparators(i.count) }}
         
       .rightside
         .unitbox
@@ -78,7 +78,7 @@ export default {
           data:this.dataset[1].list
         },
       ]
-    }
+    },
   },
   beforeMount(){
     this.changeLoading(true)
@@ -94,6 +94,9 @@ export default {
     ...Vuex.mapMutations(['changeLoading']),
     ...Vuex.mapMutations('nav',['changeSection']),
     ...Vuex.mapActions('bonus',['getBonusData']),
+    thousandsSeparators(value){
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    },
   },
   watch:{
     windowSize:{

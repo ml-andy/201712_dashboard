@@ -34,10 +34,10 @@ const journey = {
         console.log(data.results)
         state.dataset = []
         data.results.forEach(i => {
-          console.log(state.schema.find(d => d.name === i.event_type))
-          if(state.schema.find(d => d.name === i.event_type)) state.dataset.push(i)
+          let obj = i
+          if(obj.event_type === '客服') obj.event_type = '客服進線'
+          if(state.schema.find(d => d.name === obj.event_type)) state.dataset.push(obj)
         })
-        console.log(state.dataset)
       })
       .catch(err => console.log(err))
       // .finally(()=>{

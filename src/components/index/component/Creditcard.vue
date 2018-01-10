@@ -5,11 +5,11 @@
         |持有 {{ data.card_amount }} 張信用卡
       .bouns#lnkIndexBonus(@click="changeSection(6)")
         .title 本期帳單紅利
-        .content {{ data.bonus_points }}
+        .content {{ thousandsSeparators(data.bonus_points) }}
       .sum
         .quoda
           .title 額度
-          .content {{ data.credit_limit }}
+          .content {{ thousandsSeparators(data.credit_limit) }}
         .auto
           |{{ data.auto_payment ? '有' : '無'}} 自扣
       .des(v-if="data.myreword_downloaded")
@@ -47,6 +47,9 @@ export default {
   methods:{
     ...Vuex.mapMutations('nav',['changeSection']),
     ...Vuex.mapActions('creditcardBonus',['getCreditcardBonus']),
+    thousandsSeparators(value){
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+    }
   },
   watch:{
     

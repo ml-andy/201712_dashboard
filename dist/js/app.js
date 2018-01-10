@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dd9cc22db2e9c51991f2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "2cb09337b237efc033f0"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4429,7 +4429,7 @@ module.exports = function xhrAdapter(config) {
     // For IE 8/9 CORS support
     // Only supports POST and GET calls and doesn't returns the response headers.
     // DON'T do this for testing b/c XMLHttpRequest is mocked, not XDomainRequest.
-    if (__webpack_require__.i({"apiUrl":"https://88.8.195.65:8443/api"}).NODE_ENV !== 'test' &&
+    if (__webpack_require__.i({"apiUrl":"https://88.8.196.56:8443/api"}).NODE_ENV !== 'test' &&
         typeof window !== 'undefined' &&
         window.XDomainRequest && !('withCredentials' in request) &&
         !isURLSameOrigin(config.url)) {
@@ -6053,7 +6053,7 @@ var store = new Vuex.Store({
       width: 380,
       height: 768
     },
-    backEndUrl: "https://88.8.195.65:8443/api",
+    backEndUrl: "https://88.8.196.56:8443/api",
     teller_id: '',
     customer_id: '',
     customer_name: '',
@@ -8443,7 +8443,11 @@ exports.default = {
     };
   },
 
-  methods: _extends({}, Vuex.mapMutations(['changeLoading']), Vuex.mapMutations('nav', ['changeSection']), Vuex.mapActions('bonus', ['getBonusData'])),
+  methods: _extends({}, Vuex.mapMutations(['changeLoading']), Vuex.mapMutations('nav', ['changeSection']), Vuex.mapActions('bonus', ['getBonusData']), {
+    thousandsSeparators: function thousandsSeparators(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }),
   watch: {
     windowSize: {
       handler: function handler(e) {
@@ -8790,7 +8794,7 @@ exports.default = {
         left: 60,
         right: 30,
         top: 20,
-        bottom: 40
+        bottom: 25
       },
       xScale: function xScale() {
         return 0;
@@ -8936,7 +8940,7 @@ exports.default = {
       });
 
       this.xAxis = d3.axisBottom(this.xScale).tickValues(xAxisArray).tickFormat(d3.timeFormat("%Y.%m.%d"));
-      this.yAxis = d3.axisLeft(this.yScale).tickValues(yAxisArray).tickFormat(function (d) {
+      this.yAxis = d3.axisLeft(this.yScale).ticks(yAxisArray.length).tickFormat(function (d) {
         return d;
       });
 
@@ -8945,14 +8949,13 @@ exports.default = {
           var self = d3.select(this);
           var s = self.text().split('.');
           self.text('');
-          self.append("tspan").attr("x", 0).attr("dy", ".8em").text(s[0]);
-          self.append("tspan").attr("x", 0).attr("dy", ".8em").text(s[1] + '-' + s[2]);
+          self.append("tspan").attr("x", 0).attr("dy", ".8em").text(s[0] + '-' + s[1]);
         });
       });
 
       this.dom.select('.yaxis').call(this.yAxis);
       this.dom.select('.xgrid').call(d3.axisBottom(this.xScale).tickValues(xAxisArray).tickSize(-1 * (this.svgWH.height - this.padding.top - this.padding.bottom)).tickFormat(""));
-      this.dom.select('.ygrid').call(d3.axisLeft(this.yScale).tickValues(yAxisArray).tickSize(-1 * (this.svgWH.width - this.padding.left - this.padding.right)).tickFormat(""));
+      this.dom.select('.ygrid').call(d3.axisLeft(this.yScale).ticks(yAxisArray.length).tickSize(-1 * (this.svgWH.width - this.padding.left - this.padding.right)).tickFormat(""));
     },
     setline: function setline(index) {
       return this.line != '' ? this.line(this.dataset[index].datas) : '';
@@ -9449,6 +9452,12 @@ exports.default = {
     },
     windowSize: function windowSize(state) {
       return state.windowSize;
+    },
+    data: function data(state) {
+      return state.information.dataset;
+    },
+    customer_name: function customer_name(state) {
+      return state.customer_name;
     }
   })),
   mounted: function mounted() {},
@@ -9532,7 +9541,11 @@ exports.default = {
   },
   mounted: function mounted() {},
 
-  methods: _extends({}, Vuex.mapMutations('nav', ['changeSection']), Vuex.mapActions('creditcardBonus', ['getCreditcardBonus'])),
+  methods: _extends({}, Vuex.mapMutations('nav', ['changeSection']), Vuex.mapActions('creditcardBonus', ['getCreditcardBonus']), {
+    thousandsSeparators: function thousandsSeparators(value) {
+      return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+  }),
   watch: {},
   destroyed: function destroyed() {},
 
@@ -9730,8 +9743,11 @@ exports.default = {
 
   methods: _extends({}, Vuex.mapMutations('nav', ['changeSection']), Vuex.mapActions('journey', ['getJourneyData']), {
     switchNewsData: function switchNewsData(classify) {
-      var result = this.newsDataClass.indexOf(classify);
-      if (result >= 0) this.newsDataClass.splice(result, 1);else this.newsDataClass.push(classify);
+      // let result = this.newsDataClass.indexOf(classify)
+      // if(result >= 0) this.newsDataClass.splice(result,1)
+      // else this.newsDataClass.push(classify)
+      this.newsDataClass = [];
+      this.newsDataClass.push(classify);
     }
   }),
   watch: {},
@@ -9918,10 +9934,7 @@ var bonus = {
   state: {
     dataset: [{
       name: 'expire',
-      list: [{
-        date: '',
-        count: 0
-      }]
+      list: []
     }, {
       name: 'points',
       list: []
@@ -9959,7 +9972,7 @@ var bonus = {
               day = new Date(year, month * 1, 0).getDate();
 
           return {
-            date: year + '-' + month + '-' + day,
+            date: year + '-' + month,
             count: i.points
           };
         });
@@ -10311,14 +10324,12 @@ var journey = {
         console.log(data.results);
         state.dataset = [];
         data.results.forEach(function (i) {
-          console.log(state.schema.find(function (d) {
-            return d.name === i.event_type;
-          }));
+          var obj = i;
+          if (obj.event_type === '客服') obj.event_type = '客服進線';
           if (state.schema.find(function (d) {
-            return d.name === i.event_type;
-          })) state.dataset.push(i);
+            return d.name === obj.event_type;
+          })) state.dataset.push(obj);
         });
-        console.log(state.dataset);
       }).catch(function (err) {
         return console.log(err);
       });
@@ -10587,10 +10598,6 @@ var recommend = {
       var path = _ref2.path,
           title = _ref2.title;
 
-      //fake
-      var isInLimmit = (new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000 <= 30 ? state.data.expiring_credit_card_points[0].points : 0;
-      state.data.expiring_credit_card_points[0].points = isInLimmit;
-
       axios.get(rootState.backEndUrl + '/teller_reference', {
         params: {
           teller_id: rootState.teller_id,
@@ -10604,11 +10611,10 @@ var recommend = {
         state.data = data.results;
         var isExpiring = (new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000 <= 30 ? state.data.expiring_credit_card_points[0].points : 0;
         state.data.expiring_credit_card_points[0].points = isExpiring;
-        console.log(state.data);
       }).catch(function (err) {
         return console.log(err);
       }).finally(function () {
-        var emptyValue = [!state.data.is_contact_information_correct || !state.data.can_market ? true : false, !state.data.preference && !state.data.product && !state.data.program || !state.data.can_market ? true : false];
+        var emptyValue = [state.data.is_contact_information_correct || !state.data.can_market ? true : false, !state.data.preference && !state.data.product && !state.data.program || !state.data.can_market ? true : false];
 
         title.forEach(function (i, idx) {
           commit('nav/changeItemEmpty', {
@@ -17324,9 +17330,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('ul', _vm._l((_vm.dataset.find(function (d) { return d.name === 'points'; }).list), function(i) {
     return _c('li', [_c('div', {
       staticClass: "date"
-    }, [_vm._v(_vm._s(i.date.slice(2).split('.').join('-')))]), _c('div', {
+    }, [_vm._v(_vm._s(i.date.split('.').join('-')))]), _c('div', {
       staticClass: "points"
-    }, [_vm._v(_vm._s(i.count))])])
+    }, [_vm._v(_vm._s(_vm.thousandsSeparators(i.count)))])])
   }))])])]), _c('div', {
     staticClass: "rightside"
   }, [_c('div', {
@@ -17485,9 +17491,8 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_c('span', {
     staticClass: "subtitle"
   }, [_vm._v(_vm._s(_vm.nowItem.name.toLocaleString('zh-tw', {
-    year: '2-digit',
-    month: '2-digit',
-    day: '2-digit'
+    year: 'numeric',
+    month: '2-digit'
   })))]), _c('span', [_vm._v(_vm._s(_vm.nowItem.data))])])]), _c('div', {
     ref: "zoombar",
     staticClass: "zoombar"
@@ -17676,7 +17681,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("本期帳單紅利")]), _c('div', {
     staticClass: "content"
-  }, [_vm._v(_vm._s(_vm.data.bonus_points))])]), _c('div', {
+  }, [_vm._v(_vm._s(_vm.thousandsSeparators(_vm.data.bonus_points)))])]), _c('div', {
     staticClass: "sum"
   }, [_c('div', {
     staticClass: "quoda"
@@ -17684,7 +17689,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("額度")]), _c('div', {
     staticClass: "content"
-  }, [_vm._v(_vm._s(_vm.data.credit_limit))])]), _c('div', {
+  }, [_vm._v(_vm._s(_vm.thousandsSeparators(_vm.data.credit_limit)))])]), _c('div', {
     staticClass: "auto"
   }, [_vm._v(_vm._s(_vm.data.auto_payment ? '有' : '無') + " 自扣")])]), (_vm.data.myreword_downloaded) ? _c('div', {
     staticClass: "des"
@@ -17828,9 +17833,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "namebar"
   }, [_c('div', {
     staticClass: "name"
-  }, [_vm._v("王大明")]), _c('div', {
+  }, [_vm._v(_vm._s(_vm.customer_name))]), _c('div', {
     staticClass: "male"
-  }, [_vm._v("先生")])]) : _vm._e(), _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.gender === 'F' ? '小姐' : '先生'))])]) : _vm._e(), _c('div', {
     staticClass: "area recommend"
   }, [_c('Recommend')], 1), _c('div', {
     staticClass: "area information"

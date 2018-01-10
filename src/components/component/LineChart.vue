@@ -43,7 +43,7 @@
       :class="tipBoxOn",
       ref="tipBox")
       .startDate
-        span.subtitle {{nowItem.name.toLocaleString('zh-tw',{year:'2-digit',month:'2-digit',day:'2-digit'})}}
+        span.subtitle {{nowItem.name.toLocaleString('zh-tw',{year:'numeric',month:'2-digit'})}}
         span {{nowItem.data}}
     .zoombar(ref="zoombar")
       .zoomdrag(
@@ -79,7 +79,7 @@ export default {
         left:60,
         right:30,
         top:20,
-        bottom:40,
+        bottom:25,
       },
       xScale:function(){return 0},
       yScale:function(){return 0},
@@ -211,7 +211,7 @@ export default {
       })
       
       this.xAxis = d3.axisBottom(this.xScale).tickValues(xAxisArray).tickFormat(d3.timeFormat("%Y.%m.%d"))
-      this.yAxis = d3.axisLeft(this.yScale).tickValues(yAxisArray).tickFormat(d=>d)
+      this.yAxis = d3.axisLeft(this.yScale).ticks(yAxisArray.length).tickFormat(d=>d)
 
       this.dom.select('.xaxis')
         .call(this.xAxis)
@@ -224,17 +224,13 @@ export default {
             self.append("tspan")
               .attr("x", 0)
               .attr("dy",".8em")
-              .text(s[0]);
-            self.append("tspan")
-              .attr("x", 0)
-              .attr("dy",".8em")
-              .text(s[1]+'-'+s[2])
+              .text(s[0]+'-'+s[1])
           })
         })
         
       this.dom.select('.yaxis').call(this.yAxis)
       this.dom.select('.xgrid').call(d3.axisBottom(this.xScale).tickValues(xAxisArray).tickSize(-1*(this.svgWH.height - this.padding.top - this.padding.bottom)).tickFormat(""))
-      this.dom.select('.ygrid').call(d3.axisLeft(this.yScale).tickValues(yAxisArray).tickSize(-1*(this.svgWH.width - this.padding.left - this.padding.right)).tickFormat(""))
+      this.dom.select('.ygrid').call(d3.axisLeft(this.yScale).ticks(yAxisArray.length).tickSize(-1*(this.svgWH.width - this.padding.left - this.padding.right)).tickFormat(""))
     },
     setline(index){
       return this.line != '' ? this.line(this.dataset[index].datas) : ''

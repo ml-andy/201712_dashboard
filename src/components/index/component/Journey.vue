@@ -54,9 +54,11 @@ export default {
     ...Vuex.mapMutations('nav',['changeSection']),
     ...Vuex.mapActions('journey',['getJourneyData']),
     switchNewsData(classify){
-      let result = this.newsDataClass.indexOf(classify)
-      if(result >= 0) this.newsDataClass.splice(result,1)
-      else this.newsDataClass.push(classify)
+      // let result = this.newsDataClass.indexOf(classify)
+      // if(result >= 0) this.newsDataClass.splice(result,1)
+      // else this.newsDataClass.push(classify)
+      this.newsDataClass = []
+      this.newsDataClass.push(classify)
     }
   },
   watch:{

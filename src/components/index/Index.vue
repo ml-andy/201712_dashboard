@@ -1,8 +1,8 @@
 <template lang="pug">
   section.index
     .namebar(v-if="showName")
-      .name 王大明
-      .male 先生
+      .name {{ customer_name }}
+      .male {{ data.gender === 'F' ? '小姐' : '先生' }}
     .area.recommend
       Recommend
     .area.information
@@ -31,6 +31,8 @@ export default {
     ...Vuex.mapState({
       loadingShow: state => state.loadingShow,
       windowSize: state => state.windowSize,
+      data: state => state.information.dataset,
+      customer_name: state => state.customer_name,
     }),
   },
   mounted(){

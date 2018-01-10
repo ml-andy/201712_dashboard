@@ -28,10 +28,6 @@ const recommend = {
   },
   actions:{
     getRecommendData({ state, rootState, commit }, {path, title} ){
-      //fake
-      let isInLimmit = ((new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000) <= 30 ? state.data.expiring_credit_card_points[0].points : 0
-      state.data.expiring_credit_card_points[0].points = isInLimmit
-
       axios.get(`${rootState.backEndUrl}/teller_reference`, {
           params: {
             teller_id: rootState.teller_id,
@@ -44,12 +40,11 @@ const recommend = {
           state.data = data.results
           let isExpiring = ((new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000) <= 30 ? state.data.expiring_credit_card_points[0].points : 0
           state.data.expiring_credit_card_points[0].points = isExpiring
-          console.log(state.data)
         })
         .catch(err => console.log(err))
         .finally(()=>{
           let emptyValue = [
-            !state.data.is_contact_information_correct || !state.data.can_market ? true : false,
+            state.data.is_contact_information_correct || !state.data.can_market ? true : false,
             !state.data.preference && !state.data.product && !state.data.program || !state.data.can_market ? true : false
           ]
           

@@ -26,8 +26,7 @@ const store = new Vuex.Store({
     },
     changeStateKeyValue(state, {key, value}){
       state[key] = value
-    }
-    
+    },
   },
 
   getters: {
