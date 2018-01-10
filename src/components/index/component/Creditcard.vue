@@ -4,7 +4,7 @@
       .btn_hascreditcard#lnkIndexCreditcard(@click="changeSection(5)")
         |持有 {{ data.card_amount }} 張信用卡
       .bouns#lnkIndexBonus(@click="changeSection(6)")
-        .title 本期帳單紅利
+        .title 近一期帳單紅利
         .content {{ thousandsSeparators(data.bonus_points) }}
       .sum
         .quoda

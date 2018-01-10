@@ -44,7 +44,7 @@
       ref="tipBox")
       .startDate
         span.subtitle {{nowItem.name.toLocaleString('zh-tw',{year:'numeric',month:'2-digit'})}}
-        span {{nowItem.data}}
+        span {{ nowItem.data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") }}
     .zoombar(ref="zoombar")
       .zoomdrag(
         :class="canZoomdrag ? 'on' : ''",

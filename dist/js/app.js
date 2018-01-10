@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7770b3b0258c6e8646ec"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b167f34db86871f34ea4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -17493,7 +17493,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   }, [_vm._v(_vm._s(_vm.nowItem.name.toLocaleString('zh-tw', {
     year: 'numeric',
     month: '2-digit'
-  })))]), _c('span', [_vm._v(_vm._s(_vm.nowItem.data))])])]), _c('div', {
+  })))]), _c('span', [_vm._v(_vm._s(_vm.nowItem.data.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")))])])]), _c('div', {
     ref: "zoombar",
     staticClass: "zoombar"
   }, [_c('div', {
@@ -17679,7 +17679,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("本期帳單紅利")]), _c('div', {
+  }, [_vm._v("近一期帳單紅利")]), _c('div', {
     staticClass: "content"
   }, [_vm._v(_vm._s(_vm.thousandsSeparators(_vm.data.bonus_points)))])]), _c('div', {
     staticClass: "sum"
