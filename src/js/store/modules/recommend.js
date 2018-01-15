@@ -13,7 +13,7 @@ const recommend = {
           points: 0,
         }
       ],
-      myreword_recommendation: false,
+      myreward_recommendation: false,
       is_contact_information_correct: false,
       preference: '',
       product: '',

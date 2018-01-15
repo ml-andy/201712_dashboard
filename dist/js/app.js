@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b167f34db86871f34ea4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e9daf8a07580b567c11d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10156,7 +10156,7 @@ var creditcardBonus = {
       "auto_payment": false,
       "credit_limit": '',
       "card_amount": '',
-      "myreword_downloaded": false
+      "myreward_downloaded": false
     }
   },
   mutations: {},
@@ -10579,7 +10579,7 @@ var recommend = {
         date: '',
         points: 0
       }],
-      myreword_recommendation: false,
+      myreward_recommendation: false,
       is_contact_information_correct: false,
       preference: '',
       product: '',
@@ -17691,9 +17691,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "content"
   }, [_vm._v(_vm._s(_vm.thousandsSeparators(_vm.data.credit_limit)))])]), _c('div', {
     staticClass: "auto"
-  }, [_vm._v(_vm._s(_vm.data.auto_payment ? '有' : '無') + " 自扣")])]), (_vm.data.myreword_downloaded) ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.auto_payment ? '有' : '無') + " 自扣")])]), (_vm.data.myreward_downloaded) ? _c('div', {
     staticClass: "des"
-  }, [_vm._v(_vm._s(_vm.data.myreword_downloaded ? '已' : '未') + "下載  國泰優惠")]) : _vm._e(), _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.myreward_downloaded ? '已' : '未') + "下載  國泰優惠")]) : _vm._e(), _c('div', {
     staticClass: "datetime"
   }, [_vm._v("時間：" + _vm._s(_vm.data.updated_time))])]) : _vm._e(), (!_vm.data.card_amount) ? _c('div', {
     staticClass: "container_empty"
@@ -18108,9 +18108,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "unit_say"
   }, [_c('div', {
     staticClass: "title"
-  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points != 0 || _vm.data.myreword_recommendation) ? _c('div', {
+  }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points != 0 || _vm.data.myreward_recommendation) ? _c('div', {
     staticClass: "content"
-  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreword_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
+  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreward_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
     staticClass: "content"
   }, [(!_vm.data.can_market) ? _c('span', {
     staticClass: "cant_market"

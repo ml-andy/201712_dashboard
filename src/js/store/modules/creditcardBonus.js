@@ -8,7 +8,7 @@ const creditcardBonus = {
       "auto_payment": false,
       "credit_limit": '',
       "card_amount": '',
-      "myreword_downloaded": false
+      "myreward_downloaded": false
     }
   },
   mutations:{

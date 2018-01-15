@@ -12,8 +12,8 @@
           .content {{ thousandsSeparators(data.credit_limit) }}
         .auto
           |{{ data.auto_payment ? '有' : '無'}} 自扣
-      .des(v-if="data.myreword_downloaded")
-        |{{ data.myreword_downloaded ? '已' : '未'}}下載  國泰優惠
+      .des(v-if="data.myreward_downloaded")
+        |{{ data.myreward_downloaded ? '已' : '未'}}下載  國泰優惠
       .datetime
         |時間：{{ data.updated_time }}
     .container_empty(v-if="!data.card_amount") 非本行信用卡客戶

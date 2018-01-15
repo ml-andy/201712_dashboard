@@ -4,11 +4,11 @@
       .unit_say
         .title 我可以說什麼
         .content(
-          v-if="data.upgradable_card || data.expiring_credit_card_points[0].points != 0 || data.myreword_recommendation"
+          v-if="data.upgradable_card || data.expiring_credit_card_points[0].points != 0 || data.myreward_recommendation"
         )
           span(v-if="data.upgradable_card") {{ data.upgradable_card }}
           span(v-if="data.expiring_credit_card_points[0].points != 0 ? true : false") 信用卡紅利 {{ data.expiring_credit_card_points[0].date }}到期
-          span(v-if="data.myreword_recommendation") 可下載 國泰優惠
+          span(v-if="data.myreward_recommendation") 可下載 國泰優惠
           
         .content(v-else)
           span.cant_market(v-if="!data.can_market") 不適合行銷
