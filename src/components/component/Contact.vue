@@ -67,6 +67,7 @@
             .status(:class="data.cc_residential_address ? '' : 'error'")
               |{{ data.cc_residential_address ? '資料正確' : '待更新' }}
         span.notmatch(v-else) 非本行卡友
+        span.des 註: 包含簽帳金融卡
     .bgcover(@click="changeSection(-1)")
     
 </template>

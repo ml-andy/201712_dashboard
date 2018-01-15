@@ -143,10 +143,19 @@ $vph:700;
 
       .notmatch{
         @include r;
-        @include fontvw(16,21,#7f8c8d,bolder);
+        @include fontvw(16,21,#34495e);
         box-sizing: border-box;
         padding-right: getVW(10);
         text-transform: uppercase;
+      }
+
+      .des{
+        @include r;
+        @include fontvw(16,21,#34495e);
+        box-sizing: border-box;
+        text-align: right;
+        text-transform: uppercase;
+        margin-top: getVW(10);
       }
     }
   }
@@ -305,10 +314,19 @@ $vph:700;
 
         .notmatch{
           @include r;
-          @include fontvw(16,21,#7f8c8d,bolder);
+          @include fontvw(16,21,#34495e);
           box-sizing: border-box;
           padding-right: getVW(10);
           text-transform: uppercase;
+        }
+
+        .des{
+          @include r;
+          @include fontvw(16,21,#34495e);
+          box-sizing: border-box;
+          text-align: right;
+          text-transform: uppercase;
+          margin-top: getVW(10);
         }
       }
     }
