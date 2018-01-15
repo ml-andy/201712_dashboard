@@ -61,7 +61,8 @@ $vph:700;
 
   .main{
     @include r;
-    height: calc(100% - #{getVW(30)});
+    height: getVH(280);
+    // height: calc(100% - #{getVW(30)});
     box-sizing: border-box;
     padding-top: getVH(10);
 
