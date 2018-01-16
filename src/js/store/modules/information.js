@@ -33,11 +33,18 @@ const information = {
         }
       })
       .then(({data})=>{
-        console.log(data)
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchError', data, { root: true });
+          return
+        }
+        
+        console.log(data);
         state.dataset = data.results
-        console.log(state.dataset)
+        commit('changeLoading', false, { root: true });
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        commit('catchError', err, { root: true });
+      })
       .finally(()=>{
         let result = [
           {

@@ -30,18 +30,17 @@ const contact = {
         }
       })
       .then(({data})=>{
-        console.log(data.results)
-        state.dataset = data.results
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchError', data, { root: true });
+          return
+        }
+        
+        console.log(data);
+        state.dataset = data.results;
+        commit('changeLoading', false, { root: true });
       })
       .catch(err => {
-        console.log(err)
-        
-        commit(
-          'changeLoading',
-          false
-          ,
-          { root: true }
-        )
+        commit('catchError', err, { root: true });
       })
       .finally(()=>{
         commit(

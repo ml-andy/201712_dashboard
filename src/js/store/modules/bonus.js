@@ -26,7 +26,12 @@ const bonus = {
         }
       })
       .then(({data})=>{
-        console.log(data.results)
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchError', data, { root: true });
+          return
+        }
+
+        console.log(data);
         state.dataset[0].list = data.results.expiring_points.map(i=>{
           let dayDistance = (new Date(i.date) - new Date()) / 86400000
           return {
@@ -46,16 +51,11 @@ const bonus = {
             count: i.points
           }
         })
+
+        commit('changeLoading', false, { root: true });
       })
       .catch(err => {
-        console.log(err)
-        
-        commit(
-          'changeLoading',
-          false
-          ,
-          { root: true }
-        )
+        commit('catchError', err, { root: true });
       })
       .finally(()=>{
         commit(

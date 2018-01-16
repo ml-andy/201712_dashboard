@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "ab84ea8d8360511292af"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "81eaa08d3a91d84dd7af"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -6067,7 +6067,8 @@ var store = new Vuex.Store({
     teller_id: '',
     customer_id: '',
     customer_name: '',
-    token: ''
+    token: '',
+    anyError: false
   },
 
   mutations: {
@@ -6089,6 +6090,49 @@ var store = new Vuex.Store({
           value = _ref2.value;
 
       state[key] = value;
+    },
+    catchError: function catchError(state, value) {
+      console.log(value);
+      if (state.anyError) return;
+
+      state.anyError = true;
+      document.body.innerHTML = "";
+      switch (value.api_code) {
+        case 'CustomerJourney_1001':
+          alert('系統異常:1001 請洽系統管理員');
+          break;
+        case 'CustomerJourney_2001':
+          alert('系統異常:2001 請洽系統管理員');
+          break;
+        case 'CustomerJourney_3001':
+          alert('系統異常:3001 請洽系統管理員');
+          break;
+        case 'CustomerJourney_4001':
+          alert('連結有誤:4001 請洽系統管理員');
+          break;
+        case 'CustomerJourney_5001':
+          alert('連結失效:5001 請回 etabs 重新點選');
+          break;
+        case 'CustomerJourney_5002':
+          alert('連結有誤:5002 請洽系統管理員');
+          break;
+        case 'CustomerJourney_5003':
+          alert('連結有誤:5003 請洽系統管理員');
+          break;
+        case 'CustomerJourney_6001':
+          alert('系統異常:6001 請洽系統管理員');
+          break;
+        case 'CustomerJourney_6002':
+          alert('系統異常:6002 請洽系統管理員');
+          break;
+        default:
+          alert('系統異常 請洽系統管理員');
+          break;
+      }
+    },
+    catchPostError: function catchPostError(state, value) {
+      console.log(value);
+      alert('送出失敗 請洽系統管理員');
     }
   },
 
@@ -8315,8 +8359,7 @@ exports.default = {
       this.changeStateKeyValue({ key: 'teller_id', value: this.getUrlVars()['teller_id'] });
       this.changeStateKeyValue({ key: 'customer_id', value: this.getUrlVars()['customer_id'] });
     } else {
-      $('body').remove();
-      alert('連結有誤');
+      this.catchError({ api_code: 'CustomerJourney_4001' });
     }
     if (this.getUrlVars()['customer_name']) this.changeStateKeyValue({ key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name']) });
     if (this.getUrlVars()['token']) this.changeStateKeyValue({ key: 'token', value: this.getUrlVars()['token'] });
@@ -8341,11 +8384,9 @@ exports.default = {
         height: window.innerHeight
       });
     });
-
-    this.changeLoading(false);
   },
 
-  methods: _extends({}, Vuex.mapMutations(['changeLoading', 'changeShowNav', 'changeWindowSize', 'changeStateKeyValue']), {
+  methods: _extends({}, Vuex.mapMutations(['changeLoading', 'changeShowNav', 'changeWindowSize', 'changeStateKeyValue', 'catchError']), {
     getUrlVars: function getUrlVars() {
       var vars = [],
           hash;var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
@@ -10003,7 +10044,12 @@ var bonus = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
+        console.log(data);
         state.dataset[0].list = data.results.expiring_points.map(function (i) {
           var dayDistance = (new Date(i.date) - new Date()) / 86400000;
           return {
@@ -10023,10 +10069,10 @@ var bonus = {
             count: i.points
           };
         });
-      }).catch(function (err) {
-        console.log(err);
 
         commit('changeLoading', false, { root: true });
+      }).catch(function (err) {
+        commit('catchError', err, { root: true });
       }).finally(function () {
         commit('changeLoading', false, { root: true });
       });
@@ -10068,12 +10114,16 @@ var complain = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
-        state.dataset = data.results;
-      }).catch(function (err) {
-        console.log(err);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
 
+        console.log(data);
+        state.dataset = data.results;
         commit('changeLoading', false, { root: true });
+      }).catch(function (err) {
+        commit('catchError', err, { root: true });
       }).finally(function () {
         commit('changeLoading', false, { root: true });
       });
@@ -10125,12 +10175,16 @@ var contact = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
-        state.dataset = data.results;
-      }).catch(function (err) {
-        console.log(err);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
 
+        console.log(data);
+        state.dataset = data.results;
         commit('changeLoading', false, { root: true });
+      }).catch(function (err) {
+        commit('catchError', err, { root: true });
       }).finally(function () {
         commit('changeLoading', false, { root: true });
       });
@@ -10170,13 +10224,17 @@ var creditcard = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
+        console.log(data);
         state.dataset = data.results.cards;
         state.has_electronic_bill = data.results.has_electronic_bill;
-      }).catch(function (err) {
-        console.log(err);
-
         commit('changeLoading', false, { root: true });
+      }).catch(function (err) {
+        commit('catchError', err, { root: true });
       }).finally(function () {
         commit('changeLoading', false, { root: true });
       });
@@ -10224,11 +10282,16 @@ var creditcardBonus = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
         console.log(data);
         state.dataset = data.results;
-        console.log(state.dataset);
+        commit('changeLoading', false, { root: true });
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchError', err, { root: true });
       }).finally(function () {
         var result = [{
           title: 'CREDITCARD',
@@ -10300,11 +10363,16 @@ var information = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
         console.log(data);
         state.dataset = data.results;
-        console.log(state.dataset);
+        commit('changeLoading', false, { root: true });
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchError', err, { root: true });
       }).finally(function () {
         var result = [{
           title: 'COMPLAIN',
@@ -10368,7 +10436,12 @@ var journey = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
+        console.log(data);
         state.dataset = [];
         data.results.forEach(function (i) {
           var obj = i;
@@ -10377,12 +10450,10 @@ var journey = {
             return d.name === obj.event_type;
           })) state.dataset.push(obj);
         });
+        commit('changeLoading', false, { root: true });
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchError', err, { root: true });
       });
-      // .finally(()=>{
-      //   console.log('123')
-      // })
     }
   }
 };
@@ -10542,8 +10613,12 @@ var preference = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
 
+        console.log(data);
         //偏好
         state.dataset[0].tag = data.results.preference.item;
         state.dataset[0].remarks.text = data.results.preference.annotation;
@@ -10561,6 +10636,8 @@ var preference = {
         state.dataset[2].tag = data.results.program.item;
         state.dataset[2].remarks.text = data.results.program.annotation;
         state.dataset[2].content[0].text = data.results.program.apitch;
+
+        commit('changeLoading', false, { root: true });
       }).catch(function (err) {
         console.log(err);
 
@@ -10592,11 +10669,16 @@ var preference = {
       axios.post(rootState.backEndUrl + '/teller_reference/preference', postData).then(function (_ref5) {
         var data = _ref5.data;
 
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchPostError', data, { root: true });
+          return;
+        }
+
         console.log(data);
         state.dataset[idx].remarks.text = text;
         state.dataset[idx].remarks.isWriting = isWriting;
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchPostError', err, { root: true });
       });
     }
   }
@@ -10654,12 +10736,19 @@ var recommend = {
       }).then(function (_ref3) {
         var data = _ref3.data;
 
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
+
         console.log(data);
         state.data = data.results;
         var isExpiring = (new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000 <= 30 ? state.data.expiring_credit_card_points[0].points : 0;
         state.data.expiring_credit_card_points[0].points = isExpiring;
+
+        commit('changeLoading', false, { root: true });
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchError', err, { root: true });
       }).finally(function () {
         var emptyValue = [state.data.is_contact_information_correct || !state.data.can_market ? true : false, !state.data.preference && !state.data.product && !state.data.program || !state.data.can_market ? true : false];
 
@@ -10688,14 +10777,16 @@ var recommend = {
       axios.post(rootState.backEndUrl + '/teller_reference', postData).then(function (_ref6) {
         var data = _ref6.data;
 
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchPostError', data, { root: true });
+          return;
+        }
+
         console.log(data);
         type ? state[key] = 1 : state[key] = -1;
       }).catch(function (err) {
-        return console.log(err);
+        commit('catchPostError', err, { root: true });
       });
-      // .finally(()=>{
-
-      // })
     }
   }
 };
@@ -10736,12 +10827,16 @@ var vip = {
       }).then(function (_ref2) {
         var data = _ref2.data;
 
-        console.log(data.results);
-        state.dataset = data.results;
-      }).catch(function (err) {
-        console.log(err);
+        if (data.api_code !== 'CustomerJourney_0000') {
+          commit('catchError', data, { root: true });
+          return;
+        }
 
+        console.log(data);
+        state.dataset = data.results;
         commit('changeLoading', false, { root: true });
+      }).catch(function (err) {
+        commit('catchError', err, { root: true });
       }).finally(function () {
         commit('changeLoading', false, { root: true });
       });

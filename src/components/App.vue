@@ -51,8 +51,7 @@ export default {
       this.changeStateKeyValue({key: 'teller_id', value: this.getUrlVars()['teller_id']})
       this.changeStateKeyValue({key: 'customer_id', value: this.getUrlVars()['customer_id']})
     }else{
-      $('body').remove()
-      alert('連結有誤')
+      this.catchError({ api_code: 'CustomerJourney_4001' });
     }
     if(this.getUrlVars()['customer_name']) this.changeStateKeyValue({key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name'])})
     if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
@@ -73,11 +72,9 @@ export default {
         height:window.innerHeight
       })
     })
-
-    this.changeLoading(false)
   },
   methods:{
-    ...Vuex.mapMutations(['changeLoading','changeShowNav','changeWindowSize','changeStateKeyValue']),
+    ...Vuex.mapMutations(['changeLoading','changeShowNav','changeWindowSize','changeStateKeyValue','catchError']),
     getUrlVars(){
       var vars=[],hash;var hashes=window.location.href.slice(window.location.href.indexOf('?')+1).split('&');
       for(var i=0;i<hashes.length;i++){hash=hashes[i].split('=');vars.push(hash[0]);vars[hash[0]]=hash[1]}

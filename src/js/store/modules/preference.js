@@ -83,8 +83,12 @@ const preference = {
         }
       })
       .then(({data})=>{
-        console.log(data.results)
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchError', data, { root: true });
+          return
+        }
         
+        console.log(data);
         //偏好
         state.dataset[0].tag = data.results.preference.item
         state.dataset[0].remarks.text = data.results.preference.annotation
@@ -110,6 +114,8 @@ const preference = {
         state.dataset[2].tag = data.results.program.item
         state.dataset[2].remarks.text = data.results.program.annotation
         state.dataset[2].content[0].text = data.results.program.apitch
+
+        commit('changeLoading', false, { root: true });
       })
       .catch(err => {
         console.log(err)
@@ -148,11 +154,18 @@ const preference = {
 
       axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
         .then(({data})=>{
-          console.log(data)
+          if (data.api_code !== 'CustomerJourney_0000'){
+            commit('catchPostError', data, { root: true });
+            return
+          }
+          
+          console.log(data);
           state.dataset[idx].remarks.text = text
           state.dataset[idx].remarks.isWriting = isWriting
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          commit('catchPostError', err, { root: true });
+        })
     }
   }
 }

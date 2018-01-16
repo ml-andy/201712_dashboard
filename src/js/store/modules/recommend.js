@@ -36,12 +36,21 @@ const recommend = {
           }
         })
         .then(({data})=>{
-          console.log(data)
+          if (data.api_code !== 'CustomerJourney_0000'){
+            commit('catchError', data, { root: true });
+            return
+          }
+          
+          console.log(data);
           state.data = data.results
           let isExpiring = ((new Date(state.data.expiring_credit_card_points[0].date) - new Date()) / 86400000) <= 30 ? state.data.expiring_credit_card_points[0].points : 0
           state.data.expiring_credit_card_points[0].points = isExpiring
+
+          commit('changeLoading', false, { root: true });
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+          commit('catchError', err, { root: true });
+        })
         .finally(()=>{
           let emptyValue = [
             state.data.is_contact_information_correct || !state.data.can_market ? true : false,
@@ -72,13 +81,17 @@ const recommend = {
 
       axios.post(`${rootState.backEndUrl}/teller_reference`, postData)
         .then(({data})=>{
-          console.log(data)
+          if (data.api_code !== 'CustomerJourney_0000'){
+            commit('catchPostError', data, { root: true });
+            return
+          }
+          
+          console.log(data);
           type ? state[key] = 1 : state[key] = -1
         })
-        .catch(err => console.log(err))
-        // .finally(()=>{
-
-        // })
+        .catch(err => {
+          commit('catchPostError', err, { root: true });
+        })
     },
   }
 }

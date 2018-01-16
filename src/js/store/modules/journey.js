@@ -31,18 +31,23 @@ const journey = {
         }
       })
       .then(({data})=>{
-        console.log(data.results)
-        state.dataset = []
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchError', data, { root: true });
+          return
+        }
+        
+        console.log(data);
+        state.dataset = [];
         data.results.forEach(i => {
           let obj = i
           if(obj.event_type === '客服') obj.event_type = '客服進線'
           if(state.schema.find(d => d.name === obj.event_type)) state.dataset.push(obj)
         })
+        commit('changeLoading', false, { root: true });
       })
-      .catch(err => console.log(err))
-      // .finally(()=>{
-      //   console.log('123')
-      // })
+      .catch(err => {
+        commit('catchError', err, { root: true });
+      })
     },
   }
 }
