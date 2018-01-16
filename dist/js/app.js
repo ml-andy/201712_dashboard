@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "68b4583816cd02cce7ef"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ab84ea8d8360511292af"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -9692,6 +9692,9 @@ exports.default = {
     data: function data(state) {
       return state.information.dataset;
     },
+    can_market: function can_market(state) {
+      return state.recommend.data.can_market;
+    },
     customer_name: function customer_name(state) {
       return state.customer_name;
     },
@@ -18091,7 +18094,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "content"
   }, [_c('ul', [(_vm.data.birthday) ? _c('li', [_vm._v(_vm._s(new Date().getFullYear() - new Date(("" + (_vm.data.birthday))).getFullYear() - 1) + "歲 " + _vm._s(new Date(("" + (_vm.data.birthday))).getMonth() + 1) + "月壽星")]) : _vm._e(), (_vm.data.have_any_children) ? _c('li', [_vm._v("有子女")]) : _vm._e(), (_vm.data.person_in_charge) ? _c('li', [_vm._v("企業主")]) : _vm._e(), (_vm.data.account_type) ? _c('li', [_c('span', {
     staticClass: "green"
-  }, [_vm._v("薪轉戶")])]) : _vm._e(), (_vm.data.annual_income) ? _c('li', [_c('span', {
+  }, [_vm._v("薪轉戶")])]) : _vm._e(), (_vm.data.annual_income && _vm.can_market) ? _c('li', [_c('span', {
     staticClass: "green"
   }, [_vm._v("年收入")]), _c('span', {
     staticClass: "smallgray"
@@ -18153,7 +18156,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "title"
   }, [_vm._v("我可以說什麼")]), (_vm.data.upgradable_card || _vm.data.expiring_credit_card_points[0].points != 0 || _vm.data.myreward_recommendation) ? _c('div', {
     staticClass: "content"
-  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card))]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreward_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
+  }, [(_vm.data.upgradable_card) ? _c('span', [_vm._v(_vm._s(_vm.data.upgradable_card) + " 可升等")]) : _vm._e(), (_vm.data.expiring_credit_card_points[0].points != 0 ? true : false) ? _c('span', [_vm._v("信用卡紅利 " + _vm._s(_vm.data.expiring_credit_card_points[0].date) + "到期")]) : _vm._e(), (_vm.data.myreward_recommendation) ? _c('span', [_vm._v("可下載 國泰優惠")]) : _vm._e()]) : _c('div', {
     staticClass: "content"
   }, [(!_vm.data.can_market) ? _c('span', {
     staticClass: "cant_market"

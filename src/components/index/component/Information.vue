@@ -26,7 +26,7 @@
             li(v-if="data.person_in_charge") 企業主
             li(v-if="data.account_type")
               span.green 薪轉戶
-            li(v-if="data.annual_income")
+            li(v-if="data.annual_income && can_market")
               span.green 年收入
               span.smallgray {{ data.annual_income_date }}
               br
@@ -79,6 +79,7 @@ export default {
     ...Vuex.mapState({
       loadingShow: state => state.loadingShow,
       data: state => state.information.dataset,
+      can_market: state => state.recommend.data.can_market,
       customer_name: state => state.customer_name,
       teller_id: state => state.teller_id,
     }),
