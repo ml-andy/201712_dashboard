@@ -10,7 +10,7 @@ let apiUrl = {
 	dev: 'https://18.216.69.168:8443/api',
 	ut: 'https://88.8.196.56:8443/api',
 	uat: 'https://88.8.195.65:8443/api',
-	production: '',
+	production: 'PIRHCJ.cathaybk.intra.uwccb',
 }
 
 let pluginsArray = [
