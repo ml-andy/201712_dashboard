@@ -14,7 +14,7 @@ const recommend = {
         }
       ],
       myreward_recommendation: false,
-      is_contact_information_correct: false,
+      is_contact_information_correct: true,
       preference: '',
       product: '',
       program: ''

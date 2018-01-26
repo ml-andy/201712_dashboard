@@ -8,7 +8,7 @@
     "dev": "set env=dev&webpack",
     "ut": "set env=ut&webpack",
     "uat": "set env=uat&webpack",
-    "production": "set env=prod&webpack",
+    "prod": "set env=prod&webpack",
     "server": "json-server --watch db.json --routes routes.json",
     "ngrok": "cd D:/ &&ngrok http 9000 --host-header='localhost:9000'"
   },
