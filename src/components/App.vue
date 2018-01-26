@@ -57,9 +57,14 @@ export default {
     if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
   },
   mounted(){
+    window.resizeTo(380,window.innerHeight);
+    const _left = window.innerWidth - 380;
+    console.log(_left)
+    window.moveTo(_left, 0);
+    
     $(window).load(()=>{
-      document.addEventListener('contextmenu', event => event.preventDefault())
-
+      document.addEventListener('contextmenu', event => event.preventDefault());
+    
       this.changeWindowSize({
         width:window.innerWidth,
         height:window.innerHeight
