@@ -70,24 +70,24 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v8');
+      console.log('v9');
       let datas = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        recommendation:  {
+        recommendation: {
           [key]: type
         }
       }
       console.log(datas);
       axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
       .then(({data})=>{
+        console.log(data);
         if (data.api_code !== 'CustomerJourney_0000'){
           commit('catchPostError', data, { root: true });
           return
         }
         
-        console.log(data);
         type ? state[key] = 1 : state[key] = -1
       })
       .catch(err => {
