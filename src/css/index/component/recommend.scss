@@ -393,6 +393,21 @@ $vph:700;
             background-color: #4ab235;
             border-radius: getVW(5);
             margin-bottom: getVW(15);
+
+            &.off{
+              color:#bdc3c7;
+              background-color: #ffffff;
+              border: 1px solid #bdc3c7;
+            }
+  
+            &.cant_market{
+              height: getVW(170);
+              @include fontvw(21,170,#e74c3c,bolder);
+              padding: 0;
+              text-align: center;
+              background-color: #ffffff;
+              border: 1px solid #e74c3c;
+            }
           }
         }
       }
@@ -542,6 +557,18 @@ $vph:700;
               }
   
             }
+          }
+
+          .cant_market{
+            @include r;
+            @include fontvw(21,170,#e74c3c,bolder);
+            width: calc(100% - #{getVW(45)});
+            height: getVW(170);
+            padding: 0;
+            text-align: center;
+            background-color: #ffffff;
+            border: 1px solid #e74c3c;
+            border-radius: getVW(5);
           }
   
           .des{

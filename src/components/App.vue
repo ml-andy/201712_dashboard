@@ -57,9 +57,9 @@ export default {
     if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
   },
   mounted(){
-    window.resizeTo(380,window.innerHeight);
-    const _left = window.innerWidth - 380;
-    console.log(_left)
+    window.resizeTo(380,window.screen.availHeight);
+    const _left = window.screen.availWidth - 380;
+    console.log(_left);
     window.moveTo(_left, 0);
     
     $(window).load(()=>{
