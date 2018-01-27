@@ -70,7 +70,7 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v6');
+      console.log('v7');
       let recommendationData = {
         [key]: type
       };
