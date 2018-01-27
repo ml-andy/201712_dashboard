@@ -80,8 +80,9 @@ const recommend = {
       }
 
       let postDataQs = Qs.stringify(postData);
+      console.log(postData);
 
-      axios.post(`${rootState.backEndUrl}/teller_reference`, postDataQs)
+      axios.post(`${rootState.backEndUrl}/teller_reference`, postData)
         .then(({data})=>{
           if (data.api_code !== 'CustomerJourney_0000'){
             commit('catchPostError', data, { root: true });
