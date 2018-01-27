@@ -70,7 +70,11 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v2');
+      console.log('v3');
+      let recommendation = {
+        [key]: type
+      };
+      console.log(recommendation);
       $.ajax({
 				url: `${rootState.backEndUrl}/teller_reference`,
 				type: 'POST',
@@ -79,9 +83,7 @@ const recommend = {
 					teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
           token: rootState.token,
-          recommendation: {
-            [key]: type
-          }
+          recommendation: recommendation
 				},    
 				success: function(data) {
 					if (data.api_code !== 'CustomerJourney_0000'){
