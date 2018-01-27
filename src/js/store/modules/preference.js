@@ -147,9 +147,9 @@ const preference = {
         teller_id:rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        annotation: {
+        annotation: JSON.stringify({
           [state.schema[idx].params]: text
-        }
+        })
       }
 
       console.log(postData);

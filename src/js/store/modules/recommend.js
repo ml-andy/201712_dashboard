@@ -78,7 +78,7 @@ const recommend = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        recommendation: recommendationData
+        recommendation: JSON.stringify(recommendationData)
       }
       console.log(datas);
       $.ajax({
