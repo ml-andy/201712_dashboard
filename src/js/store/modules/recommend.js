@@ -70,7 +70,7 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v5');
+      console.log('v6');
       let recommendationData = {
         [key]: type
       };
@@ -78,13 +78,13 @@ const recommend = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        "recommendation": recommendationData
+        recommendation: recommendationData
       }
       console.log(datas);
       $.ajax({
 				url: `${rootState.backEndUrl}/teller_reference`,
 				type: 'POST',
-				dataType: 'json',  
+				dataType: 'application/json',  
 				data: datas,    
 				success: function(data) {
 					if (data.api_code !== 'CustomerJourney_0000'){
@@ -100,21 +100,21 @@ const recommend = {
 				}
       }); 
       
-      let postDataQs = Qs.stringify(datas);
-      axios.post(`${rootState.backEndUrl}/teller_reference`, postDataQs)
-        .then(({data})=>{
-          console.log('axios');
-          if (data.api_code !== 'CustomerJourney_0000'){
-            commit('catchPostError', data, { root: true });
-            return
-          }
+      // let postDataQs = Qs.stringify(datas);
+      // axios.post(`${rootState.backEndUrl}/teller_reference`, postDataQs)
+      //   .then(({data})=>{
+      //     console.log('axios');
+      //     if (data.api_code !== 'CustomerJourney_0000'){
+      //       commit('catchPostError', data, { root: true });
+      //       return
+      //     }
           
-          console.log(data);
-          type ? state[key] = 1 : state[key] = -1
-        })
-        .catch(err => {
-          commit('catchPostError', err, { root: true });
-        })
+      //     console.log(data);
+      //     type ? state[key] = 1 : state[key] = -1
+      //   })
+      //   .catch(err => {
+      //     commit('catchPostError', err, { root: true });
+      //   })
     },
   }
 }

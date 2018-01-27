@@ -144,19 +144,23 @@ const preference = {
       }
 
       let postData = {
-        "teller_id":rootState.teller_id,
-        "customer_id": rootState.customer_id,
-        "token": rootState.token,
-        "annotation": {
+        teller_id:rootState.teller_id,
+        customer_id: rootState.customer_id,
+        token: rootState.token,
+        annotation: {
           [state.schema[idx].params]: text
         }
       }
 
-      let postDataQs = Qs.stringify(postData);
+      console.log(postData);
 
-      axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postDataQs)
-        .then(({data})=>{
-          if (data.api_code !== 'CustomerJourney_0000'){
+      $.ajax({
+				url: `${rootState.backEndUrl}/teller_reference/preference`,
+				type: 'POST',
+				dataType: 'application/json',  
+				data: postData,    
+				success: function(data) {
+					if (data.api_code !== 'CustomerJourney_0000'){
             commit('catchPostError', data, { root: true });
             return
           }
@@ -164,10 +168,28 @@ const preference = {
           console.log(data);
           state.dataset[idx].remarks.text = text
           state.dataset[idx].remarks.isWriting = isWriting
-        })
-        .catch(err => {
-          commit('catchPostError', err, { root: true });
-        })
+				},error: function(xhr, textStatus, errorThrown) {
+          console.log("error:", xhr, textStatus, errorThrown);
+          commit('catchPostError', errorThrown, { root: true });
+				}
+      }); 
+
+      // let postDataQs = Qs.stringify(postData);
+
+      // axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postDataQs)
+      //   .then(({data})=>{
+      //     if (data.api_code !== 'CustomerJourney_0000'){
+      //       commit('catchPostError', data, { root: true });
+      //       return
+      //     }
+          
+      //     console.log(data);
+      //     state.dataset[idx].remarks.text = text
+      //     state.dataset[idx].remarks.isWriting = isWriting
+      //   })
+      //   .catch(err => {
+      //     commit('catchPostError', err, { root: true });
+      //   })
     }
   }
 }
