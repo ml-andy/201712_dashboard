@@ -84,7 +84,7 @@ const recommend = {
       $.ajax({
 				url: `${rootState.backEndUrl}/teller_reference`,
 				type: 'POST',
-				dataType: 'application/json',  
+				dataType: 'json',  
 				data: datas,    
 				success: function(data) {
 					if (data.api_code !== 'CustomerJourney_0000'){

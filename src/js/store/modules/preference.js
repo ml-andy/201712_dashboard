@@ -136,7 +136,7 @@ const preference = {
         )
       })
     },
-    changeDatasetRemarks ({ state, rootState }, {idx,text,isWriting}) {
+    changeDatasetRemarks ({ state, rootState, commit }, {idx,text,isWriting}) {
       if(isWriting){
         state.dataset[idx].remarks.text = text
         state.dataset[idx].remarks.isWriting = isWriting
@@ -157,7 +157,7 @@ const preference = {
       $.ajax({
 				url: `${rootState.backEndUrl}/teller_reference/preference`,
 				type: 'POST',
-				dataType: 'application/json',  
+				dataType: 'json',  
 				data: postData,    
 				success: function(data) {
 					if (data.api_code !== 'CustomerJourney_0000'){
