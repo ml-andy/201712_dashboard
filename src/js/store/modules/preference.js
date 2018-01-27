@@ -152,7 +152,9 @@ const preference = {
         }
       }
 
-      axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
+      let postDataQs = Qs.stringify(postData);
+
+      axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postDataQs)
         .then(({data})=>{
           if (data.api_code !== 'CustomerJourney_0000'){
             commit('catchPostError', data, { root: true });
