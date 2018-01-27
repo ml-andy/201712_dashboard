@@ -70,7 +70,7 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v11');
+      console.log('v12');
       let datas = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,

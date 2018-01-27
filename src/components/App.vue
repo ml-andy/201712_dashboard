@@ -63,8 +63,7 @@ export default {
 
     setTimeout(()=>{
       window.close();
-    },2000);
-    // 1800000
+    },1800000);
     
     $(window).load(()=>{
       document.addEventListener('contextmenu', event => event.preventDefault());
