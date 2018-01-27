@@ -70,51 +70,29 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v7');
-      let recommendationData = {
-        [key]: type
-      };
+      console.log('v8');
       let datas = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        recommendation: JSON.stringify(recommendationData)
+        recommendation:  {
+          [key]: type
+        }
       }
       console.log(datas);
-      $.ajax({
-				url: `${rootState.backEndUrl}/teller_reference`,
-				type: 'POST',
-				dataType: 'json',  
-				data: datas,    
-				success: function(data) {
-					if (data.api_code !== 'CustomerJourney_0000'){
-            commit('catchPostError', data, { root: true });
-            return
-          }
-          
-          console.log(data);
-          type ? state[key] = 1 : state[key] = -1
-				},error: function(xhr, textStatus, errorThrown) {
-          console.log("error:", xhr, textStatus, errorThrown);
-          commit('catchPostError', errorThrown, { root: true });
-				}
-      }); 
-      
-      // let postDataQs = Qs.stringify(datas);
-      // axios.post(`${rootState.backEndUrl}/teller_reference`, postDataQs)
-      //   .then(({data})=>{
-      //     console.log('axios');
-      //     if (data.api_code !== 'CustomerJourney_0000'){
-      //       commit('catchPostError', data, { root: true });
-      //       return
-      //     }
-          
-      //     console.log(data);
-      //     type ? state[key] = 1 : state[key] = -1
-      //   })
-      //   .catch(err => {
-      //     commit('catchPostError', err, { root: true });
-      //   })
+      axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
+      .then(({data})=>{
+        if (data.api_code !== 'CustomerJourney_0000'){
+          commit('catchPostError', data, { root: true });
+          return
+        }
+        
+        console.log(data);
+        type ? state[key] = 1 : state[key] = -1
+      })
+      .catch(err => {
+        commit('catchPostError', err, { root: true });
+      })
     },
   }
 }
