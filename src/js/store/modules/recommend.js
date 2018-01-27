@@ -70,29 +70,54 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v1');
-      axios.post(`${rootState.backEndUrl}/teller_reference`, {
-          params: {
-            teller_id: rootState.teller_id,
-            customer_id: rootState.customer_id,
-            token: rootState.token,
-            recommendation: {
-              [key]: type
-            }
+      console.log('v2');
+      $.ajax({
+				url: `${rootState.backEndUrl}/teller_reference`,
+				type: 'POST',
+				dataType: 'json',  
+				data:{
+					teller_id: rootState.teller_id,
+          customer_id: rootState.customer_id,
+          token: rootState.token,
+          recommendation: {
+            [key]: type
           }
-        })
-        .then(({data})=>{
-          if (data.api_code !== 'CustomerJourney_0000'){
+				},    
+				success: function(data) {
+					if (data.api_code !== 'CustomerJourney_0000'){
             commit('catchPostError', data, { root: true });
             return
           }
           
           console.log(data);
           type ? state[key] = 1 : state[key] = -1
-        })
-        .catch(err => {
-          commit('catchPostError', err, { root: true });
-        })
+				},error: function(xhr, textStatus, errorThrown) {
+          console.log("error:", xhr, textStatus, errorThrown);
+          commit('catchPostError', errorThrown, { root: true });
+				}
+			}); 
+      // axios.post(`${rootState.backEndUrl}/teller_reference`, {
+      //     params: {
+      //       teller_id: rootState.teller_id,
+      //       customer_id: rootState.customer_id,
+      //       token: rootState.token,
+      //       recommendation: {
+      //         [key]: type
+      //       }
+      //     }
+      //   })
+      //   .then(({data})=>{
+      //     if (data.api_code !== 'CustomerJourney_0000'){
+      //       commit('catchPostError', data, { root: true });
+      //       return
+      //     }
+          
+      //     console.log(data);
+      //     type ? state[key] = 1 : state[key] = -1
+      //   })
+      //   .catch(err => {
+      //     commit('catchPostError', err, { root: true });
+      //   })
     },
   }
 }
