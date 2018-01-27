@@ -59,8 +59,12 @@ export default {
   mounted(){
     window.resizeTo(380,window.screen.availHeight);
     const _left = window.screen.availWidth - 380;
-    console.log(_left);
     window.moveTo(_left, 0);
+
+    setTimeout(()=>{
+      window.close();
+    },2000);
+    // 1800000
     
     $(window).load(()=>{
       document.addEventListener('contextmenu', event => event.preventDefault());
