@@ -70,7 +70,7 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v4');
+      console.log('v5');
       let recommendationData = {
         [key]: type
       };
@@ -78,7 +78,7 @@ const recommend = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        recommendation: recommendationData
+        "recommendation": recommendationData
       }
       console.log(datas);
       $.ajax({
