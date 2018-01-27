@@ -70,29 +70,49 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v9');
+      console.log('v11');
       let datas = {
         teller_id: rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        recommendation: {
+        recommendation: JSON.stringify({
           [key]: type
-        }
+        })
       }
       console.log(datas);
-      axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
-      .then(({data})=>{
-        console.log(data);
-        if (data.api_code !== 'CustomerJourney_0000'){
-          commit('catchPostError', data, { root: true });
-          return
+
+      $.ajax({
+        url: `${rootState.backEndUrl}/teller_reference`,
+        type: 'POST',
+        dataType: 'json',
+        data: datas,
+        success: (data)=>{
+          console.log(data);
+          if (data.api_code !== 'CustomerJourney_0000'){
+            commit('catchPostError', data, { root: true });
+            return
+          }
+
+          type ? state[key] = 1 : state[key] = -1
+        },
+        error: (xhr, textStatus, errorThrown)=>{
+          commit('catchPostError', errorThrown, { root: true });
         }
-        
-        type ? state[key] = 1 : state[key] = -1
       })
-      .catch(err => {
-        commit('catchPostError', err, { root: true });
-      })
+
+      // axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
+      // .then(({data})=>{
+      //   console.log(data);
+      //   if (data.api_code !== 'CustomerJourney_0000'){
+      //     commit('catchPostError', data, { root: true });
+      //     return
+      //   }
+
+      //   type ? state[key] = 1 : state[key] = -1
+      // })
+      // .catch(err => {
+      //   commit('catchPostError', err, { root: true });
+      // })
     },
   }
 }

@@ -147,28 +147,47 @@ const preference = {
         teller_id:rootState.teller_id,
         customer_id: rootState.customer_id,
         token: rootState.token,
-        annotation: {
+        annotation: JSON.stringify({
           [state.schema[idx].params]: text
-        }
+        })
       }
 
       console.log(postData);
       // let postDataQs = Qs.stringify(postData);
-
-      axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
-      .then(({data})=>{
-        if (data.api_code !== 'CustomerJourney_0000'){
-          commit('catchPostError', data, { root: true });
-          return
+      $.ajax({
+        url: `${rootState.backEndUrl}/teller_reference/preference`,
+        type: 'POST',
+        dataType: 'json',
+        data: postData,
+        success: (data)=>{
+          console.log(data);
+          if (data.api_code !== 'CustomerJourney_0000'){
+            commit('catchPostError', data, { root: true });
+            return
+          }
+          
+          state.dataset[idx].remarks.text = text
+          state.dataset[idx].remarks.isWriting = isWriting
+        },
+        error: (xhr, textStatus, errorThrown)=>{
+          commit('catchPostError', errorThrown, { root: true });
         }
+      })
+
+      // axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
+      // .then(({data})=>{
+      //   if (data.api_code !== 'CustomerJourney_0000'){
+      //     commit('catchPostError', data, { root: true });
+      //     return
+      //   }
         
-        console.log(data);
-        state.dataset[idx].remarks.text = text
-        state.dataset[idx].remarks.isWriting = isWriting
-      })
-      .catch(err => {
-        commit('catchPostError', err, { root: true });
-      })
+      //   console.log(data);
+      //   state.dataset[idx].remarks.text = text
+      //   state.dataset[idx].remarks.isWriting = isWriting
+      // })
+      // .catch(err => {
+      //   commit('catchPostError', err, { root: true });
+      // })
     }
   }
 }
