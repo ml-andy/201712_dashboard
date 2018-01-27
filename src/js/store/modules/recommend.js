@@ -71,20 +71,21 @@ const recommend = {
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
       console.log('v3');
-      let recommendation = {
+      let recommendationData = {
         [key]: type
       };
-      console.log(recommendation);
+      let datas = {
+        teller_id: rootState.teller_id,
+        customer_id: rootState.customer_id,
+        token: rootState.token,
+        recommendation: recommendationData
+      }
+      console.log(datas);
       $.ajax({
 				url: `${rootState.backEndUrl}/teller_reference`,
 				type: 'POST',
 				dataType: 'json',  
-				data:{
-					teller_id: rootState.teller_id,
-          customer_id: rootState.customer_id,
-          token: rootState.token,
-          recommendation: recommendation
-				},    
+				data: datas,    
 				success: function(data) {
 					if (data.api_code !== 'CustomerJourney_0000'){
             commit('catchPostError', data, { root: true });
