@@ -14,6 +14,10 @@ nav{
   &.on{
     transform: translate(0);
   }
+
+  &.off{
+    display: none;
+  }
   
   .menu{
     @include art;

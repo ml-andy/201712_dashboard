@@ -35,11 +35,21 @@ export default {
       customer_name: state => state.customer_name,
     }),
   },
+  beforeMount() {
+    this.changeLoading(true);
+  },
   mounted(){
-    
+    let name = decodeURI(this.getUrlVars()['customer_name']).split('');
+    if(name && name.length >= 2) name[1] = 'O';
+    document.title = `【${name.join('')}】 客戶視圖`
   },
   methods:{
-    ...Vuex.mapActions(['changeLoading']),
+    ...Vuex.mapMutations(['changeLoading']),
+    getUrlVars(){
+      var vars=[],hash;var hashes=window.location.href.slice(window.location.href.indexOf('?')+1).split('&');
+      for(var i=0;i<hashes.length;i++){hash=hashes[i].split('=');vars.push(hash[0]);vars[hash[0]]=hash[1]}
+      return vars
+    },
   },
   watch:{
     windowSize:{

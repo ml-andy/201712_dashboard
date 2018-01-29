@@ -1,7 +1,7 @@
 <template lang="pug">
 #app
   Loading
-  Nav(:class="showNav === true ? 'on' : ''")
+  Nav(:class="[showNav ? 'on' : '', anyError ? 'off' : '']")
   .menubtn(
     :class="showNav === true ? 'on' : ''"
     @click="changeShowNav(!showNav)"
@@ -42,6 +42,7 @@ export default {
     ...Vuex.mapState({
       loadingShow: state => state.loadingShow,
       showNav: state => state.showNav,
+      anyError: state => state.anyError,
       windowSize: state => state.windowSize,
       itemlist: state => state.nav.itemlist,
     }),
@@ -57,13 +58,13 @@ export default {
     if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
   },
   mounted(){
+    setTimeout(()=>{
+      this.catchError({ api_code: 'close_page' });
+    },2000);
+    // 600000
     window.resizeTo(380,window.screen.availHeight);
     const _left = window.screen.availWidth - 380;
     window.moveTo(_left, 0);
-
-    setTimeout(()=>{
-      window.close();
-    },1800000);
     
     $(window).load(()=>{
       document.addEventListener('contextmenu', event => event.preventDefault());
