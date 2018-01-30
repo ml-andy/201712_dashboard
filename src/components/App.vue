@@ -60,8 +60,8 @@ export default {
   mounted(){
     setTimeout(()=>{
       this.catchError({ api_code: 'close_page' });
-    },2000);
-    // 600000
+    },600000);
+    
     window.resizeTo(380,window.screen.availHeight);
     const _left = window.screen.availWidth - 380;
     window.moveTo(_left, 0);
