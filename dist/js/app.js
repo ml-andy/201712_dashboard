@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b4709f5baf65ef9359d7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1a93c214c1962e4edc9f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -6112,7 +6112,7 @@ var store = new Vuex.Store({
       console.log(value);
       state.anyError = true;
       router.push('/error');
-      switch (value.api_code) {
+      switch (value.request.response.api_code) {
         case 'CustomerJourney_1001':
           state.errorText = '系統異常:1001 請洽系統管理員';
           break;
@@ -8352,7 +8352,9 @@ var Vip = __webpack_require__(435);
 exports.default = {
   name: 'app',
   data: function data() {
-    return {};
+    return {
+      nowDate: null
+    };
   },
 
   computed: _extends({}, Vuex.mapState({
@@ -8385,7 +8387,7 @@ exports.default = {
   mounted: function mounted() {
     var _this = this;
 
-    setTimeout(function () {
+    window.setTimeout(function () {
       _this.catchError({ api_code: 'close_page' });
     }, 600000);
 
