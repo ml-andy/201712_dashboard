@@ -35,7 +35,7 @@ const store = new Vuex.Store({
       console.log(value);
       state.anyError = true;
       router.push('/error');
-      switch (value.api_code) {
+      switch (value.request.response.api_code) {
         case 'CustomerJourney_1001':
           state.errorText = '系統異常:1001 請洽系統管理員';
           break;
