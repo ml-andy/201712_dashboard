@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1a93c214c1962e4edc9f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "964265a99e892311b84d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -6083,6 +6083,7 @@ var store = new Vuex.Store({
     teller_id: '',
     customer_id: '',
     customer_name: '',
+    branch: '',
     token: '',
     anyError: false,
     errorText: ''
@@ -8383,6 +8384,7 @@ exports.default = {
     }
     if (this.getUrlVars()['customer_name']) this.changeStateKeyValue({ key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name']) });
     if (this.getUrlVars()['token']) this.changeStateKeyValue({ key: 'token', value: this.getUrlVars()['token'] });
+    if (this.getUrlVars()['branch']) this.changeStateKeyValue({ key: 'branch', value: this.getUrlVars()['branch'] });
   },
   mounted: function mounted() {
     var _this = this;
@@ -10132,7 +10134,8 @@ var bonus = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10202,7 +10205,8 @@ var complain = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10263,7 +10267,8 @@ var contact = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10312,7 +10317,8 @@ var creditcard = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10370,7 +10376,8 @@ var creditcardBonus = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref3) {
         var data = _ref3.data;
@@ -10451,7 +10458,8 @@ var information = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref3) {
         var data = _ref3.data;
@@ -10524,7 +10532,8 @@ var journey = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10701,7 +10710,8 @@ var preference = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;
@@ -10847,7 +10857,8 @@ var recommend = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref3) {
         var data = _ref3.data;
@@ -10910,20 +10921,6 @@ var recommend = {
           commit('catchPostError', errorThrown, { root: true });
         }
       });
-
-      // axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
-      // .then(({data})=>{
-      //   console.log(data);
-      //   if (data.api_code !== 'CustomerJourney_0000'){
-      //     commit('catchPostError', data, { root: true });
-      //     return
-      //   }
-
-      //   type ? state[key] = 1 : state[key] = -1
-      // })
-      // .catch(err => {
-      //   commit('catchPostError', err, { root: true });
-      // })
     }
   }
 };
@@ -10959,7 +10956,8 @@ var vip = {
         params: {
           teller_id: rootState.teller_id,
           customer_id: rootState.customer_id,
-          token: rootState.token
+          token: rootState.token,
+          branch: rootState.branch
         }
       }).then(function (_ref2) {
         var data = _ref2.data;

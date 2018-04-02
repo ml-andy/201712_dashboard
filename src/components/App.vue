@@ -56,6 +56,7 @@ export default {
     }
     if(this.getUrlVars()['customer_name']) this.changeStateKeyValue({key: 'customer_name', value: decodeURI(this.getUrlVars()['customer_name'])})
     if(this.getUrlVars()['token']) this.changeStateKeyValue({key: 'token', value: this.getUrlVars()['token']})
+    if(this.getUrlVars()['branch']) this.changeStateKeyValue({key: 'branch', value: this.getUrlVars()['branch']})
   },
   mounted(){
     window.setTimeout(()=>{
