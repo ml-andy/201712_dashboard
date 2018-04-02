@@ -33,7 +33,7 @@
     "html-loader": "^0.4.4",
     "imagemin-mozjpeg": "^5.1.0",
     "imagemin-pngquant": "^4.2.2",
-    "node-sass": "^4.3.0",
+    "node-sass": "^4.8.3",
     "postcss-loader": "^1.2.2",
     "pug": "^2.0.0-beta6",
     "pug-html-loader": "^1.1.0",

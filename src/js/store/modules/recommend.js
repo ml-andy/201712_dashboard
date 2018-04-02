@@ -33,6 +33,7 @@ const recommend = {
             teller_id: rootState.teller_id,
             customer_id: rootState.customer_id,
             token: rootState.token,
+            branch: rootState.branch,
           }
         })
         .then(({data})=>{
@@ -99,20 +100,6 @@ const recommend = {
           commit('catchPostError', errorThrown, { root: true });
         }
       })
-
-      // axios.post(`${rootState.backEndUrl}/teller_reference`, datas)
-      // .then(({data})=>{
-      //   console.log(data);
-      //   if (data.api_code !== 'CustomerJourney_0000'){
-      //     commit('catchPostError', data, { root: true });
-      //     return
-      //   }
-
-      //   type ? state[key] = 1 : state[key] = -1
-      // })
-      // .catch(err => {
-      //   commit('catchPostError', err, { root: true });
-      // })
     },
   }
 }
