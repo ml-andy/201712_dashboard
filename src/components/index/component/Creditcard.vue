@@ -16,7 +16,10 @@
         |{{ data.myreward_downloaded ? '已' : '未'}}下載  國泰優惠
       .datetime
         |時間：{{ data.updated_time }}
-    .container_empty(v-if="!data.card_amount") 非本行信用卡客戶
+    .container_empty(v-if="!data.card_amount")
+      |非本行信用卡客戶
+      br
+      |時間：{{ data.updated_time }}
     
 </template>
 
