@@ -1,8 +1,15 @@
 <template lang="pug">
   section.index
-    .namebar(v-if="showName")
+    .namebar(
+      v-if="showName"
+      :class="updateTime ? 'hasTime' : ''"
+    )
       .name {{ customer_name }}
       .male {{ data.gender === 'F' ? '小姐' : '先生' }}
+      .datetime(v-if="updateTime")
+        |更新時間：{{ updateTime }}
+    .datetime(v-if="!showName && updateTime")
+      |更新時間：{{ updateTime }}
     .area.recommend
       Recommend
     .area.information
@@ -33,6 +40,7 @@ export default {
       windowSize: state => state.windowSize,
       data: state => state.information.dataset,
       customer_name: state => state.customer_name,
+      updateTime: state => state.creditcardBonus.dataset.updated_time,
     }),
   },
   beforeMount() {

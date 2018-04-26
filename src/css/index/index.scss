@@ -12,6 +12,14 @@ section.index{
   padding: getVH(20) getVW(20);
   overflow: hidden;
 
+  .datetime{
+    @include art(auto,auto,#{getVW(20)});
+    @include fontvw(10,21,#7f8c8d);
+    text-align: left;
+    box-sizing: border-box;
+    z-index: 1;
+  }
+
   .area{
     @include alt;
 
@@ -65,8 +73,14 @@ $vph:700;
       height: auto;
       background-color: #4ab235;
       text-align: center;
-      z-index: 100;
+      z-index: 101;
       padding-bottom: 5px;
+      box-sizing: border-box;
+      
+      &.hasTime{
+        padding-left: getVW(49);
+        padding-right: getVW(160);
+      }
 
       &:after{
         content: "";
@@ -97,6 +111,13 @@ $vph:700;
         @include fontvw(16,40,#fff,bolder);
         display: inline-block;
         vertical-align: top;
+      }
+
+      .datetime{
+        @include art(auto,auto,#{getVW(10)});
+        @include fontvw(12,40,#fff);
+        text-align: center;
+        z-index: 100;
       }
     }
   
