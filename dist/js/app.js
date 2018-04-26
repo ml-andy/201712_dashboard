@@ -57,7 +57,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c997483d326b8bd260c2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "ea68fa9f8bacae0ba12a"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -4304,7 +4304,7 @@ exports = module.exports = __webpack_require__(10)();
 
 
 // module
-exports.push([module.i, ".vb>.vb-dragger[data-v-444d87f0]{z-index:5;width:12px;right:0}.vb>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:rotate3d(0,0,0,0);transform:rotate3d(0,0,0,0);transition:background-color .1s ease-out,margin .1s ease-out,height .1s ease-out;background-color:rgba(0,0,0,.1);margin:5px 5px 5px 0;border-radius:20px;height:calc(100% - 10px);display:block}.vb.vb-scrolling-phantom>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.3)}.vb.vb-dragging>.vb-dragger>.vb-dragger-styler[data-v-444d87f0],.vb>.vb-dragger:hover>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.5);margin:0;height:100%}.vb.vb-dragging-phantom>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.5)}.fade-enter-active[data-v-444d87f0],.fade-leave-active[data-v-444d87f0]{transition:.3s}.fade-enter[data-v-444d87f0],.fade-leave-to[data-v-444d87f0]{opacity:0}.fade-move[data-v-444d87f0]{transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s}blockquote[data-v-444d87f0],body[data-v-444d87f0],dd[data-v-444d87f0],div[data-v-444d87f0],dl[data-v-444d87f0],dt[data-v-444d87f0],fieldset[data-v-444d87f0],form[data-v-444d87f0],h1[data-v-444d87f0],h2[data-v-444d87f0],h3[data-v-444d87f0],h4[data-v-444d87f0],h5[data-v-444d87f0],h6[data-v-444d87f0],input[data-v-444d87f0],li[data-v-444d87f0],ol[data-v-444d87f0],p[data-v-444d87f0],pre[data-v-444d87f0],td[data-v-444d87f0],textarea[data-v-444d87f0],th[data-v-444d87f0],ul[data-v-444d87f0]{margin:0;padding:0}table[data-v-444d87f0]{border-collapse:collapse;border-spacing:0}fieldset[data-v-444d87f0],img[data-v-444d87f0]{border:0}address[data-v-444d87f0],caption[data-v-444d87f0],cite[data-v-444d87f0],code[data-v-444d87f0],dfn[data-v-444d87f0],em[data-v-444d87f0],strong[data-v-444d87f0],th[data-v-444d87f0],var[data-v-444d87f0]{font-style:normal;font-weight:400}ol[data-v-444d87f0],ul[data-v-444d87f0]{list-style:none}caption[data-v-444d87f0],th[data-v-444d87f0]{text-align:left}q[data-v-444d87f0]:after,q[data-v-444d87f0]:before{content:\"\"}abbr[data-v-444d87f0],acronym[data-v-444d87f0]{border:0}body[data-v-444d87f0],html[data-v-444d87f0]{height:100%}input[data-v-444d87f0]{background:transparent;border:none}input[data-v-444d87f0]:focus{outline:none!important}body[data-v-444d87f0]{font-family:Microsoft JhengHei,Arial;font-size:12px}a[data-v-444d87f0]{outline:none;hlbr:expression(this.onFocus=this.blur());text-decoration:none}.clear[data-v-444d87f0]{clear:both}img[data-v-444d87f0]{vertical-align:top}html[data-v-444d87f0]{-webkit-text-size-adjust:100%}section.index[data-v-444d87f0]{position:absolute;width:calc(100% - 4.6875vw);height:100%;top:0;left:60px;margin-left:0;margin-top:0;left:4.6875vw;z-index:0;box-sizing:border-box;padding:2.85714vh 1.5625vw;overflow:hidden}section.index .area[data-v-444d87f0]{position:absolute;width:100%;height:100%;top:0;left:0;margin-left:0;margin-top:0}section.index .area.recommend[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:29.6875vw;height:94.28571vh;margin-right:1.5625vw;background-color:#fff}section.index .area.information[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:60.9375vw;height:45.71429vh;margin-bottom:1.42857vh;background-color:#fbfcfc}section.index .area.creditcard[data-v-444d87f0]{width:100%;margin:0;width:21.09375vw;margin-right:1.5625vw}section.index .area.creditcard[data-v-444d87f0],section.index .area.news[data-v-444d87f0]{position:relative;height:auto;float:left;left:0;right:0;top:0;bottom:0;height:47.14286vh;background-color:#fbfcfc}section.index .area.news[data-v-444d87f0]{width:100%;margin:0;width:38.28125vw}@media screen and (max-width:768px){section.index[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;z-index:0;box-sizing:border-box;padding:0;overflow:visible;padding-top:10.52632vw}section.index .namebar[data-v-444d87f0]{position:fixed;width:100%;height:100%;top:0;left:0;margin-left:0;margin-top:0;height:auto;background-color:#4ab235;text-align:center;z-index:100;padding-bottom:5px}section.index .namebar[data-v-444d87f0]:after{content:\"\";position:absolute;width:100%;height:5px;bottom:0;left:0;margin-left:0;margin-bottom:0;background-color:#fff200}section.index .namebar[data-v-444d87f0]:before{width:4.21053vw;height:5vw;display:inline-block;vertical-align:top;content:\"\";background-image:url(./images/index_nameicon.png);background-repeat:no-repeat;background-size:contain;background-position:50%;margin-top:2.63158vw}section.index .namebar .name[data-v-444d87f0]{font-size:5.52632vw}section.index .namebar .male[data-v-444d87f0],section.index .namebar .name[data-v-444d87f0]{line-height:10.52632vw;font-weight:bolder;font-family:Microsoft JhengHei;color:#fff;display:inline-block;vertical-align:top}section.index .namebar .male[data-v-444d87f0]{font-size:4.21053vw}section.index .area[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0}section.index .area.recommend[data-v-444d87f0]{position:relative;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:100%;height:auto;margin-right:0;background-color:#fff;margin-bottom:0}section.index .area.creditcard[data-v-444d87f0],section.index .area.information[data-v-444d87f0]{position:relative;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:100%;height:auto;margin-bottom:0;background-color:#fbfcfc}section.index .area.creditcard[data-v-444d87f0]{margin-right:0}section.index .area.news[data-v-444d87f0]{position:relative;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:100%;height:auto;margin-bottom:0;background-color:#fbfcfc}}", ""]);
+exports.push([module.i, ".vb>.vb-dragger[data-v-444d87f0]{z-index:5;width:12px;right:0}.vb>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{-webkit-backface-visibility:hidden;backface-visibility:hidden;-webkit-transform:rotate3d(0,0,0,0);transform:rotate3d(0,0,0,0);transition:background-color .1s ease-out,margin .1s ease-out,height .1s ease-out;background-color:rgba(0,0,0,.1);margin:5px 5px 5px 0;border-radius:20px;height:calc(100% - 10px);display:block}.vb.vb-scrolling-phantom>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.3)}.vb.vb-dragging>.vb-dragger>.vb-dragger-styler[data-v-444d87f0],.vb>.vb-dragger:hover>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.5);margin:0;height:100%}.vb.vb-dragging-phantom>.vb-dragger>.vb-dragger-styler[data-v-444d87f0]{background-color:rgba(0,0,0,.5)}.fade-enter-active[data-v-444d87f0],.fade-leave-active[data-v-444d87f0]{transition:.3s}.fade-enter[data-v-444d87f0],.fade-leave-to[data-v-444d87f0]{opacity:0}.fade-move[data-v-444d87f0]{transition:-webkit-transform 1s;transition:transform 1s;transition:transform 1s,-webkit-transform 1s}blockquote[data-v-444d87f0],body[data-v-444d87f0],dd[data-v-444d87f0],div[data-v-444d87f0],dl[data-v-444d87f0],dt[data-v-444d87f0],fieldset[data-v-444d87f0],form[data-v-444d87f0],h1[data-v-444d87f0],h2[data-v-444d87f0],h3[data-v-444d87f0],h4[data-v-444d87f0],h5[data-v-444d87f0],h6[data-v-444d87f0],input[data-v-444d87f0],li[data-v-444d87f0],ol[data-v-444d87f0],p[data-v-444d87f0],pre[data-v-444d87f0],td[data-v-444d87f0],textarea[data-v-444d87f0],th[data-v-444d87f0],ul[data-v-444d87f0]{margin:0;padding:0}table[data-v-444d87f0]{border-collapse:collapse;border-spacing:0}fieldset[data-v-444d87f0],img[data-v-444d87f0]{border:0}address[data-v-444d87f0],caption[data-v-444d87f0],cite[data-v-444d87f0],code[data-v-444d87f0],dfn[data-v-444d87f0],em[data-v-444d87f0],strong[data-v-444d87f0],th[data-v-444d87f0],var[data-v-444d87f0]{font-style:normal;font-weight:400}ol[data-v-444d87f0],ul[data-v-444d87f0]{list-style:none}caption[data-v-444d87f0],th[data-v-444d87f0]{text-align:left}q[data-v-444d87f0]:after,q[data-v-444d87f0]:before{content:\"\"}abbr[data-v-444d87f0],acronym[data-v-444d87f0]{border:0}body[data-v-444d87f0],html[data-v-444d87f0]{height:100%}input[data-v-444d87f0]{background:transparent;border:none}input[data-v-444d87f0]:focus{outline:none!important}body[data-v-444d87f0]{font-family:Microsoft JhengHei,Arial;font-size:12px}a[data-v-444d87f0]{outline:none;hlbr:expression(this.onFocus=this.blur());text-decoration:none}.clear[data-v-444d87f0]{clear:both}img[data-v-444d87f0]{vertical-align:top}html[data-v-444d87f0]{-webkit-text-size-adjust:100%}section.index[data-v-444d87f0]{position:absolute;width:calc(100% - 4.6875vw);height:100%;top:0;left:60px;margin-left:0;margin-top:0;left:4.6875vw;z-index:0;box-sizing:border-box;padding:2.85714vh 1.5625vw;overflow:hidden}section.index .datetime[data-v-444d87f0]{position:absolute;width:auto;height:auto;top:0;right:1.5625vw;margin-right:0;margin-top:0;font-size:.78125vw;line-height:1.64063vw;font-weight:400;font-family:Microsoft JhengHei;color:#7f8c8d;text-align:left;box-sizing:border-box;z-index:1}section.index .area[data-v-444d87f0]{position:absolute;width:100%;height:100%;top:0;left:0;margin-left:0;margin-top:0}section.index .area.recommend[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:29.6875vw;height:94.28571vh;margin-right:1.5625vw;background-color:#fff}section.index .area.information[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:60.9375vw;height:45.71429vh;margin-bottom:1.42857vh;background-color:#fbfcfc}section.index .area.creditcard[data-v-444d87f0]{width:100%;margin:0;width:21.09375vw;margin-right:1.5625vw}section.index .area.creditcard[data-v-444d87f0],section.index .area.news[data-v-444d87f0]{position:relative;height:auto;float:left;left:0;right:0;top:0;bottom:0;height:47.14286vh;background-color:#fbfcfc}section.index .area.news[data-v-444d87f0]{width:100%;margin:0;width:38.28125vw}@media screen and (max-width:768px){section.index[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0;z-index:0;box-sizing:border-box;padding:0;overflow:visible;padding-top:10.52632vw}section.index .namebar[data-v-444d87f0]{position:fixed;width:100%;height:100%;top:0;left:0;margin-left:0;margin-top:0;height:auto;background-color:#4ab235;text-align:center;z-index:101;padding-bottom:5px;box-sizing:border-box}section.index .namebar.hasTime[data-v-444d87f0]{padding-left:12.89474vw;padding-right:42.10526vw}section.index .namebar[data-v-444d87f0]:after{content:\"\";position:absolute;width:100%;height:5px;bottom:0;left:0;margin-left:0;margin-bottom:0;background-color:#fff200}section.index .namebar[data-v-444d87f0]:before{width:4.21053vw;height:5vw;display:inline-block;vertical-align:top;content:\"\";background-image:url(./images/index_nameicon.png);background-repeat:no-repeat;background-size:contain;background-position:50%;margin-top:2.63158vw}section.index .namebar .name[data-v-444d87f0]{font-size:5.52632vw}section.index .namebar .male[data-v-444d87f0],section.index .namebar .name[data-v-444d87f0]{line-height:10.52632vw;font-weight:bolder;font-family:Microsoft JhengHei;color:#fff;display:inline-block;vertical-align:top}section.index .namebar .male[data-v-444d87f0]{font-size:4.21053vw}section.index .namebar .datetime[data-v-444d87f0]{position:absolute;width:auto;height:auto;top:0;right:2.63158vw;margin-right:0;margin-top:0;font-size:3.15789vw;line-height:10.52632vw;font-weight:400;font-family:Microsoft JhengHei;color:#fff;text-align:center;z-index:100}section.index .area.recommend[data-v-444d87f0],section.index .area[data-v-444d87f0]{position:relative;width:100%;height:auto;float:left;left:0;right:0;top:0;bottom:0;margin:0}section.index .area.recommend[data-v-444d87f0]{margin-right:0;background-color:#fff;margin-bottom:0}section.index .area.creditcard[data-v-444d87f0],section.index .area.information[data-v-444d87f0]{position:relative;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:100%;height:auto;margin-bottom:0;background-color:#fbfcfc}section.index .area.creditcard[data-v-444d87f0]{margin-right:0}section.index .area.news[data-v-444d87f0]{position:relative;float:left;left:0;right:0;top:0;bottom:0;margin:0;width:100%;height:auto;margin-bottom:0;background-color:#fbfcfc}}", ""]);
 
 // exports
 
@@ -9594,6 +9594,13 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 var Recommend = __webpack_require__(441);
 var Information = __webpack_require__(439);
@@ -9620,6 +9627,9 @@ exports.default = {
     },
     customer_name: function customer_name(state) {
       return state.customer_name;
+    },
+    updateTime: function updateTime(state) {
+      return state.creditcardBonus.dataset.updated_time;
     }
   })),
   beforeMount: function beforeMount() {
@@ -9673,10 +9683,6 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-//
-//
-//
-//
 //
 //
 //
@@ -18016,11 +18022,9 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     staticClass: "auto"
   }, [_vm._v(_vm._s(_vm.data.auto_payment ? '有' : '無') + " 自扣")])]), (_vm.data.myreward_downloaded) ? _c('div', {
     staticClass: "des"
-  }, [_vm._v(_vm._s(_vm.data.myreward_downloaded ? '已' : '未') + "下載  國泰優惠")]) : _vm._e(), _c('div', {
-    staticClass: "datetime"
-  }, [_vm._v("時間：" + _vm._s(_vm.data.updated_time))])]) : _vm._e(), (!_vm.data.card_amount) ? _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.myreward_downloaded ? '已' : '未') + "下載  國泰優惠")]) : _vm._e()]) : _vm._e(), (!_vm.data.card_amount) ? _c('div', {
     staticClass: "container_empty"
-  }, [_vm._v("非本行信用卡客戶"), _c('br'), _vm._v("時間：" + _vm._s(_vm.data.updated_time))]) : _vm._e()])
+  }, [_vm._v("非本行信用卡客戶")]) : _vm._e()])
 },staticRenderFns: []}
 
 /***/ }),
@@ -18155,12 +18159,17 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('section', {
     staticClass: "index"
   }, [(_vm.showName) ? _c('div', {
-    staticClass: "namebar"
+    staticClass: "namebar",
+    class: _vm.updateTime ? 'hasTime' : ''
   }, [_c('div', {
     staticClass: "name"
   }, [_vm._v(_vm._s(_vm.customer_name))]), _c('div', {
     staticClass: "male"
-  }, [_vm._v(_vm._s(_vm.data.gender === 'F' ? '小姐' : '先生'))])]) : _vm._e(), _c('div', {
+  }, [_vm._v(_vm._s(_vm.data.gender === 'F' ? '小姐' : '先生'))]), (_vm.updateTime) ? _c('div', {
+    staticClass: "datetime"
+  }, [_vm._v("更新時間：" + _vm._s(_vm.updateTime))]) : _vm._e()]) : _vm._e(), (!_vm.showName && _vm.updateTime) ? _c('div', {
+    staticClass: "datetime"
+  }, [_vm._v("更新時間：" + _vm._s(_vm.updateTime))]) : _vm._e(), _c('div', {
     staticClass: "area recommend"
   }, [_c('Recommend')], 1), _c('div', {
     staticClass: "area information"
