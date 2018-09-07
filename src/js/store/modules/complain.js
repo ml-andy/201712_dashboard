@@ -4,8 +4,8 @@ const complain = {
   state:{
     dataset:[
       {
-        datetime: '2018年9月7日',
-        description: 'ATM領不到錢'
+        datetime: '',
+        description: ''
       },
     ]
   },

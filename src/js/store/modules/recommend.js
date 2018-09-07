@@ -6,22 +6,22 @@ const recommend = {
   state:{
     data:{
       can_market: true,
-      upgradable_card: '世華卡',
+      upgradable_card: '',
       expiring_credit_card_points:[
         {
-          date:'12月12日',
-          points: 2000,
+          date:'',
+          points: 0,
         }
       ],
-      myreward_recommendation: true,
-      is_contact_information_correct: false,
-      preference: '海外逍遙族',
-      product: '基金',
-      program: '信貸'
+      myreward_recommendation: false,
+      is_contact_information_correct: true,
+      preference: '',
+      product: '',
+      program: ''
     },
-    preference: 1,
-    product: 1,
-    program: 1,
+    preference: 0,
+    product: 0,
+    program: 0,
   },
   mutations:{
     
