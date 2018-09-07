@@ -3,12 +3,12 @@ const creditcardBonus = {
   namespaced:true,
   state:{
     dataset:{
-      "bonus_points": '',
-      "updated_time": "",
+      "bonus_points": '2000',
+      "updated_time": "2018.01.01",
       "auto_payment": false,
-      "credit_limit": '',
-      "card_amount": '',
-      "myreward_downloaded": false
+      "credit_limit": '100000',
+      "card_amount": '2',
+      "myreward_downloaded": true
     }
   },
   mutations:{
