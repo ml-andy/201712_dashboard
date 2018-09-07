@@ -63,8 +63,8 @@ export default {
       this.catchError({ api_code: 'close_page' });
     },600000);
     
-    window.resizeTo(380,window.screen.availHeight);
-    const _left = window.screen.availWidth - 380;
+    window.resizeTo(675,window.screen.availHeight);
+    const _left = window.screen.availWidth - 675;
     window.moveTo(_left, 0);
     
     $(window).load(()=>{
@@ -90,11 +90,6 @@ export default {
       for(var i=0;i<hashes.length;i++){hash=hashes[i].split('=');vars.push(hash[0]);vars[hash[0]]=hash[1]}
       return vars
     },
-    // checkTime(){
-    //   let elapsedTime = (new Date().getTime() - this.nowDate) / 1000;
-    //   if(elapsedTime >= 10) this.$router.push('/error');
-    //   else requestAnimationFrame(this.checkTime);
-    // }
   },
   watch:{
     windowSize:{
