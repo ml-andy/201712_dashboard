@@ -435,7 +435,7 @@ $vph:700;
               @include r;
   
               .btn{
-                @include rvw(240,45);
+                @include rvw(230,45);
                 height: auto;
                 min-height: getVW(45);
                 background-color: #fff;

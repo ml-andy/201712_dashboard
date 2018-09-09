@@ -196,7 +196,6 @@ $vph:700;
             box-sizing: border-box;
             border-radius: getVW(3);
             text-align: center;
-            margin-right: getVW(14);
             
             &.customer_service{ background-color: #95a5a6; border: 1px solid #95a5a6;}
             &.bank_counter{ background-color: #9b59b6; border: 1px solid #9b59b6;}
@@ -204,10 +203,10 @@ $vph:700;
           }
   
           .content{
-            @include rvw(100);
+            @include rvw(375);
             @include fontvw(16,30,#34495e);
+            width: calc(#{getVW(375)} - 20px);
             margin-right: getVW(0);
-            margin-top: getVW(10);
           }
   
           .time{
