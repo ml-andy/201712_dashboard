@@ -124,8 +124,135 @@ $vph:700;
 
 }
 
+//big screen
+$vpw:675;
+$vph:700;
+@media screen and (max-width: $bigerSize) {
+  .complain{
+    @include flt;
+    height: 100vh;
+    z-index: 998;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      transform: translate(0);
+      margin-top: getVH(0);
+      height: 100vh;
+      z-index: 1;
+      box-sizing: border-box;
+      padding: getVW(25);
+      background-color: #fff;
+  
+      &:before{
+        @include artvw(200,160);
+        content: "";
+        pointer-events: none;
+        z-index: 1;
+        background-image: url(./images/icon_panel_recommond.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right top;
+        image-rendering: -webkit-optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+        display: none;
+      }
+  
+      h1{
+        @include r;
+        @include fontvw(36,36,#4ab235,bolder);
+        margin-bottom: getVW(30);
+        z-index: 2;
+      }
+  
+      .submain{
+        @include r;
+        width: calc(100% + 17px);
+        height: calc(100% - #{getVW(66)});
+  
+        ul{
+          @include r;
+          width: calc(100% + 18px) !important;
+          z-index: 2;
+          box-sizing: border-box;
+          
+          li{
+            @include r;
+            @include fontvw(16,16,#34495e,bolder);
+            width: calc(100% - 20px);
+            z-index: 1;
+            border-bottom: 1px solid #4ab235;
+            margin-bottom: getVW(20);
+    
+            &.top{
+              @include fontvw(21,21,#fff,bolder);
+              color: #fff;
+              background-color: #4ab235;
+              display: none;
+            }
+    
+            .date{
+              @include r;
+              box-sizing: border-box;
+              padding: getVW(10) getVW(10) getVW(10) getVW(70);
+              border: 1px solid #4ab235;
+              background-color: #4ab235;
+              color: #fff;
 
-//desktop
+              &:before{
+                @include altvw(70,100);
+                content: "日期：";
+                box-sizing: border-box;
+                padding: getVW(10);
+                z-index: 1;
+              }
+            }
+    
+            .description{
+              @include r;
+              box-sizing: border-box;
+              margin-left: 0;
+              padding: getVW(10) getVW(10) getVW(10) getVW(70);
+              min-height: getVW(41);
+              border-left: 1px solid #4ab235;
+              border-right: 1px solid #4ab235;
+
+              &:before{
+                @include altvw(70,100);
+                content: "描述：";
+                box-sizing: border-box;
+                padding: getVW(10);
+                z-index: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  
+  }
+}
+
+//samll screen
 $vpw:380;
 $vph:700;
 @media screen and (max-width: $defaultSize) {
@@ -251,23 +378,4 @@ $vph:700;
     }
   
   }
-}
-
-//mobile
-$vpw:1334;
-$vph:750;
-@media screen and (max-width: 1334px) {
-
-}
-
-//mobile
-@media screen and (max-width: 1136px) {
-  
-}
-
-$vpw:1024;
-$vph:768;
-//tablet
-@media screen and (max-width: 1024px) {
-
 }

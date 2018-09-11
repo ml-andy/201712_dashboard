@@ -168,7 +168,182 @@ $vph:700;
 
 }
 
-//desktop
+//big screen
+$vpw:675;
+$vph:700;
+@media screen and (max-width: $bigerSize) {
+  .vip{
+    @include flt;
+    z-index: 998;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      transform: translate(0);
+      margin-top: getVH(0);
+      height: 100vh;
+      background-color: #ecf0f1;
+      z-index: 1;
+  
+      .leftside{
+        @include r;
+        z-index: 1;
+        background-color: #fff;
+        box-sizing: border-box;
+        padding: getVW(25);
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  
+        h1{
+          @include r;
+          @include fontvw(36,36,#4ab235,bolder);
+          margin-bottom: 0;
+        }
+  
+        .subbtn{
+          @include r;
+          margin-top: getVW(23);
+  
+          .btn{
+            @include r;
+            @include fontvw(21,21,#fff,bolder);
+            box-sizing: border-box;
+            padding: getVW(10);
+            background-color: #4ab235;
+            text-align: center;
+            border-radius: getVW(5);
+            margin-right: 2%;
+            margin-bottom: 0;
+            transition: 0.3s;
+            border: 1px solid #4ab235;
+
+            &:last-child{ margin-right: 0; }
+          }
+        }
+      }
+  
+      .rightside{
+        @include r;
+        height: calc(100vh - #{getVW(150)});
+        box-sizing: border-box;
+        padding: getVW(25);
+        z-index: 0;
+        overflow: hidden;
+  
+        .unitbox{
+          @include r(calc(100% + 20px),100%);
+          overflow: hidden;
+  
+          .unitboxin{
+            @include r;
+          }
+  
+          .interests{
+            @include r;
+            width: calc(100% - 20px);
+            background-color: #4ab235;
+            box-sizing: border-box;
+            padding: getVW(14);
+            margin-bottom: getVW(0);
+            border-bottom: 1px solid #fff;
+  
+            .icon{
+              @include altvw(90,100);
+              background-image: url(./images/vip_icon.png);
+              background-repeat: no-repeat;
+              background-size: getVW(50) auto;
+              background-position: center center;
+              
+              &:after{
+                @include art(1px,60%,0,20%);
+                content: "";
+                border-right: 1px solid #fff;
+              }
+            }
+  
+            .right{
+              @include r;
+              box-sizing: border-box;
+              padding-left: getVW(101);
+  
+              .title{
+                @include r;
+                @include fontvw(21,21,#ffffff,bolder);
+                margin-bottom: getVW(10);
+              }
+  
+              .description{
+                @include r;
+                @include fontvw(21,21,#fff200);
+                word-break: break-all;
+              }
+            }
+          }
+  
+          .unit{
+            @include r(calc(100% - 20px));
+            background-color: #ffffff;
+            margin-bottom: getVW(20);
+            
+            .topbar{
+              @include r;
+              @include fontvw(21,45,#ffffff,bolder);
+              box-sizing: border-box;
+              padding: 0 getVW(20);
+              background-color: #4ab235;
+            }
+  
+            .content{
+              @include r;
+              background-color: #fff;
+              box-sizing: border-box;
+              padding: getVW(20);
+              @include fontvw(16,27,#34495e);
+  
+              li{
+                @include r;
+                @include fontvw(16,27,#34495e);
+                box-sizing: border-box;
+                padding-left: getVW(15);
+                margin-bottom: getVW(15);
+                word-break: break-all;
+  
+                &:before{
+                  @include altvw(10,10,0,10);
+                  content: "";
+                  background-color: #34495e;
+                  z-index: 1;
+                  pointer-events: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  
+  }
+}
+
+//samll screen
 $vpw:380;
 $vph:700;
 @media screen and (max-width: $defaultSize) {
@@ -341,23 +516,4 @@ $vph:700;
     }
   
   }
-}
-
-//mobile
-$vpw:1334;
-$vph:750;
-@media screen and (max-width: 1334px) {
-
-}
-
-//mobile
-@media screen and (max-width: 1136px) {
-  
-}
-
-$vpw:1024;
-$vph:768;
-//tablet
-@media screen and (max-width: 1024px) {
-
 }

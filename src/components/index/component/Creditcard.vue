@@ -1,11 +1,13 @@
 <template lang="pug">
   .panel.creditcard
+    .title_credit 信用卡資訊
     .container(v-if="data.card_amount")
-      .btn_hascreditcard#lnkIndexCreditcard(@click="changeSection(5)")
-        |持有 {{ data.card_amount }} 張信用卡
-      .bouns#lnkIndexBonus(@click="changeSection(6)")
-        .title 近一期帳單紅利
-        .content {{ thousandsSeparators(data.bonus_points) }}
+      .sum_header
+        .btn_hascreditcard#lnkIndexCreditcard(@click="changeSection(5)")
+          |持有 {{ data.card_amount }} 張信用卡
+        .bouns#lnkIndexBonus(@click="changeSection(6)")
+          .title 近一期帳單紅利
+          .content {{ thousandsSeparators(data.bonus_points) }}
       .sum
         .quoda
           .title 額度
