@@ -56,7 +56,112 @@ section.index{
   }
 }
 
-//desktop
+//big screen
+$vpw:675;
+$vph:700;
+@media screen and (max-width: $bigerSize) {
+  section.index{
+    @include r;
+    z-index: 0;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: visible;
+    padding-top: getVW(40);
+    
+    .namebar{
+      @include flt;
+      height: auto;
+      background-color: #4ab235;
+      text-align: center;
+      z-index: 101;
+      padding-bottom: 5px;
+      box-sizing: border-box;
+      
+      &.hasTime{
+        padding-left: getVW(49);
+        padding-right: getVW(160);
+      }
+
+      &:after{
+        content: "";
+        @include alb(100%,5px);
+        background-color: #fff200;
+      }
+
+      &:before{
+        width: getVW(16);
+        height: getVW(19);
+        display: inline-block;
+        vertical-align: top;
+        content: "";
+        background-image: url(./images/index_nameicon.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        margin-top: getVW(10);
+      }
+
+      .name{
+        @include fontvw(21,40,#fff,bolder);
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .male{
+        @include fontvw(16,40,#fff,bolder);
+        display: inline-block;
+        vertical-align: top;
+      }
+
+      .datetime{
+        @include art(auto,auto,#{getVW(10)});
+        @include fontvw(12,40,#fff);
+        text-align: center;
+        z-index: 100;
+      }
+    }
+  
+    .area{
+      @include r;
+  
+      &.recommend{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-right: getVW(0);
+        background-color: #fff;
+        margin-bottom: 0;
+      }
+  
+      &.information{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-bottom: 0;
+        background-color: #fbfcfc;
+      }
+  
+      &.creditcard{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-right: 0;
+        margin-bottom: 0;
+        background-color: #fbfcfc;
+      }
+  
+      &.news{
+        @include r;
+        width: getVW(100);
+        height: auto;
+        margin-bottom: getVW(0);
+        background-color: #fbfcfc;
+      }
+    }
+  }
+}
+
+//samll screen
 $vpw:380;
 $vph:700;
 @media screen and (max-width: $defaultSize) {
@@ -159,23 +264,4 @@ $vph:700;
       }
     }
   }
-}
-
-//mobile
-$vpw:1334;
-$vph:750;
-@media screen and (max-width: 1334px) {
-
-}
-
-//mobile
-@media screen and (max-width: 1136px) {
-  
-}
-
-//tablet
-$vpw:1024;
-$vph:768;
-@media screen and (max-width: 1024px) {
-
 }

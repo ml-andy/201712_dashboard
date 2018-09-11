@@ -4,11 +4,11 @@ const creditcardBonus = {
   state:{
     dataset:{
       "bonus_points": '',
-      "updated_time": "",
+      "updated_time": '',
       "auto_payment": false,
       "credit_limit": '',
       "card_amount": '',
-      "myreward_downloaded": false
+      "myreward_downloaded": false,
     }
   },
   mutations:{

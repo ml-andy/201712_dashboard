@@ -167,8 +167,178 @@ $vph:700;
   }
 }
 
+//big screen
+$vpw:675;
+$vph:700;
+@media screen and (max-width: $bigerSize) {
+  .contact{
+    @include r;
+    z-index: 998;
+  
+    .btn_close{
+      @include frtvw(70,70);
+      z-index: 9;
+      cursor: pointer;
+  
+      span{
+        @include altvw(36,6,18,30);
+        background-color: #4ab235;
+  
+        &.top{ transform: rotateZ(45deg); }
+        &.bottom{ transform: rotateZ(-45deg); }
+      }
+    }
+  
+    .main{
+      @include r(100%,auto);
+      min-height: 100vh;
+      transform: translate(0);
+      background-color: #fff;
+      box-sizing: border-box;
+      padding: getVW(25);
+      z-index: 1;
+  
+      &:before{
+        @include artvw(150,160);
+        content: "";
+        pointer-events: none;
+        z-index: 0;
+        background-image: url(./images/icon_panel_recommond.png);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: right top;
+        image-rendering: -webkit-optimize-contrast;
+        -ms-interpolation-mode: nearest-neighbor;
+        display: none;
+      }
+  
+      h1{
+        @include r;
+        @include fontvw(36,36,#4ab235,bolder);
+        margin-bottom: getVW(30);
+        z-index: 1;
+      }
+  
+      .unit{
+        @include r;
+        margin-right: 0;
+        z-index: 1;
+        margin-bottom: getVW(30);
+  
+        &:nth-child(2n){ margin-right: getVW(0); }
+        &:last-child{ margin-bottom: 0; }
+  
+        .title{
+          @include r;
+          @include fontvw(21,21,#34495e,bolder);
+          margin-bottom: getVW(20);
+  
+          &:before{
+            content: "";
+            width: getVW(16);
+            height: getVW(16);
+            display: inline-block;
+            vertical-align: top;
+            margin-top: getVW(2);
+            margin-right: getVW(5);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center center;
+          }
+  
+          &.orange{ 
+            color: #e67e22; 
+            
+            &:before{ background-image: url(./images/contact_icon1.png); }
+          }
+  
+          &.blue{ 
+            color: #3498db; 
+            
+            &:before{ background-image: url(./images/contact_icon2.png); }
+          }
+        }
+  
+        ul{
+          @include r;
+          box-sizing: border-box;
+          border: 1px solid #34495e;
+  
+          li{
+            @include r;
+            box-sizing: border-box;
+            padding: getVW(10);
+            background-color: #ecf0f1;
+  
+            &:nth-child(2n){ background-color: #ffffff; }
+  
+            &.top{
+              background-color: #34495e; 
+  
+              .subtitle,.status{ 
+                color: #fff; 
+                font-weight: bolder;
+              }
+            }
+            
+            .subtitle{
+              @include r(50%);
+              @include fontvw(16,21,#34495e);
+              box-sizing: border-box;
+              padding-right: getVW(10);
+              text-transform: uppercase;
+            }
+  
+            .status{
+              @include r(50%);
+              @include fontvw(16,21,#34495e);
+              box-sizing: border-box;
+              padding-right: getVW(10);
+              text-transform: uppercase;
+            }
+          }
+  
+          &.orange{
+            border-color: #e67e22;
+  
+            li.top{ background-color: #e67e22; }
+          }
+  
+          &.blue{
+            border-color: #3498db;
+  
+            li.top{ background-color: #3498db; }
+          }
+        }
 
-//desktop
+        .notmatch{
+          @include r;
+          @include fontvw(16,21,#34495e);
+          box-sizing: border-box;
+          padding-right: getVW(10);
+          text-transform: uppercase;
+        }
+
+        .des{
+          @include r;
+          @include fontvw(16,21,#34495e);
+          box-sizing: border-box;
+          text-align: right;
+          text-transform: uppercase;
+          margin-top: getVW(10);
+        }
+      }
+    }
+  
+    .bgcover{
+      @include alt;
+      z-index: 0;
+      background-color: rgba(0,0,0,0.8);
+    }
+  }
+}
+
+//samll screen
 $vpw:380;
 $vph:700;
 @media screen and (max-width: $defaultSize) {
@@ -337,23 +507,4 @@ $vph:700;
       background-color: rgba(0,0,0,0.8);
     }
   }
-}
-
-//mobile
-$vpw:1334;
-$vph:750;
-@media screen and (max-width: 1334px) {
-
-}
-
-//mobile
-@media screen and (max-width: 1136px) {
-  
-}
-
-$vpw:1024;
-$vph:768;
-//tablet
-@media screen and (max-width: 1024px) {
-
 }
