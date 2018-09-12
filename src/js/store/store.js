@@ -9,10 +9,10 @@ const store = new Vuex.Store({
       height: 768
     },
     backEndUrl: process.env.apiUrl,
-    teller_id: '',
-    customer_id: '',
-    customer_name: '',
-    branch: '',
+    teller_id: 'A123456789',
+    customer_id: 'B123456789',
+    customer_name: '王小明',
+    branch: '國泰總行',
     token: '',
     anyError: false,
     errorText: '',
@@ -20,7 +20,8 @@ const store = new Vuex.Store({
 
   mutations: {
     changeLoading (state, show) {
-      state.loadingShow=show
+      // state.loadingShow=show
+      state.loadingShow=false;
     },
     changeShowNav (state, value){
       state.showNav = value
@@ -35,39 +36,39 @@ const store = new Vuex.Store({
     catchError(state, value) {
       console.log(value);
       state.anyError = true;
-      router.push('/error');
-      switch (value.request.response.api_code) {
-        case 'CustomerJourney_1001':
-          state.errorText = '系統異常:1001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_2001':
-          state.errorText = '系統異常:2001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_3001':
-          state.errorText = '系統異常:3001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_4001':
-          state.errorText = '連結有誤:4001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_5001':
-          state.errorText = '連結失效:5001 請回 etabs 重新點選';
-          break;
-        case 'CustomerJourney_5002':
-          state.errorText = '連結有誤:5002 請洽系統管理員';
-          break;
-        case 'CustomerJourney_5003':
-          state.errorText = '連結有誤:5003 請洽系統管理員';
-          break;
-        case 'CustomerJourney_6001':
-          state.errorText = '系統異常:6001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_6002':
-          state.errorText = '系統異常:6002 請洽系統管理員';
-          break;
-        default:
-          state.errorText = '網頁已失效';
-          break;
-      }
+      // router.push('/error');
+      // switch (value.request.response.api_code) {
+      //   case 'CustomerJourney_1001':
+      //     state.errorText = '系統異常:1001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_2001':
+      //     state.errorText = '系統異常:2001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_3001':
+      //     state.errorText = '系統異常:3001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_4001':
+      //     state.errorText = '連結有誤:4001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_5001':
+      //     state.errorText = '連結失效:5001 請回 etabs 重新點選';
+      //     break;
+      //   case 'CustomerJourney_5002':
+      //     state.errorText = '連結有誤:5002 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_5003':
+      //     state.errorText = '連結有誤:5003 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_6001':
+      //     state.errorText = '系統異常:6001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_6002':
+      //     state.errorText = '系統異常:6002 請洽系統管理員';
+      //     break;
+      //   default:
+      //     state.errorText = '網頁已失效';
+      //     break;
+      // }
     },
     catchPostError(state, value) {
       console.log(value);
