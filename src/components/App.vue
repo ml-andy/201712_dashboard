@@ -63,8 +63,10 @@ export default {
       this.catchError({ api_code: 'close_page' });
     },600000);
     
-    window.resizeTo(675,window.screen.availHeight);
-    const _left = window.screen.availWidth - 675;
+    let openSize = 380;
+    if (window.screen.availWidth >= 1600) openSize = 675;
+    window.resizeTo(openSize, window.screen.availHeight);
+    const _left = window.screen.availWidth - openSize;
     window.moveTo(_left, 0);
     
     $(window).load(()=>{
