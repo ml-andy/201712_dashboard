@@ -57,7 +57,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "34815b34f60a95b8b347"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1783e954ef914c0e9352"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -8391,8 +8391,10 @@ exports.default = {
       _this.catchError({ api_code: 'close_page' });
     }, 600000);
 
-    window.resizeTo(675, window.screen.availHeight);
-    var _left = window.screen.availWidth - 675;
+    var openSize = 380;
+    if (window.screen.availWidth >= 1600) openSize = 675;
+    window.resizeTo(openSize, window.screen.availHeight);
+    var _left = window.screen.availWidth - openSize;
     window.moveTo(_left, 0);
 
     $(window).load(function () {
