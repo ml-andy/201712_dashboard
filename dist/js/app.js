@@ -57,7 +57,7 @@
 /******/
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "1783e954ef914c0e9352"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6775fd27bdbbd45c97ee"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -6078,10 +6078,10 @@ var store = new Vuex.Store({
       height: 768
     },
     backEndUrl: "https://88.8.196.56:8443/api",
-    teller_id: '',
-    customer_id: '',
-    customer_name: '',
-    branch: '',
+    teller_id: 'A123456789',
+    customer_id: 'B123456789',
+    customer_name: '王小明',
+    branch: '國泰總行',
     token: '',
     anyError: false,
     errorText: ''
@@ -6089,7 +6089,8 @@ var store = new Vuex.Store({
 
   mutations: {
     changeLoading: function changeLoading(state, show) {
-      state.loadingShow = show;
+      // state.loadingShow=show
+      state.loadingShow = false;
     },
     changeShowNav: function changeShowNav(state, value) {
       state.showNav = value;
@@ -6110,39 +6111,39 @@ var store = new Vuex.Store({
     catchError: function catchError(state, value) {
       console.log(value);
       state.anyError = true;
-      router.push('/error');
-      switch (value.request.response.api_code) {
-        case 'CustomerJourney_1001':
-          state.errorText = '系統異常:1001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_2001':
-          state.errorText = '系統異常:2001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_3001':
-          state.errorText = '系統異常:3001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_4001':
-          state.errorText = '連結有誤:4001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_5001':
-          state.errorText = '連結失效:5001 請回 etabs 重新點選';
-          break;
-        case 'CustomerJourney_5002':
-          state.errorText = '連結有誤:5002 請洽系統管理員';
-          break;
-        case 'CustomerJourney_5003':
-          state.errorText = '連結有誤:5003 請洽系統管理員';
-          break;
-        case 'CustomerJourney_6001':
-          state.errorText = '系統異常:6001 請洽系統管理員';
-          break;
-        case 'CustomerJourney_6002':
-          state.errorText = '系統異常:6002 請洽系統管理員';
-          break;
-        default:
-          state.errorText = '網頁已失效';
-          break;
-      }
+      // router.push('/error');
+      // switch (value.request.response.api_code) {
+      //   case 'CustomerJourney_1001':
+      //     state.errorText = '系統異常:1001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_2001':
+      //     state.errorText = '系統異常:2001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_3001':
+      //     state.errorText = '系統異常:3001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_4001':
+      //     state.errorText = '連結有誤:4001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_5001':
+      //     state.errorText = '連結失效:5001 請回 etabs 重新點選';
+      //     break;
+      //   case 'CustomerJourney_5002':
+      //     state.errorText = '連結有誤:5002 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_5003':
+      //     state.errorText = '連結有誤:5003 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_6001':
+      //     state.errorText = '系統異常:6001 請洽系統管理員';
+      //     break;
+      //   case 'CustomerJourney_6002':
+      //     state.errorText = '系統異常:6002 請洽系統管理員';
+      //     break;
+      //   default:
+      //     state.errorText = '網頁已失效';
+      //     break;
+      // }
     },
     catchPostError: function catchPostError(state, value) {
       console.log(value);
@@ -10201,8 +10202,8 @@ var complain = {
   namespaced: true,
   state: {
     dataset: [{
-      datetime: '',
-      description: ''
+      datetime: '2018年9月7日',
+      description: 'ATM領不到錢'
     }]
   },
   mutations: {},
@@ -10366,12 +10367,12 @@ var creditcardBonus = {
   namespaced: true,
   state: {
     dataset: {
-      "bonus_points": '',
-      "updated_time": '',
+      "bonus_points": '2000',
+      "updated_time": "2018.01.01",
       "auto_payment": false,
-      "credit_limit": '',
-      "card_amount": '',
-      "myreward_downloaded": false
+      "credit_limit": '100000',
+      "card_amount": '2',
+      "myreward_downloaded": true
     }
   },
   mutations: {},
@@ -10439,21 +10440,21 @@ var information = {
   namespaced: true,
   state: {
     dataset: {
-      "birthday": "",
-      "have_any_children": false,
-      "account_type": false,
-      "gender": "",
-      "financial_advisor_name": "",
-      "person_in_charge": false,
-      "financial_advisor_series": "",
-      "vip_notation": "",
-      "annual_income_date": "",
-      "complaint": 0,
-      "financial_advisor_branch": "",
-      "vip_status": "",
-      "age": '',
-      "annual_income": "",
-      "availability": true
+      "birthday": "1987.11.08",
+      "have_any_children": true,
+      "account_type": true,
+      "gender": "1",
+      "financial_advisor_name": "林小真",
+      "person_in_charge": true,
+      "financial_advisor_series": "NT1001",
+      "vip_notation": "S",
+      "annual_income_date": "106/10",
+      "complaint": 2,
+      "financial_advisor_branch": "館前分行",
+      "vip_status": "106/10",
+      "age": '29',
+      "annual_income": "100萬以上",
+      "availability": false
     }
   },
   mutations: {},
@@ -10530,7 +10531,19 @@ var journey = {
       type: 'web_atm',
       name: '網銀'
     }],
-    dataset: []
+    dataset: [{
+      event_type: '客服進線',
+      event_description: '信用卡_行銷企劃詢問：106年6～8月 最適卡片推薦升等／加辦專案',
+      date_time: '2017/10/14 11:10'
+    }, {
+      event_type: '臨櫃',
+      event_description: '台幣存匯_轉帳',
+      date_time: '2017/10/14 11:10'
+    }, {
+      event_type: '網銀',
+      event_description: '定存_外幣定存',
+      date_time: '2017/10/14 11:10'
+    }]
   },
   mutations: {},
   actions: {
@@ -10840,20 +10853,20 @@ var recommend = {
   state: {
     data: {
       can_market: true,
-      upgradable_card: '',
+      upgradable_card: '世華卡',
       expiring_credit_card_points: [{
-        date: '',
-        points: 0
+        date: '12月12日',
+        points: 2000
       }],
-      myreward_recommendation: false,
-      is_contact_information_correct: true,
-      preference: '',
-      product: '',
-      program: ''
+      myreward_recommendation: true,
+      is_contact_information_correct: false,
+      preference: '海外逍遙族',
+      product: '基金',
+      program: '信貸'
     },
-    preference: 0,
-    product: 0,
-    program: 0
+    preference: 1,
+    product: 1,
+    program: 1
   },
   mutations: {},
   actions: {
