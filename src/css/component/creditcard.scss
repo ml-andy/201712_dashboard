@@ -134,7 +134,7 @@ $vph:700;
 }
 
 //big screen
-$vpw:675;
+$vpw: $bigerSizeVpw;
 $vph:700;
 @media screen and (max-width: $bigerSize) {
   .creditcard{
