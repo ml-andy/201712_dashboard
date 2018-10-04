@@ -64,7 +64,7 @@ export default {
     },600000);
     
     let openSize = 380;
-    if (window.screen.availWidth >= 1600) openSize = 675;
+    if (window.screen.availWidth >= 1600) openSize = 750;
     window.resizeTo(openSize, window.screen.availHeight);
     const _left = window.screen.availWidth - openSize;
     window.moveTo(_left, 0);
