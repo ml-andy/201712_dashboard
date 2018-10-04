@@ -23,7 +23,7 @@ body{
 }
 
 //big screen
-$vpw:675;
+$vpw: $bigerSizeVpw;
 $vph:700;
 @media screen and (max-width: $bigerSize) {
   body{

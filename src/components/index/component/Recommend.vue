@@ -12,9 +12,9 @@
           
         .content(v-else)
           span.cant_market(v-if="!data.can_market") 不適合行銷
-          span.off(v-else) 請參考其他推薦(如下)
+          span.off(v-else) 請參考其他推薦
         .btn_fallcontact#lnkIndexFallcontact(
-          v-if="!data.is_contact_information_correct"
+          v-if="!data.is_contact_information_correct && data.can_market"
           @click="changeSection(1)"
         ) 通聯資料有誤
 
