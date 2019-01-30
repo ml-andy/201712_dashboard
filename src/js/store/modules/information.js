@@ -3,13 +3,13 @@ const information = {
   namespaced:true,
   state:{
     dataset:{
-      "birthday": "1987.11.08",
+      "birthday": "1983.06.08",
       "have_any_children": true,
       "account_type": true,
-      "gender": "1",
-      "financial_advisor_name": "林小真",
+      "gender": "F",
+      "financial_advisor_name": "王大樹",
       "person_in_charge": true,
-      "financial_advisor_series": "NT1001",
+      "financial_advisor_series": "NT10000",
       "vip_notation": "S",
       "annual_income_date": "106/10",
       "complaint": 2,

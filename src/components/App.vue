@@ -1,7 +1,7 @@
 <template lang="pug">
 #app
   Loading
-  Nav(:class="[showNav ? 'on' : '', anyError ? 'off' : '']")
+  Nav(:class="[showNav ? 'on' : '']")
   .menubtn(
     :class="showNav === true ? 'on' : ''"
     @click="changeShowNav(!showNav)"

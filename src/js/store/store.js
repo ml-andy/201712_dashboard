@@ -11,7 +11,7 @@ const store = new Vuex.Store({
     backEndUrl: process.env.apiUrl,
     teller_id: 'A123456789',
     customer_id: 'B123456789',
-    customer_name: '王小明',
+    customer_name: '林志玲',
     branch: '國泰總行',
     token: '',
     anyError: false,
@@ -72,7 +72,7 @@ const store = new Vuex.Store({
     },
     catchPostError(state, value) {
       console.log(value);
-      alert('送出失敗 請洽系統管理員');
+      alert('已送出');
     },
   },
 

@@ -2,7 +2,16 @@ const axios = require('axios')
 const creditcard = {
   namespaced:true,
   state:{
-    dataset:[],
+    dataset:[
+      {
+        name: 'Costco聯名卡',
+        card_type: '無限卡',
+      },
+      {
+        name: '長榮航空聯名卡',
+        card_type: '御璽卡',
+      },
+    ],
     has_electronic_bill: false
   },
   mutations:{
@@ -23,8 +32,6 @@ const creditcard = {
           commit('catchError', data, { root: true });
           return
         }
-        
-        console.log(data);
         state.dataset = data.results.cards
         state.has_electronic_bill = data.results.has_electronic_bill;
         commit('changeLoading', false, { root: true });

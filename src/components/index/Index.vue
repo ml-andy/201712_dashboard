@@ -47,7 +47,8 @@ export default {
     this.changeLoading(true);
   },
   mounted(){
-    let name = decodeURI(this.getUrlVars()['customer_name']).split('');
+    // let name = decodeURI(this.getUrlVars()['customer_name']).split('');
+    let name = this.customer_name.split('');
     if(name && name.length >= 2) name[1] = 'O';
     document.title = `【${name.join('')}】 客戶視圖`
   },

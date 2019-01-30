@@ -19,18 +19,28 @@ const journey = {
     dataset:[
       {
         event_type: '客服進線',
-        event_description: '信用卡_行銷企劃詢問：106年6～8月 最適卡片推薦升等／加辦專案',
-        date_time: '2017/10/14 11:10',
-      },
-      {
-        event_type: '臨櫃',
-        event_description: '台幣存匯_轉帳',
-        date_time: '2017/10/14 11:10',
+        event_description: '銀行_開卡/掛失/補發作業_金融卡掛失',
+        date_time: '2019/01/02  11:00',
       },
       {
         event_type: '網銀',
-        event_description: '定存_外幣定存',
-        date_time: '2017/10/14 11:10',
+        event_description: '個金授信_還款_房屋貸款',
+        date_time: '2018/12/21  10:30',
+      },
+      {
+        event_type: '臨櫃',
+        event_description: '台幣存匯_轉帳_自行轉帳',
+        date_time: '2018/12/01  14:30',
+      },
+      {
+        event_type: '客服進線',
+        event_description: '客戶表示欲向媒體申訴',
+        date_time: '2018/10/05  20:30',
+      },
+      {
+        event_type: '網銀',
+        event_description: '台幣存匯_轉帳_繳費扣款',
+        date_time: '2018/10/01   15:00',
       },
     ],
   },

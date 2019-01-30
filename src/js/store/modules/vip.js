@@ -5,8 +5,8 @@ const vip = {
     dataset:{
       vip_status:'',
       vip_notation:'',
-      rights_preference:'',
-      apitch:''
+      rights_preference:'換匯優惠',
+      apitch:'歡迎您成為本行VIP貴賓，我們為VIP有提供專屬的特別換匯優惠，我可以介紹您專屬服務人員，您下次可以直接找他，他可以提供給您比較便宜的匯率並可以優先為您服務喔!'
     }
   },
   mutations:{

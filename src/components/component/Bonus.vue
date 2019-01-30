@@ -18,8 +18,8 @@
                 v-for="i in dataset.find(d=>d.name === 'expire').list"
                 v-if="i.date && i.count"
               )
-                .date {{ i.date }}
-                .points {{ i.count }}
+                .date {{ i.date.slice(2) }}
+                .points {{ thousandsSeparators(i.count) }}
                 .ontime(v-if="i.ontime")
               li(v-if="!dataset.find(d=>d.name === 'expire').list.find(i=>i.date) || !dataset.find(d=>d.name === 'expire').list.find(i=>i.count != 0)")
                 |暫無資料
@@ -32,7 +32,7 @@
           .box(v-bar)
             ul
               li(v-for="i in dataset.find(d=>d.name === 'points').list")
-                .date {{ i.date.split('.').join('-') }}
+                .date {{ i.date.slice(2) }}
                 .points {{ thousandsSeparators(i.count) }}
         
       .rightside

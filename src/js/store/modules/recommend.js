@@ -6,18 +6,18 @@ const recommend = {
   state:{
     data:{
       can_market: true,
-      upgradable_card: '世華卡',
+      upgradable_card: 'Costco聯名卡',
       expiring_credit_card_points:[
         {
-          date:'12月12日',
+          date:'07月31日',
           points: 2000,
         }
       ],
       myreward_recommendation: true,
       is_contact_information_correct: false,
-      preference: '海外逍遙族',
+      preference: '理財族',
       product: '基金',
-      program: '信貸'
+      program: 'UBER 108/1綁定刷萬事達卡促刷活動'
     },
     preference: 1,
     product: 1,
@@ -71,35 +71,35 @@ const recommend = {
         })
     },
     postRecommendData({ state, rootState, commit }, {key, type} ){
-      console.log('v12');
-      let datas = {
-        teller_id: rootState.teller_id,
-        customer_id: rootState.customer_id,
-        token: rootState.token,
-        recommendation: JSON.stringify({
-          [key]: type
-        })
-      }
-      console.log(datas);
+      type ? state[key] = 1 : state[key] = -1
+      // let datas = {
+      //   teller_id: rootState.teller_id,
+      //   customer_id: rootState.customer_id,
+      //   token: rootState.token,
+      //   recommendation: JSON.stringify({
+      //     [key]: type
+      //   })
+      // }
+      // console.log(datas);
 
-      $.ajax({
-        url: `${rootState.backEndUrl}/teller_reference`,
-        type: 'POST',
-        dataType: 'json',
-        data: datas,
-        success: (data)=>{
-          console.log(data);
-          if (data.api_code !== 'CustomerJourney_0000'){
-            commit('catchPostError', data, { root: true });
-            return
-          }
+      // $.ajax({
+      //   url: `${rootState.backEndUrl}/teller_reference`,
+      //   type: 'POST',
+      //   dataType: 'json',
+      //   data: datas,
+      //   success: (data)=>{
+      //     console.log(data);
+      //     if (data.api_code !== 'CustomerJourney_0000'){
+      //       commit('catchPostError', data, { root: true });
+      //       return
+      //     }
 
-          type ? state[key] = 1 : state[key] = -1
-        },
-        error: (xhr, textStatus, errorThrown)=>{
-          commit('catchPostError', errorThrown, { root: true });
-        }
-      })
+      //     type ? state[key] = 1 : state[key] = -1
+      //   },
+      //   error: (xhr, textStatus, errorThrown)=>{
+      //     commit('catchPostError', errorThrown, { root: true });
+      //   }
+      // })
     },
   }
 }

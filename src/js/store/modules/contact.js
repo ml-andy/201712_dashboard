@@ -35,8 +35,6 @@ const contact = {
           commit('catchError', data, { root: true });
           return
         }
-        
-        console.log(data);
         state.dataset = data.results;
         commit('changeLoading', false, { root: true });
       })

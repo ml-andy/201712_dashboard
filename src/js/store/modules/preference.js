@@ -22,15 +22,33 @@ const preference = {
     dataset:[
       {
         title: '偏好',
-        tag: '',
+        tag: '理財族',
         content:[
           {
             subtitle: '推薦商品',
-            text:''
+            text:'理財商品'
           },
           {
             subtitle: '話術',
-            text:''
+            text:'#資產配置  #保單健檢<br>市場波動較大，平常有檢視基金績效的習慣嗎？還是說我請專業的同事幫您做【投資部位檢視】。'
+          },
+        ],
+        remarks:{
+          text: '',
+          isWriting: false,
+        },
+      },
+      {
+        title: '偏好',
+        tag: '樂活族',
+        content:[
+          {
+            subtitle: '推薦商品',
+            text:'保險商品'
+          },
+          {
+            subtitle: '話術',
+            text:'#保單健檢  #保障型保單  #意外/儲蓄險<br>不曉得您對【保障型保單】這塊基礎保障有規劃了嗎 ? 或是單純想要儲蓄也可以，還是說我請專業的同事幫您看一下，也幫您試算看看目前保障夠不夠。'
           },
         ],
         remarks:{
@@ -40,11 +58,11 @@ const preference = {
       },
       {
         title: '產品',
-        tag: '',
+        tag: '基金',
         content:[
           {
             subtitle: '話術',
-            text:''
+            text:'您平常有在投資嗎？最近我們有推出申購基金3年0手續費專案唷，不知道您有沒有興趣？可以請專人跟您介紹一下？'
           }
         ],
         remarks:{
@@ -54,7 +72,7 @@ const preference = {
       },
       {
         title: '專案',
-        tag: '',
+        tag: 'UBER 108/1綁定刷萬事達卡促刷活動',
         content:[
           {
             subtitle: '話術',
@@ -70,7 +88,8 @@ const preference = {
   },
   mutations:{
     changeUnit (state, value) {
-      state.nowUnit = value
+      const targetTitle = state.schema[value].name;
+      state.nowUnit = state.dataset.findIndex(item => item.title === targetTitle);
     },
   },
   actions:{
@@ -152,28 +171,28 @@ const preference = {
           [state.schema[idx].params]: text
         })
       }
-
-      console.log(postData);
       // let postDataQs = Qs.stringify(postData);
-      $.ajax({
-        url: `${rootState.backEndUrl}/teller_reference/preference`,
-        type: 'POST',
-        dataType: 'json',
-        data: postData,
-        success: (data)=>{
-          console.log(data);
-          if (data.api_code !== 'CustomerJourney_0000'){
-            commit('catchPostError', data, { root: true });
-            return
-          }
+      state.dataset[idx].remarks.text = text
+      state.dataset[idx].remarks.isWriting = isWriting
+      // $.ajax({
+      //   url: `${rootState.backEndUrl}/teller_reference/preference`,
+      //   type: 'POST',
+      //   dataType: 'json',
+      //   data: postData,
+      //   success: (data)=>{
+      //     console.log(data);
+      //     if (data.api_code !== 'CustomerJourney_0000'){
+      //       commit('catchPostError', data, { root: true });
+      //       return
+      //     }
           
-          state.dataset[idx].remarks.text = text
-          state.dataset[idx].remarks.isWriting = isWriting
-        },
-        error: (xhr, textStatus, errorThrown)=>{
-          commit('catchPostError', errorThrown, { root: true });
-        }
-      })
+      //     state.dataset[idx].remarks.text = text
+      //     state.dataset[idx].remarks.isWriting = isWriting
+      //   },
+      //   error: (xhr, textStatus, errorThrown)=>{
+      //     commit('catchPostError', errorThrown, { root: true });
+      //   }
+      // })
 
       // axios.post(`${rootState.backEndUrl}/teller_reference/preference`, postData)
       // .then(({data})=>{

@@ -5,11 +5,62 @@ const bonus = {
     dataset:[
       {
         name: 'expire',
-        list:[]
+        list:[
+          {
+            date: '2017/11/31',
+            count: 200,
+            ontime: true,
+          },
+          {
+            date: '2018/01/21',
+            count: 2000,
+          },
+          {
+            date: '2018/02/01',
+            count: 2000,
+          },
+          {
+            date: '2018/04/25',
+            count: 1000,
+          },
+          {
+            date: '2018/06/17',
+            count: 2000,
+          },
+          {
+            date: '2018/07/02',
+            count: 100,
+          },
+        ]
       },
       {
         name: 'points',
-        list:[]
+        list:[
+          {
+            date: '2017/11/30',
+            count: 7000,
+          },
+          {
+            date: '2017/10/31',
+            count: 7000,
+          },
+          {
+            date: '2017/09/30',
+            count: 7000,
+          },
+          {
+            date: '2017/08/31',
+            count: 4000,
+          },
+          {
+            date: '2017/07/31',
+            count: 3000,
+          },
+          {
+            date: '2017/06/30',
+            count: 5000,
+          },
+        ]
       },
     ]
   },
@@ -32,7 +83,6 @@ const bonus = {
           return
         }
 
-        console.log(data);
         state.dataset[0].list = data.results.expiring_points.map(i=>{
           let dayDistance = (new Date(i.date) - new Date()) / 86400000
           return {

@@ -22,7 +22,7 @@
             )
               .topbar
                 .title {{ i.title }}
-                .tag {{ tag[idx] }}
+                .tag {{ i.tag }}
               .submain
                 .content
                   .theme(v-for="d in i.content")
@@ -33,7 +33,7 @@
                     |備註
                     .rewrite(
                       :class="i.remarks.isWriting ? 'on' : ''"
-                      :id="'btnPreference' + schema[idx].params.slice(0,1).toUpperCase() + schema[idx].params.slice(1).toLowerCase() + '_remark'"
+                      :id="'btnPreference' + schema.find(item => item.name === i.title).params.slice(0,1).toUpperCase() + schema.find(item => item.name === i.title).params.slice(1).toLowerCase() + '_remark'"
                       @click="writeRemarks(idx)"
                     )
                   textarea.remarks(
@@ -42,7 +42,7 @@
                     ref="remarks"
                   )
                   .remarks(
-                    :id="'txareaPreference' + schema[idx].params.slice(0,1).toUpperCase() + schema[idx].params.slice(1).toLowerCase() + '_remark'"
+                    :id="'txareaPreference' + schema.find(item => item.name === i.title).params.slice(0,1).toUpperCase() + schema.find(item => item.name === i.title).params.slice(1).toLowerCase() + '_remark'"
                     v-if="!i.remarks.isWriting"
                     v-html="i.remarks.text"
                     @click="writeRemarks(idx)"

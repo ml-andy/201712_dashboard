@@ -4,8 +4,12 @@ const complain = {
   state:{
     dataset:[
       {
-        datetime: '2018年9月7日',
-        description: 'ATM領不到錢'
+        datetime: '2017年11月7日',
+        description: '客戶表示欲向媒體申訴'
+      },
+      {
+        datetime: '2018年05月10日',
+        description: '客戶表示欲向總行申訴'
       },
     ]
   },
@@ -27,8 +31,6 @@ const complain = {
           commit('catchError', data, { root: true });
           return
         }
-        
-        console.log(data);
         state.dataset = data.results;
         commit('changeLoading', false, { root: true });
       })
