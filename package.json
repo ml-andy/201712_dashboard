@@ -1,5 +1,5 @@
 {
-  "name": "webpack_vue",
+  "name": "dashboard",
   "version": "2.2.1",
   "description": "",
   "main": "gulpfile.js",
